@@ -7,7 +7,7 @@ The goal of this project is to work together to build a “smart” shopping lis
 This project is based on [iNeedToBuy.xyz](https://app.ineedtobuy.xyz/), a mobile web app I built for my own use last year. You’re welcome to look at the [GitHub repo for that site](https://github.com/segdeha/ineedtobuy.xyz) if you get stuck and want a hint!
 
 ### Locations for things
-* Site: {link to cohort live site}
+* Site: [https://romantic-lamarr-b840fb.netlify.com](https://romantic-lamarr-b840fb.netlify.com)
 * Repo: [https://github.com/the-collab-lab/tcl-6-smart-shopping-list](https://github.com/the-collab-lab/tcl-6-smart-shopping-list)
 * Clone URL: `git@github.com:the-collab-lab/tcl-6-smart-shopping-list.git`
 * Issue list: [https://github.com/the-collab-lab/tcl-6-smart-shopping-list/projects/1](https://github.com/the-collab-lab/tcl-6-smart-shopping-list/projects/1)
