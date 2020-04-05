@@ -107,7 +107,9 @@ The “backlog” (the collection of stories) represents the work needed to comp
 
 ### Coordination & communication
 
-At the start of each week, each pair will create a page on [the project wiki](https://github.com/the-collab-lab/tcl-2-smart-shopping-list/wiki) where you can coordinate your approach to solving your problem for the week, surface blockers and learnings, etc. One of the benefits of this is that the people reviewing your work can better understand your process for how you got to your solution.
+It’s super helpful both to yourself and the mentors for you to document your work. This can prevent you from losing track of details or decisions you make with your pair buddy. It also allows mentors to catch up on your progress when you ask for help.
+
+Some past cohorts have found success creating [wiki](https://github.com/the-collab-lab/tcl-6-smart-shopping-list/wiki) pages at the start of each week. Others have taken the approach of creating a [draft PR](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) as one of their first steps in getting started with the work. An advantage of this approach is you can have a conversation about the work right alongside the code. This, coupled with discussions about approach in the issue itself, is nice way of documenting your progress as you go.
 
 ### Development process
 Work will be done on feature branches in git. Branches should be named in the following way:
