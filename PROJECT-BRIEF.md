@@ -20,37 +20,37 @@ Each week, the team of 4 developers will split into 2 pairs of 2 developers each
 
 Pairings will go as follows:
 
-#### Week 1, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 1, April 6 - 12
+1. Elise & Scott
+2. Sara & Myles
 
-#### Week 2, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 2, April 13 - 19
+1. Myles & Elise
+2. Scott & Sara
 
-#### Week 3, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 3, April 20 - 26
+1. Sara & Elise
+2. Myles & Scott
 
-#### Week 4, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 4, April 27 - May 3
+1. Elise & Scott
+2. Sara & Myles
 
-#### Week 5, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 5, May 4 - May 10
+1. Myles & Elise
+2. Scott & Sara
 
-#### Week 6, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 6, May 11 - 17
+1. Sara & Elise
+2. Myles & Scott
 
-#### Week 7, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 7, May 18 - 24
+1. Elise & Scott
+2. Sara & Myles
 
-#### Week 8, {start date - end date}
-1. {Name} & {Name}
-2. {Name} & {Name}
+#### Week 8, May 25 - 31
+1. Myles & Elise
+2. Scott & Sara
 
 ### Pair Programming
 
@@ -80,8 +80,20 @@ The way we use the rest of the time will vary based on whether it’s an even- o
 
 In our retros, we will share appreciations of our teammates as well as talk about what went well from a process perspective and what we could do to improve how we’re working together.
 
+### Weekly Cadence
+
+A week sounds like a long time in some ways, but part of working on a team is accounting for coordination costs. Let’s walk back our goal of demoing from the production URL on Sundays to see when different things need to happen.
+
+* Sunday — Demo on production!
+* Saturday — Respond to mentor feedback on PRs
+* Friday — Respond to/give peer feedback on PRs and ping mentors for feedback
+* Thursday — Complete story and ask for peer feedback
+* Monday, Tuesday, Wednesday — Work out approach, research if needed, pair program
+
+Having watched many cohorts before yours, our advice is to front-load the work as much as possible in the first couple of days of each week. Some of the stories are trickier than they appear on the surface!
+
 ### How to know what to do
-The project is organized in GitHub as a set of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories), each with a description of the desired functionality as well as [acceptance criteria](https://www.leadingagile.com/2014/09/acceptance-criteria/) (AC) that describe how you know whether the task or story is complete. You can find the stories on [the project board]({link to the cohort repo project board}) on GitHub.
+The project is organized in GitHub as a set of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories), each with a description of the desired functionality as well as [acceptance criteria](https://www.leadingagile.com/2014/09/acceptance-criteria/) (AC) that describe how you know whether the task or story is complete. You can find the stories on [the project board](https://github.com/the-collab-lab/tcl-6-smart-shopping-list/projects/1) on GitHub.
 
 A task or story is “done” when the following are all true:
 
@@ -95,7 +107,9 @@ The “backlog” (the collection of stories) represents the work needed to comp
 
 ### Coordination & communication
 
-At the start of each week, each pair will create a page on [the project wiki](https://github.com/the-collab-lab/tcl-2-smart-shopping-list/wiki) where you can coordinate your approach to solving your problem for the week, surface blockers and learnings, etc. One of the benefits of this is that the people reviewing your work can better understand your process for how you got to your solution.
+It’s super helpful both to yourself and the mentors for you to document your work. This can prevent you from losing track of details or decisions you make with your pair buddy. It also allows mentors to catch up on your progress when you ask for help.
+
+Some past cohorts have found success creating [wiki](https://github.com/the-collab-lab/tcl-6-smart-shopping-list/wiki) pages at the start of each week. Others have taken the approach of creating a [draft PR](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests) as one of their first steps in getting started with the work. An advantage of this approach is you can have a conversation about the work right alongside the code. This, coupled with discussions about approach in the issue itself, is nice way of documenting your progress as you go.
 
 ### Development process
 Work will be done on feature branches in git. Branches should be named in the following way:
@@ -120,7 +134,7 @@ When you and your pair partner have working code that you believe is ready to be
 3. Incorporate feedback from the other pair team into your work until both you and they are satisfied the code is ready to be merged.
 4. Request that Andrew or one of the mentors review the PR for final approval.
 5. Once approved, merge the PR into `master`. (Your code will be built and deployed to production automatically thanks to [Netlify](https://www.netlify.com/).)
-6. Check your work on the [production site]({link to cohort live site}).
+6. Check your work on the [production site](https://tcl-6-smart-shopping-list.netlify.com).
 7. Celebrate! 🥳
 
 ### What else?
