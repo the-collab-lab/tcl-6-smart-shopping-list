@@ -7,6 +7,12 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header"></header>
+        <Link to="/">
+          <button>Shopping List</button>
+        </Link>
+        <Link to="/add">
+          <button>Add Item</button>
+        </Link>
       </div>
     </Router>
   );
