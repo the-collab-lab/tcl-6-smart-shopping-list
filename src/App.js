@@ -8,7 +8,7 @@ function App() {
       <div className="App">
         <header className="App-header"></header>
         <Link to="/">
-          <button>Shopping List</button>
+          <button className="active">Shopping List</button>
         </Link>
         <Link to="/add">
           <button>Add Item</button>
