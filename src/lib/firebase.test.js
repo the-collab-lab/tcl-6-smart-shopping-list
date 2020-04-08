@@ -7,7 +7,6 @@ class AddTestItem extends React.Component {
     super(props);
     this.state = { name: '', category: '' };
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
