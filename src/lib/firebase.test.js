@@ -66,6 +66,18 @@ class AddTestItem extends React.Component {
 }
 
 function TestList() {
+  function handleClick(id) {
+    db.collection('testitems')
+      .doc(id)
+      .delete()
+      .then(function() {
+        console.log('Document successfully deleted!');
+      })
+      .catch(function(error) {
+        console.error('Error removing document: ', error);
+      });
+  }
+
   return (
     <FirestoreCollection
       path="testitems"
@@ -76,7 +88,7 @@ function TestList() {
             <h1>Test Items</h1>
             <ul>
               {data.map(item => (
-                <li key={item.id}>
+                <li key={item.id} onClick={() => handleClick(item.id)}>
                   {item.category} - {item.name}
                 </li>
               ))}
