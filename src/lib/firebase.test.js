@@ -13,18 +13,11 @@ class AddTestItem extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    console.log(event.target.value);
-    this.setState({ name: event.target.value });
-  }
-
   handleNameChange(event) {
-    console.log(event.target.value);
     this.setState({ name: event.target.value });
   }
 
   handleCategoryChange(event) {
-    console.log(event.target.value);
     this.setState({ category: event.target.value });
   }
 
