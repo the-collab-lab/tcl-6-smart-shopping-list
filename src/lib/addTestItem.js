@@ -1,6 +1,6 @@
 import React from 'react';
 import { db } from './firebase';
-import { FirestoreCollection } from 'react-firestore';
+import { withFirestore } from 'react-firestore';
 
 class AddTestItem extends React.Component {
   constructor(props) {
@@ -56,40 +56,4 @@ class AddTestItem extends React.Component {
     );
   }
 }
-
-function TestList() {
-  function handleClick(id) {
-    db.collection('testitems')
-      .doc(id)
-      .delete()
-      .then(function() {
-        console.log('Document successfully deleted!');
-      })
-      .catch(function(error) {
-        console.error('Error removing document: ', error);
-      });
-  }
-
-  return (
-    <FirestoreCollection
-      path="testitems"
-      sort="name:desc"
-      render={({ data }) => {
-        return (
-          <div>
-            <h1>Test Items</h1>
-            <ul>
-              {data.map(item => (
-                <li key={item.id} onClick={() => handleClick(item.id)}>
-                  {item.category} - {item.name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        );
-      }}
-    />
-  );
-}
-
-export { TestList, AddTestItem };
+export default withFirestore(AddTestItem);

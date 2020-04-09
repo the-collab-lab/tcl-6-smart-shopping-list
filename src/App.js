@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { TestList, AddTestItem } from './lib/firebase.test';
+import TestList from './lib/testList';
+import AddTestItem from './lib/addTestItem';
 
 function App() {
   return (
