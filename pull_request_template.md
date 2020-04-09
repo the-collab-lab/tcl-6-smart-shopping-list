@@ -2,6 +2,7 @@ _For an example of how to fill this template out, [see this Pull Request](https:
 
 ## Description
 
+
 ## Type of Changes
 
 <!-- Put an `✓` for the applicable box: -->
@@ -18,7 +19,13 @@ _For an example of how to fill this template out, [see this Pull Request](https:
 ## Related Issue
 
 
-## Before / After
+## Updates
+
+
+### Before
+
+
+### After
 
 
 ## Testing Steps / QA Criteria
