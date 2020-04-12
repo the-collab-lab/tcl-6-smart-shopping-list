@@ -21,16 +21,20 @@
   color: #09d3ac;
 }
 
+/* NavButton Component Styles */
 .button {
-  height: 50px;
+  height: 70px;
   padding: 5px 15px;
-  border-radius: 5px;
-  font-size: 1em;
+  background-color: #ffffff;
+  color: #282c34;
+  border-radius: 0;
+  font-size: 1.25em;
+  text-decoration: none;
+}
+.button:hover {
+  text-decoration: underline;
 }
 .selected {
   background-color: #282c34;
   color: #09d3ac;
-  width: 25px;
-  height: 25px;
-  border: ;
 }
