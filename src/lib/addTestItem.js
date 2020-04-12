@@ -1,5 +1,4 @@
 import React from 'react';
-import { db } from './firebase';
 import { withFirestore } from 'react-firestore';
 
 class AddTestItem extends React.Component {
@@ -21,7 +20,8 @@ class AddTestItem extends React.Component {
   }
 
   handleSubmit(event) {
-    db.collection('testitems')
+    this.props.firestore
+      .collection('testitems')
       .add(this.state)
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
