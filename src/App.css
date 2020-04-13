@@ -1,22 +1,26 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1em;
 }
 
-.App-link {
+/* NavButton Component Styles */
+.button {
+  align-items: flex-end;
+  height: 70px;
+  padding: 5px 15px;
+  background-color: #ffffff;
+  color: #282c34;
+  border-radius: 0;
+  font-size: 1.25em;
+  text-decoration: none;
+}
+.button:hover {
+  text-decoration: underline;
+}
+.selected {
+  background-color: #282c34;
   color: #09d3ac;
 }

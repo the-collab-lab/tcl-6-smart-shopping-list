@@ -1,14 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import TestList from './lib/testList';
-import AddTestItem from './lib/addTestItem';
+import NavButton from './components/navbutton.js';
+import Shopping from './components/shopping.js';
+import AddItem from './components/addItem.js';
 
 function App() {
   return (
-    <div className="App">
-      <AddTestItem />
-      <TestList />
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={Shopping} />
+        <Route path="/add" component={AddItem} />
+
+        <nav>
+          <NavButton path="/" text="Shopping" />
+          <NavButton path="/add" text="Add Item" />
+        </nav>
+      </div>
+    </Router>
   );
 }
 
