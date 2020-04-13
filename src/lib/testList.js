@@ -20,6 +20,7 @@ function TestList() {
       path="testitems"
       sort="name:desc"
       render={({ data }) => {
+        console.log(data);
         return (
           <div>
             <h1>Test Items</h1>

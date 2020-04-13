@@ -1,0 +1,26 @@
+[
+  {
+    "name": "blah",
+    "next_purchase": "soon",
+    "last_purchase": "some date string/object",
+    "user_token": "ahsdfihwaefwe"
+  },
+  {
+    "name": "blah",
+    "next_purchase": "soon",
+    "last_purchase": "some date string/object",
+    "user_token": "ahsdfihwaefwe"
+  },
+  {
+    "name": "blah",
+    "next_purchase": "soon",
+    "last_purchase": "some date string/object",
+    "user_token": "ahsdfihwaefwe"
+  },
+  {
+    "name": "blah",
+    "next_purchase": "soon",
+    "last_purchase": "some date string/object",
+    "user_token": "ahsdfihwaefwe"
+  }
+]
