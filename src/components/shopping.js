@@ -6,11 +6,11 @@ import { useToken } from '../lib/useToken';
 import '../App.css';
 
 function Shopping() {
-  const userToken = useToken();
+  const [userToken, refreshToken] = useToken();
   function handleClick() {
     const token = getToken();
     localStorage.setItem(USER_TOKEN, token);
-    //refreshToken(token);
+    refreshToken(token);
   }
   if (userToken) {
     return <TestList />;

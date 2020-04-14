@@ -8,5 +8,5 @@ export function useToken() {
 
   useEffect(() => refreshToken(userToken), [userToken]);
 
-  return userToken;
+  return [userToken, refreshToken];
 }
