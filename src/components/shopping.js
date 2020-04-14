@@ -5,12 +5,15 @@ import TestList from '../lib/testList';
 import '../App.css';
 
 function Shopping() {
-  const [user_token, refreshToken] = useState(localStorage.getItem(USER_TOKEN));
+  const [userToken, refreshToken] = useState(() =>
+    localStorage.getItem(USER_TOKEN),
+  );
   function handleClick() {
-    localStorage.setItem(USER_TOKEN, getToken());
-    refreshToken(localStorage.getItem(USER_TOKEN));
+    const token = getToken();
+    localStorage.setItem(USER_TOKEN, token);
+    refreshToken(token);
   }
-  if (user_token) {
+  if (userToken) {
     return <TestList />;
   } else {
     return (
