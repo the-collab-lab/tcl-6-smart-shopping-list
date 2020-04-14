@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { USER_TOKEN } from '../../src/constants';
 
 export function useToken() {
-  const [userToken, refreshToken] = useState(() =>
+  const [userToken, setToken] = useState(() =>
     localStorage.getItem(USER_TOKEN),
   );
 
-  useEffect(() => refreshToken(userToken), [userToken]);
+  useEffect(() => setToken(userToken), [userToken]);
 
-  return [userToken, refreshToken];
+  return [userToken, setToken];
 }
