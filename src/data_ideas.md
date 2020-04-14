@@ -1,4 +1,0 @@
-- check if a token exists
-- generate token
-- save token to localStorage
--
