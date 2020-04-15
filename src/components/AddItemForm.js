@@ -26,12 +26,28 @@ class AddItemForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Submit" />
+        <label>
+          Name:
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="Submit" />
+        </label>
+
+        <label>
+          Schedule:
+          <select value={this.state.value}>
+            <option value="7">Soon</option>
+            <option value="14">Kind Of Soon</option>
+            <option value="30">Not Soon</option>
+          </select>
+        </label>
+
+        <label>
+          Last Purchased Date: //Need to fill in with actual purchase date
+        </label>
       </form>
     );
   }
