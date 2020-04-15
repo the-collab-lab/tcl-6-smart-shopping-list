@@ -1,24 +1,18 @@
 import React from 'react';
 import { db } from './firebase';
-import { FirestoreCollection } from 'react-firestore';
+import { FirestoreCollection, withFirestore } from 'react-firestore';
 
-function TestList() {
+function TestList(props) {
+  let collectionPath = `users/${props.userToken}/shopping_list`;
+
   function handleClick(id) {
-    db.collection('testitems')
+    db.collection(collectionPath)
       .doc(id)
-      .delete()
-      .then(function() {
-        console.log('Document successfully deleted!');
-      })
-      .catch(function(error) {
-        console.error('Error removing document: ', error);
-      });
+      .delete();
   }
-
   return (
     <FirestoreCollection
-      path="testitems"
-      sort="name:desc"
+      path={collectionPath}
       render={({ data }) => {
         return (
           <div>
@@ -26,7 +20,8 @@ function TestList() {
             <ul>
               {data.map(item => (
                 <li key={item.id} onClick={() => handleClick(item.id)}>
-                  {item.category} - {item.name}
+                  {item.name} :: last purchase: {item.last_purchase} :: next
+                  purchase: {item.next_purchase}
                 </li>
               ))}
             </ul>
@@ -37,4 +32,4 @@ function TestList() {
   );
 }
 
-export default TestList;
+export default withFirestore(TestList);

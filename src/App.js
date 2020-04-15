@@ -2,19 +2,25 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
-import AddItem from './components/addItem';
+import AddTestItem from './lib/addTestItem';
 import { useToken } from './lib/useToken';
 import './App.css';
 
 function App() {
   const [userToken, createNewToken] = useToken();
-
-  if (userToken) {
+  if (userToken !== null) {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Shopping} />
-          <Route path="/add" component={AddItem} />
+          <Route
+            exact
+            path="/"
+            render={props => <Shopping {...props} userToken={userToken} />}
+          />
+          <Route
+            path="/add"
+            render={props => <AddTestItem {...props} userToken={userToken} />}
+          />
           <nav id="nav">
             <NavButton path="/" text="Shopping" />
             <NavButton path="/add" text="Add Item" />
