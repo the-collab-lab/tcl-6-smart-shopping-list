@@ -1,5 +1,6 @@
 import React from 'react';
 import { format } from 'prettier';
+import { withFirestore } from 'react-firestore';
 
 class AddItemForm extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: null,
       last_purchase: null,
+      user_token: 'shpongle',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,7 +21,15 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(this.state.name);
+    this.props.firestore
+      .collection('itemform')
+      .add(this.state)
+      .then(function(docRef) {
+        console.log('Document written with ID: ', docRef.id);
+      })
+      .catch(function(error) {
+        console.error('Error adding document:', error);
+      });
     event.preventDefault();
   }
 
@@ -53,4 +63,4 @@ class AddItemForm extends React.Component {
   }
 }
 
-export default AddItemForm;
+export default withFirestore(AddItemForm);

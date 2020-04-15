@@ -4,6 +4,7 @@ import './App.css';
 import NavButton from './components/navbutton.js';
 import Shopping from './components/shopping.js';
 import AddItem from './components/addItem.js';
+import AddItemForm from './components/AddItemForm';
 
 function App() {
   return (
@@ -11,11 +12,12 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Shopping} />
         <Route path="/add" component={AddItem} />
-
+        <Route path="/add/form" component={AddItemForm} />
         <nav>
           <NavButton path="/" text="Shopping" />
           <NavButton path="/add" text="Add Item" />
         </nav>
+        <div></div>
       </div>
     </Router>
   );
