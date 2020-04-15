@@ -7,14 +7,11 @@ export function useToken() {
     localStorage.getItem(USER_TOKEN),
   );
 
-  const newToken = getToken();
-  const setNewToken = () => setToken(newToken);
-  const createNewToken = () => setAndSaveNewToken(newToken, setNewToken);
+  const createNewToken = () => {
+    const token = getToken();
+    localStorage.setItem(USER_TOKEN, token);
+    setToken(token);
+  };
 
   return [userToken, createNewToken];
-}
-
-function setAndSaveNewToken(token, setNewToken) {
-  setNewToken();
-  localStorage.setItem(USER_TOKEN, token);
 }
