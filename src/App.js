@@ -25,7 +25,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <button className="button" onClick={() => createNewToken()}>
+        <button className="button" onClick={createNewToken}>
           Create New List
         </button>
       </div>
