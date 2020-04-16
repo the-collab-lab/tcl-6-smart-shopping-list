@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { USER_TOKEN } from './constants';
-import getToken from './tokenScript';
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
 import AddItem from './components/addItem';
@@ -9,13 +7,7 @@ import { useToken } from './lib/useToken';
 import './App.css';
 
 function App() {
-  const [userToken, setToken] = useToken();
-
-  function handleClick() {
-    const token = getToken();
-    localStorage.setItem(USER_TOKEN, token);
-    setToken(token);
-  }
+  const [userToken, createToken] = useToken();
 
   if (userToken) {
     return (
@@ -33,7 +25,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <button className="button" onClick={handleClick}>
+        <button className="button" onClick={createToken}>
           Create New List
         </button>
       </div>
