@@ -55,16 +55,14 @@ class AddItemForm extends React.Component {
 
         <label>
           Schedule:
-          <select value={this.state.value}>
+          <select value={this.state.schedule}>
             <option value="7">Soon</option>
             <option value="14">Kind Of Soon</option>
             <option value="30">Not Soon</option>
           </select>
         </label>
 
-        <label>
-          Last Purchased Date: //Need to fill in with actual purchase date
-        </label>
+        <label>Last Purchased Date:</label>
       </form>
     );
   }
