@@ -1,9 +1,8 @@
 import React from 'react';
-import TestList from '../lib/testList';
 import '../App.css';
 
 function Shopping() {
-  return <TestList />;
+  return <h1>Shopping List</h1>;
 }
 
 export default Shopping;
