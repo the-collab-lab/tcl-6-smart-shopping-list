@@ -17,7 +17,7 @@ class AddItemForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ name: event.target.value });
   }
 
   handleSubmit(event) {
@@ -31,6 +31,13 @@ class AddItemForm extends React.Component {
         console.error('Error adding document:', error);
       });
     event.preventDefault();
+    //To reset the input field after the user hits submit
+    this.setState({
+      name: '',
+      ext_purchase: null,
+      last_purchase: null,
+      user_token: 'shpongle',
+    });
   }
 
   render() {
