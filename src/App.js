@@ -12,12 +12,11 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Shopping} />
         <Route path="/add" component={AddItem} />
-        <Route path="/add/form" component={AddItemForm} />
+        <Route exact path="/add/form" component={AddItemForm} />
         <nav>
           <NavButton path="/" text="Shopping" />
-          <NavButton path="/add" text="Add Item" />
+          <NavButton path="/add/form" text="Add Item" />
         </nav>
-        <div></div>
       </div>
     </Router>
   );
