@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'prettier';
 import { withFirestore } from 'react-firestore';
-
+import '../CSS/AddItemForm.css';
 class AddItemForm extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +43,7 @@ class AddItemForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label class="name">
           Name:
           <input
             type="text"
@@ -52,8 +52,8 @@ class AddItemForm extends React.Component {
           />
           <input type="submit" value="Submit" />
         </label>
-
-        <label>
+        <br />
+        <label class="schedule">
           Schedule:
           <select value={this.state.schedule}>
             <option value="7">Soon</option>
@@ -61,8 +61,8 @@ class AddItemForm extends React.Component {
             <option value="30">Not Soon</option>
           </select>
         </label>
-
-        <label>Last Purchased Date:</label>
+        <br />
+        <label class="lastpurchase">Last Purchased Date:</label>
       </form>
     );
   }

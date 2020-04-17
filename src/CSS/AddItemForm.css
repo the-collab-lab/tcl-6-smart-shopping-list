@@ -1,0 +1,17 @@
+/*Name*/
+.name input {
+  margin: 0px 10px;
+  line-height: 1.6;
+}
+
+/*Schedule*/
+.schedule {
+  margin-right: 85px;
+  line-height: 1.6;
+}
+
+/*Last Purchase Date*/
+.lastpurchase {
+  margin-right: 100px;
+  line-height: 1.6;
+}
