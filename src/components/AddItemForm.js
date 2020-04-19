@@ -54,12 +54,15 @@ class AddItemForm extends React.Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Submit" />
         </label>
         <br />
         <label class="schedule">
           Schedule:
-          <select value={this.state.value} onChange={this.handleSchedule}>
+          <select
+            class="schedule-btn"
+            value={this.state.next_purchase}
+            onChange={this.handleSchedule}
+          >
             <option value="7">Soon</option>
             <option value="14">Kind Of Soon</option>
             <option value="30">Not Soon</option>
@@ -67,6 +70,8 @@ class AddItemForm extends React.Component {
         </label>
         <br />
         <label class="lastpurchase">Last Purchased Date:</label>
+        <br />
+        <input class="submit-btn" type="submit" value="Submit" />
       </form>
     );
   }

@@ -1,7 +1,11 @@
 /*Name*/
+.name {
+  margin-right: 54px;
+}
 .name input {
   margin: 0px 10px;
   line-height: 1.6;
+  margin-right: 31px;
 }
 
 /*Schedule*/
@@ -10,8 +14,17 @@
   line-height: 1.6;
 }
 
+.schedule-btn {
+  margin-left: 5px;
+}
 /*Last Purchase Date*/
 .lastpurchase {
-  margin-right: 100px;
+  margin-right: 105px;
   line-height: 1.6;
+}
+
+/* Submit */
+.submit-btn {
+  font-size: 1rem;
+  margin: 10px 0px;
 }
