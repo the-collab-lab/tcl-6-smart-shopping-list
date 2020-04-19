@@ -12,11 +12,16 @@ class AddItemForm extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSchedule = this.handleSchedule.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ name: event.target.value });
+  }
+
+  handleSchedule(event) {
+    this.setState({ next_purchase: event.target.value });
   }
 
   handleSubmit(event) {
@@ -54,7 +59,7 @@ class AddItemForm extends React.Component {
         <br />
         <label class="schedule">
           Schedule:
-          <select value={this.state.schedule}>
+          <select value={this.state.value} onChange={this.handleSchedule}>
             <option value="7">Soon</option>
             <option value="14">Kind Of Soon</option>
             <option value="30">Not Soon</option>
