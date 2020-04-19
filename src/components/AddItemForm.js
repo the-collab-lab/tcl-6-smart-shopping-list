@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'prettier';
 import { withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
 class AddItemForm extends React.Component {
