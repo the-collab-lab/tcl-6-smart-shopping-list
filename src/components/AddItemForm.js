@@ -26,7 +26,7 @@ class AddItemForm extends React.Component {
   handleSubmit(event) {
     const { name, next_purchase, user_token } = this.state;
     this.props.firestore
-      .collection('itemform')
+      .collection('items')
       .add({ name, next_purchase, user_token })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
