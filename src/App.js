@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
 import AddItem from './components/addItem';
+import ShareList from './components/ShareList';
 import { useToken } from './lib/useToken';
 import './App.css';
 
@@ -28,6 +29,7 @@ function App() {
         <button className="button" onClick={createToken}>
           Create New List
         </button>
+        <ShareList />
       </div>
     );
   }
