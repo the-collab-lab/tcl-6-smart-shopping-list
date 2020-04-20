@@ -1,6 +1,10 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
+
+// const initialState = {
+
+// }
 class AddItemForm extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +12,7 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: 14,
       last_purchase: null,
-      user_token: 'shpongle',
+      useToken: 'shpongle',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,10 +29,10 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
+    const { name, next_purchase, last_purchase } = this.state;
     this.props.firestore
       .collection('itemform')
-      // .orderBy("name", "asc")//
-      .add(this.state)
+      .add({ name, next_purchase, last_purchase })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
@@ -36,19 +40,20 @@ class AddItemForm extends React.Component {
         console.error('Error adding document:', error);
       });
     event.preventDefault();
+
     //To reset the input field after the user hits submit
     this.setState({
       name: '',
       next_purchase: 14,
       last_purchase: null,
-      user_token: 'shpongle',
+      useToken: 'shpongle',
     });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label class="name">
+        <label className="name">
           Name:
           <input
             type="text"
@@ -57,7 +62,7 @@ class AddItemForm extends React.Component {
           />
         </label>
         <br />
-        <label class="schedule">
+        <label className="schedule">
           Schedule:
           <select
             class="schedule-btn"
@@ -69,8 +74,6 @@ class AddItemForm extends React.Component {
             <option value="30">Not Soon</option>
           </select>
         </label>
-        <br />
-        <label class="lastpurchase">Last Purchased Date:</label>
         <br />
         <input class="submit-btn" type="submit" value="Submit" />
       </form>
