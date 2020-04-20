@@ -2,9 +2,6 @@ import React from 'react';
 import { withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
 
-// const initialState = {
-
-// }
 class AddItemForm extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +9,6 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: 14,
       last_purchase: null,
-      useToken: 'shpongle',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,7 +42,6 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: 14,
       last_purchase: null,
-      useToken: 'shpongle',
     });
   }
 
