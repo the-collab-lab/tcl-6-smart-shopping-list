@@ -6,7 +6,7 @@ class AddItemForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      next_purchase: null,
+      next_purchase: 14,
       last_purchase: null,
       user_token: 'shpongle',
     };
@@ -27,6 +27,7 @@ class AddItemForm extends React.Component {
   handleSubmit(event) {
     this.props.firestore
       .collection('itemform')
+      // .orderBy("name", "asc")//
       .add(this.state)
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
@@ -38,7 +39,7 @@ class AddItemForm extends React.Component {
     //To reset the input field after the user hits submit
     this.setState({
       name: '',
-      ext_purchase: null,
+      next_purchase: 14,
       last_purchase: null,
       user_token: 'shpongle',
     });
