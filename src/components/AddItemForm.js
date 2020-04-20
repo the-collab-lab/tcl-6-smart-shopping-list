@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
+import { useToken } from '../lib/useToken';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -9,8 +10,8 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: 14,
       last_purchase: null,
+      user_token: this.props.userToken,
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSchedule = this.handleSchedule.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,10 +26,11 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const { name, next_purchase, last_purchase } = this.state;
+    console.log(this.state.user_token);
+    const { name, next_purchase, last_purchase, USER_TOKEN } = this.state;
     this.props.firestore
       .collection('itemform')
-      .add({ name, next_purchase, last_purchase })
+      .add({ name, next_purchase, last_purchase, USER_TOKEN })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
@@ -60,7 +62,7 @@ class AddItemForm extends React.Component {
         <label className="schedule">
           Schedule:
           <select
-            class="schedule-btn"
+            className="schedule-btn"
             value={this.state.next_purchase}
             onChange={this.handleSchedule}
           >
@@ -70,7 +72,7 @@ class AddItemForm extends React.Component {
           </select>
         </label>
         <br />
-        <input class="submit-btn" type="submit" value="Submit" />
+        <input className="submit-btn" type="submit" value="Submit" />
       </form>
     );
   }
