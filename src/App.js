@@ -15,7 +15,10 @@ function App() {
       <Router>
         <div className="App">
           <Route exact path="/" component={Shopping} />
-          <Route path="/add" component={AddItem} />
+          <Route
+            path="/add"
+            render={props => <AddItem userToken={userToken} />}
+          />
           <nav id="nav">
             <NavButton path="/" text="Shopping" />
             <NavButton path="/add" text="Add Item" />

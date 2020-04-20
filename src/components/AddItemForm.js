@@ -1,6 +1,5 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
-import { useToken } from '../lib/useToken';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -9,7 +8,6 @@ class AddItemForm extends React.Component {
     this.state = {
       name: '',
       next_purchase: 14,
-      last_purchase: null,
       user_token: this.props.userToken,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -26,11 +24,10 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state.user_token);
-    const { name, next_purchase, last_purchase, USER_TOKEN } = this.state;
+    const { name, next_purchase, user_token } = this.state;
     this.props.firestore
       .collection('itemform')
-      .add({ name, next_purchase, last_purchase, USER_TOKEN })
+      .add({ name, next_purchase, user_token })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
@@ -43,7 +40,6 @@ class AddItemForm extends React.Component {
     this.setState({
       name: '',
       next_purchase: 14,
-      last_purchase: null,
     });
   }
 
