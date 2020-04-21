@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
+import FormAlert from './FormAlert';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -69,9 +70,12 @@ class AddItemForm extends React.Component {
         </label>
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
+        <FormAlert userSubmit={this.props.name} />
       </form>
     );
   }
 }
 
 export default withFirestore(AddItemForm);
+
+// In FormAlert.js we need help understanding how to use filter and render the data. With that we are trying to access the name field from the items collection from db. We looked up the docs but there is a very limited info on the <FirestoreCollection>
