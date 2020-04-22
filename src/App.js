@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Components
@@ -35,7 +35,7 @@ function App() {
         <button className="button" onClick={createToken}>
           Create New List
         </button>
-        <ShareList useToken={userToken} setToken={setToken} />
+        <ShareList setToken={setToken} />
       </div>
     );
   }

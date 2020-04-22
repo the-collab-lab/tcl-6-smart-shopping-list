@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 import { USER_TOKEN } from '../constants';
-import { useSharedToken } from '../lib/useSharedToken';
 
 const ShareList = props => {
   const [isError, toggleError] = useState(false);
   const [tokenToCheck, setUserToken] = useState();
-  const [sharedToken, saveSharedToken] = useSharedToken(tokenToCheck);
-
-  useEffect(() => {
-    props.setToken(tokenToCheck);
-
-    return () => props.setToken(tokenToCheck);
-  }, [props, tokenToCheck]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -29,7 +21,7 @@ const ShareList = props => {
           toggleError(true);
         } else {
           props.setToken(tokenToCheck);
-          saveSharedToken(tokenToCheck);
+          localStorage.setItem(USER_TOKEN, tokenToCheck);
         }
       });
   };
