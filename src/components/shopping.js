@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import { USER_TOKEN } from '../constants';
+import { ITEMS, USER_TOKEN } from '../constants';
 import { FirestoreCollection } from 'react-firestore';
 import { db } from '../lib/firebase';
 function Shopping(props) {
   function handleClick(id) {
-    db.collection('items')
+    db.collection(ITEMS)
       .doc(id)
       .delete()
       .then(function() {
@@ -18,7 +18,7 @@ function Shopping(props) {
 
   return (
     <FirestoreCollection
-      path="items"
+      path={ITEMS}
       filter={[USER_TOKEN, '==', props.userToken]}
       render={({ data }) => {
         return (

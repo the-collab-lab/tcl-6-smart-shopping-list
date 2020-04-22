@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
-import { USER_TOKEN } from '../constants';
+import { ITEMS, USER_TOKEN } from '../constants';
 
 const ShareList = props => {
   const [isError, toggleError] = useState(false);
@@ -9,21 +9,25 @@ const ShareList = props => {
   const handleSubmit = event => {
     event.preventDefault();
     toggleError(false);
-    verifySharedToken();
+    verifySharedToken(tokenToCheck);
   };
 
-  const verifySharedToken = () => {
-    db.collection('items')
-      .where(USER_TOKEN, '==', tokenToCheck)
+  const verifySharedToken = token => {
+    db.collection(ITEMS)
+      .where(USER_TOKEN, '==', token)
       .get()
       .then(function(querySnapshot) {
         if (querySnapshot.docs.length === 0) {
           toggleError(true);
         } else {
-          props.setToken(tokenToCheck);
-          localStorage.setItem(USER_TOKEN, tokenToCheck);
+          setTokenInAppStateAndStorage(token);
         }
       });
+  };
+
+  const setTokenInAppStateAndStorage = token => {
+    props.setToken(token);
+    localStorage.setItem(USER_TOKEN, token);
   };
 
   return (
