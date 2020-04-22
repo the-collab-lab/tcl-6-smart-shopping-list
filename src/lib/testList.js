@@ -17,8 +17,9 @@ function TestList() {
 
   return (
     <FirestoreCollection
-      path="testitems"
+      path="items"
       sort="name:desc"
+      // filter={['name', '==', 'Peanut Butter']}
       render={({ data }) => {
         return (
           <div>

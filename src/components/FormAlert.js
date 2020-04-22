@@ -1,12 +1,13 @@
 import React from 'react';
 import { FirestoreCollection } from 'react-firestore';
 
-function FormAlert() {
+function FormAlert(props) {
+  console.log(props.userSubmit);
   return (
     <FirestoreCollection
       path="items"
-      sort="name"
-      filter={['name', '==', 'Need user input here']}
+      //sort="name"
+      filter={['name', '==', props.userSubmit]}
       render={({ data }) => {
         console.log(data);
         return (

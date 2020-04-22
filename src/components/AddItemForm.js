@@ -70,7 +70,7 @@ class AddItemForm extends React.Component {
         </label>
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
-        <FormAlert userSubmit={this.props.name} />
+        <FormAlert userSubmit={this.state.name} />
       </form>
     );
   }
