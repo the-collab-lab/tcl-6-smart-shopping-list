@@ -2,6 +2,19 @@ import React from 'react';
 import { FirestoreCollection, withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
 
+//Normalize user input
+function normalizeItem(item) {
+  // remove numbers and special characters
+  // remove capitilization (i)
+  // spaces (x)
+  var pattern = /\d[.,\/#!$%\^&\*;:{}=\-_`~()]\ix/;
+  item.replace(pattern, '');
+
+  return;
+}
+
+//console.log(normalizeItem(this.state.name));
+
 class AddItemForm extends React.Component {
   constructor(props) {
     super(props);
