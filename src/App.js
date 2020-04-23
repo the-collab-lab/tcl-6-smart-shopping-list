@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 // Components
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
@@ -9,17 +10,18 @@ import { useToken } from './lib/useToken';
 import './App.css';
 
 function App() {
-  const [userToken, createToken] = useToken();
+  const [userToken, createToken, setToken] = useToken();
 
   if (userToken) {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Shopping} />
           <Route
-            path="/add"
-            render={props => <AddItem userToken={userToken} />}
+            exact
+            path="/"
+            render={() => <Shopping userToken={userToken} />}
           />
+          <Route path="/add" render={() => <AddItem userToken={userToken} />} />
           <nav id="nav">
             <NavButton path="/" text="Shopping" />
             <NavButton path="/add" text="Add Item" />
@@ -33,7 +35,7 @@ function App() {
         <button className="button" onClick={createToken}>
           Create New List
         </button>
-        <ShareList />
+        <ShareList setToken={setToken} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
+import { ITEMS } from '../../src/constants';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -26,7 +27,7 @@ class AddItemForm extends React.Component {
   handleSubmit(event) {
     const { name, next_purchase, user_token } = this.state;
     this.props.firestore
-      .collection('items')
+      .collection(ITEMS)
       .add({ name, next_purchase, user_token })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
