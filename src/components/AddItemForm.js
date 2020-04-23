@@ -1,5 +1,6 @@
 import React from 'react';
 import { FirestoreCollection, withFirestore } from 'react-firestore';
+//import { db } from '../lib/firebase';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -7,6 +8,7 @@ class AddItemForm extends React.Component {
     super(props);
     this.state = {
       name: '',
+      name_normalized: '',
       next_purchase: 14,
       user_token: this.props.userToken,
     };
@@ -16,7 +18,11 @@ class AddItemForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ name: event.target.value });
+    let name_normalized = this.normalizeItem(event.target.value);
+    this.setState({
+      name: event.target.value,
+      name_normalized: name_normalized,
+    });
   }
 
   handleSchedule(event) {
@@ -24,10 +30,10 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const { name, next_purchase, user_token } = this.state;
+    const { name, name_normalized, next_purchase, user_token } = this.state;
     this.props.firestore
       .collection('items')
-      .add({ name, next_purchase, user_token })
+      .add({ name, name_normalized, next_purchase, user_token })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
@@ -45,13 +51,27 @@ class AddItemForm extends React.Component {
 
   // normalize user input
   normalizeItem(item) {
-    var pattern = /[^A-Za-z0-9]/i;
+    item = item.toLowerCase().trim();
+    var pattern = /[^0-9a-z]/g;
     item = item.replace(pattern, '');
     //console.log('item', item);
     return item;
   }
 
+  /*   getListItems() {
+    db.collection('items').get().then((snapshot) => {
+        //console.log(snapshot.doc);
+        snapshot.docs.forEach(doc => {
+          console.log(doc.data.name);
+        })
+      })
+    return;
+  } */
+
   render() {
+    console.log('regex', this.normalizeItem(this.state.name));
+    let normalizedInput = this.normalizeItem(this.state.name);
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label className="name">
@@ -78,17 +98,22 @@ class AddItemForm extends React.Component {
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
         <FirestoreCollection
-          normalizeItem={this.normalizeItem}
           path="items"
-          filter={['name', '==', this.normalizeItem(this.state.name)]}
+          filter={['name_normalized', '==', normalizedInput]}
           render={({ data }) => {
+            let message = <div></div>;
             if (data.length > 0) {
-              return (
-                <p>{this.state.name} is already added to your shopping list.</p>
-              );
-            } else {
-              return <div></div>; //Is there a better way to have an empty return
+              data.forEach(item => {
+                if (this.normalizeItem(item.name) === normalizedInput) {
+                  message = (
+                    <p>
+                      {item.name} has already been added to your shopping list.
+                    </p>
+                  );
+                }
+              });
             }
+            return message;
           }}
         />
       </form>
@@ -97,5 +122,3 @@ class AddItemForm extends React.Component {
 }
 
 export default withFirestore(AddItemForm);
-
-// In FormAlert.js we need help understanding how to use filter and render the data. With that we are trying to access the name field from the items collection from db. We looked up the docs but there is a very limited info on the <FirestoreCollection>
