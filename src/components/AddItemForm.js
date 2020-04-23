@@ -1,6 +1,5 @@
 import React from 'react';
-import { withFirestore } from 'react-firestore';
-import FormAlert from './FormAlert';
+import { FirestoreCollection, withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -70,7 +69,19 @@ class AddItemForm extends React.Component {
         </label>
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
-        <FormAlert userSubmit={this.state.name} />
+        <FirestoreCollection
+          path="items"
+          filter={['name', '==', this.state.name]}
+          render={({ data }) => {
+            if (data.length > 0) {
+              return (
+                <p>This item has already been added to your shopping list.</p> // if we can add the actual item name {data.name}
+              );
+            } else {
+              return <div></div>; //Is there a better way to have an empty return
+            }
+          }}
+        />
       </form>
     );
   }

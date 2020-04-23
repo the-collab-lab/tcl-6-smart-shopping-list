@@ -11,7 +11,9 @@ function normalizeItem(item) {
   //return item normalized
 }
 
+///// MOVED TO AddItemForm.js
 function FormAlert(props) {
+  console.log(normalizeItem(props.userSubmit));
   return (
     <FirestoreCollection
       path="items"
