@@ -45,12 +45,10 @@ class AddItemForm extends React.Component {
 
   // normalize user input
   normalizeItem(item) {
-    // remove numbers and special characters
-    // remove capitilization (i)
-    // spaces (x)
-    var pattern = /\d[.,\/#!$%\^&\*;:{}=\-_`~()]\ix/;
-    item.replace(pattern, '');
-    return;
+    var pattern = /[^A-Za-z0-9]/i;
+    item = item.replace(pattern, '');
+    //console.log('item', item);
+    return item;
   }
 
   render() {
