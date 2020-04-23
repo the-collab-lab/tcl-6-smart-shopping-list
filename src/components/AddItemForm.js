@@ -103,15 +103,11 @@ class AddItemForm extends React.Component {
           render={({ data }) => {
             let message = <div></div>;
             if (data.length > 0) {
-              data.forEach(item => {
-                if (this.normalizeItem(item.name) === normalizedInput) {
-                  message = (
-                    <p>
-                      {item.name} has already been added to your shopping list.
-                    </p>
-                  );
-                }
-              });
+              message = (
+                <p>
+                  {data[0].name} has already been added to your shopping list.
+                </p>
+              );
             }
             return message;
           }}
