@@ -1,6 +1,5 @@
 import React from 'react';
 import { FirestoreCollection, withFirestore } from 'react-firestore';
-//import { db } from '../lib/firebase';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -18,7 +17,7 @@ class AddItemForm extends React.Component {
   }
 
   handleChange(event) {
-    let name_normalized = this.normalizeItem(event.target.value);
+    let name_normalized = this.normalizeUserInput(event.target.value);
     this.setState({
       name: event.target.value,
       name_normalized: name_normalized,
@@ -30,6 +29,8 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
+
     const { name, name_normalized, next_purchase, user_token } = this.state;
     this.props.firestore
       .collection('items')
@@ -40,7 +41,6 @@ class AddItemForm extends React.Component {
       .catch(function(error) {
         console.error('Error adding document:', error);
       });
-    event.preventDefault();
 
     //To reset the input field after the user hits submit
     this.setState({
@@ -49,28 +49,15 @@ class AddItemForm extends React.Component {
     });
   }
 
-  // normalize user input
-  normalizeItem(item) {
+  normalizeUserInput(item) {
     item = item.toLowerCase().trim();
     var pattern = /[^0-9a-z]/g;
     item = item.replace(pattern, '');
-    //console.log('item', item);
     return item;
   }
 
-  /*   getListItems() {
-    db.collection('items').get().then((snapshot) => {
-        //console.log(snapshot.doc);
-        snapshot.docs.forEach(doc => {
-          console.log(doc.data.name);
-        })
-      })
-    return;
-  } */
-
   render() {
-    console.log('regex', this.normalizeItem(this.state.name));
-    let normalizedInput = this.normalizeItem(this.state.name);
+    let normalizedInput = this.normalizeUserInput(this.state.name);
 
     return (
       <form onSubmit={this.handleSubmit}>
