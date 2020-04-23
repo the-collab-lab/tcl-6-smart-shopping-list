@@ -2,19 +2,6 @@ import React from 'react';
 import { FirestoreCollection, withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
 
-//Normalize user input
-function normalizeItem(item) {
-  // remove numbers and special characters
-  // remove capitilization (i)
-  // spaces (x)
-  var pattern = /\d[.,\/#!$%\^&\*;:{}=\-_`~()]\ix/;
-  item.replace(pattern, '');
-
-  return;
-}
-
-//console.log(normalizeItem(this.state.name));
-
 class AddItemForm extends React.Component {
   constructor(props) {
     super(props);
@@ -56,6 +43,16 @@ class AddItemForm extends React.Component {
     });
   }
 
+  // normalize user input
+  normalizeItem(item) {
+    // remove numbers and special characters
+    // remove capitilization (i)
+    // spaces (x)
+    var pattern = /\d[.,\/#!$%\^&\*;:{}=\-_`~()]\ix/;
+    item.replace(pattern, '');
+    return;
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -83,12 +80,13 @@ class AddItemForm extends React.Component {
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
         <FirestoreCollection
+          normalizeItem={this.normalizeItem}
           path="items"
-          filter={['name', '==', this.state.name]}
+          filter={['name', '==', this.normalizeItem(this.state.name)]}
           render={({ data }) => {
             if (data.length > 0) {
               return (
-                <p>This item has already been added to your shopping list.</p> // if we can add the actual item name {data.name}
+                <p>{this.state.name} is already added to your shopping list.</p>
               );
             } else {
               return <div></div>; //Is there a better way to have an empty return
