@@ -57,8 +57,6 @@ class AddItemForm extends React.Component {
   }
 
   render() {
-    let normalizedInput = this.normalizeUserInput(this.state.name);
-
     return (
       <form onSubmit={this.handleSubmit}>
         <label className="name">
@@ -86,7 +84,11 @@ class AddItemForm extends React.Component {
         <input className="submit-btn" type="submit" value="Submit" />
         <FirestoreCollection
           path="items"
-          filter={['name_normalized', '==', normalizedInput]}
+          filter={[
+            'name_normalized',
+            '==',
+            this.normalizeUserInput(this.state.name),
+          ]}
           render={({ data }) => {
             return data.length > 0 ? (
               <p>
