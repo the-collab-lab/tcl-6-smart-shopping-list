@@ -24,6 +24,13 @@ class AddItemForm extends React.Component {
     });
   }
 
+  normalizeUserInput(item) {
+    item = item.toLowerCase().trim();
+    var pattern = /[^0-9a-z]/g;
+    item = item.replace(pattern, '');
+    return item;
+  }
+
   handleSchedule(event) {
     this.setState({ next_purchase: event.target.value });
   }
@@ -47,13 +54,6 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: 14,
     });
-  }
-
-  normalizeUserInput(item) {
-    item = item.toLowerCase().trim();
-    var pattern = /[^0-9a-z]/g;
-    item = item.replace(pattern, '');
-    return item;
   }
 
   render() {
@@ -88,15 +88,11 @@ class AddItemForm extends React.Component {
           path="items"
           filter={['name_normalized', '==', normalizedInput]}
           render={({ data }) => {
-            let message = <div></div>;
-            if (data.length > 0) {
-              message = (
-                <p>
-                  {data[0].name} has already been added to your shopping list.
-                </p>
-              );
-            }
-            return message;
+            return data.length > 0 ? (
+              <p>
+                {data[0].name} has already been added to your shopping list.
+              </p>
+            ) : null;
           }}
         />
       </form>
