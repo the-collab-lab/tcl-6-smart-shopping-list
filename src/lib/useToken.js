@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { USER_TOKEN } from '../../src/constants';
 import getToken from '../tokenScript';
+import registerNewToken from './registerNewToken';
 
 export function useToken() {
   const [userToken, setToken] = useState(() =>
@@ -11,7 +12,8 @@ export function useToken() {
     const token = getToken();
     localStorage.setItem(USER_TOKEN, token);
     setToken(token);
+    registerNewToken(token);
   };
 
-  return [userToken, createToken];
+  return [userToken, createToken, setToken];
 }
