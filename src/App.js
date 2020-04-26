@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { withFirestore, FirestoreCollection } from 'react-firestore';
+
 // Components
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
@@ -7,23 +9,33 @@ import AddItem from './components/addItem';
 import { useToken } from './lib/useToken';
 import './App.css';
 
-function App() {
+function App(props) {
   const [userToken, createToken] = useToken();
 
   if (userToken) {
     return (
       <Router>
-        <div className="App">
-          <Route exact path="/" component={Shopping} />
-          <Route
-            path="/add"
-            render={props => <AddItem userToken={userToken} />}
-          />
-          <nav id="nav">
-            <NavButton path="/" text="Shopping" />
-            <NavButton path="/add" text="Add Item" />
-          </nav>
-        </div>
+        <FirestoreCollection
+          path="items"
+          filter={['user_token', '==', userToken]}
+          render={({ data }) => {
+            return (
+              <div className="App">
+                <Route exact path="/" render={() => <Shopping list={data} />} />
+                <Route
+                  path="/add"
+                  render={props => (
+                    <AddItem userToken={userToken} list={data} />
+                  )}
+                />
+                <nav id="nav">
+                  <NavButton path="/" text="Shopping" />
+                  <NavButton path="/add" text="Add Item" />
+                </nav>
+              </div>
+            );
+          }}
+        ></FirestoreCollection>
       </Router>
     );
   } else {
@@ -37,4 +49,4 @@ function App() {
   }
 }
 
-export default App;
+export default withFirestore(App);
