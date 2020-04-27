@@ -1,5 +1,5 @@
 import React from 'react';
-import { FirestoreCollection, withFirestore } from 'react-firestore';
+import { withFirestore } from 'react-firestore';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -7,9 +7,7 @@ class AddItemForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      name_normalized: '',
       next_purchase: 14,
-      user_token: this.props.userToken,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSchedule = this.handleSchedule.bind(this);
@@ -17,10 +15,8 @@ class AddItemForm extends React.Component {
   }
 
   handleChange(event) {
-    let name_normalized = this.normalizeUserInput(event.target.value);
     this.setState({
       name: event.target.value,
-      name_normalized: name_normalized,
     });
   }
 
@@ -37,11 +33,21 @@ class AddItemForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const { state, props } = this;
 
-    const { name, name_normalized, next_purchase, user_token } = this.state;
-    this.props.firestore
+    const name_normalized = this.normalizeUserInput(state.name);
+    const hasDupe = props.list.some(
+      item => item.name_normalized === name_normalized,
+    );
+
+    props.firestore
       .collection('items')
-      .add({ name, name_normalized, next_purchase, user_token })
+      .add({
+        name: state.name,
+        name_normalized,
+        next_purchase: state.next_purchase,
+        user_token: props.userToken,
+      })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
@@ -82,21 +88,9 @@ class AddItemForm extends React.Component {
         </label>
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
-        <FirestoreCollection
-          path="items"
-          filter={[
-            'name_normalized',
-            '==',
-            this.normalizeUserInput(this.state.name),
-          ]}
-          render={({ data }) => {
-            return data.length > 0 ? (
-              <p>
-                {data[0].name} has already been added to your shopping list.
-              </p>
-            ) : null;
-          }}
-        />
+        {this.state.hasDupe && (
+          <p>{this.state.name} has already been added to your shopping list.</p>
+        )}
       </form>
     );
   }
