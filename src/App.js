@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { FirestoreCollection } from 'react-firestore';
 
 // Components
 import NavButton from './components/navbutton';
@@ -15,18 +16,27 @@ function App() {
   if (userToken) {
     return (
       <Router>
-        <div className="App">
-          <Route
-            exact
-            path="/"
-            render={() => <Shopping userToken={userToken} />}
-          />
-          <Route path="/add" render={() => <AddItem userToken={userToken} />} />
-          <nav id="nav">
-            <NavButton path="/" text="Shopping" />
-            <NavButton path="/add" text="Add Item" />
-          </nav>
-        </div>
+        <FirestoreCollection
+          path="items"
+          filter={['user_token', '==', userToken]}
+          render={({ data }) => {
+            return (
+              <div className="App">
+                <Route exact path="/" render={() => <Shopping list={data} />} />
+                <Route
+                  path="/add"
+                  render={props => (
+                    <AddItem userToken={userToken} list={data} />
+                  )}
+                />
+                <nav id="nav">
+                  <NavButton path="/" text="Shopping" />
+                  <NavButton path="/add" text="Add Item" />
+                </nav>
+              </div>
+            );
+          }}
+        />
       </Router>
     );
   } else {
