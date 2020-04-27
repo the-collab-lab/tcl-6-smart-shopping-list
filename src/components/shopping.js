@@ -3,6 +3,8 @@ import '../App.css';
 import { ITEMS, USER_TOKEN } from '../constants';
 import { FirestoreCollection } from 'react-firestore';
 import { db } from '../lib/firebase';
+import ListItem from './ListItem';
+
 function Shopping(props) {
   function handleClick(id) {
     db.collection(ITEMS)
@@ -26,9 +28,7 @@ function Shopping(props) {
             <h1>Shopping List</h1>
             <ul>
               {data.map(item => (
-                <li key={item.id}>
-                  {item.name} / {item.next_purchase}
-                </li>
+                <ListItem key={item.id} {...item} />
               ))}
             </ul>
           </div>
