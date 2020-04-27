@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { FirestoreCollection } from 'react-firestore';
+import { USER_TOKEN } from './constants';
 
 // Components
 import NavButton from './components/navbutton';
@@ -18,11 +19,15 @@ function App() {
       <Router>
         <FirestoreCollection
           path="items"
-          filter={['user_token', '==', userToken]}
+          filter={[USER_TOKEN, '==', userToken]}
           render={({ data }) => {
             return (
               <div className="App">
-                <Route exact path="/" render={() => <Shopping list={data} />} />
+                <Route
+                  exact
+                  path="/"
+                  render={() => <Shopping list={data} userToken={userToken} />}
+                />
                 <Route
                   path="/add"
                   render={props => (
