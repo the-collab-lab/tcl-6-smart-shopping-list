@@ -8,6 +8,7 @@ class AddItemForm extends React.Component {
     this.state = {
       name: '',
       next_purchase: 14,
+      hasDupe: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSchedule = this.handleSchedule.bind(this);
@@ -17,6 +18,7 @@ class AddItemForm extends React.Component {
   handleChange(event) {
     this.setState({
       name: event.target.value,
+      hasDupe: false,
     });
   }
 
@@ -39,6 +41,11 @@ class AddItemForm extends React.Component {
     const hasDupe = props.list.some(
       item => item.name_normalized === name_normalized,
     );
+
+    if (hasDupe) {
+      this.setState({ hasDupe });
+      return;
+    }
 
     props.firestore
       .collection('items')
