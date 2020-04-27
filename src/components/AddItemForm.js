@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
+import { ITEMS } from '../../src/constants';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -55,6 +56,7 @@ class AddItemForm extends React.Component {
         next_purchase: state.next_purchase,
         user_token: props.userToken,
       })
+
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
