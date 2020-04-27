@@ -9,7 +9,7 @@ class AddItemForm extends React.Component {
     this.state = {
       name: '',
       next_purchase: 14,
-      user_token: this.props.userToken,
+      hasDupe: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSchedule = this.handleSchedule.bind(this);
@@ -17,7 +17,17 @@ class AddItemForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ name: event.target.value });
+    this.setState({
+      name: event.target.value,
+      hasDupe: false,
+    });
+  }
+
+  normalizeUserInput(item) {
+    item = item.toLowerCase().trim();
+    var pattern = /[^0-9a-z]/g;
+    item = item.replace(pattern, '');
+    return item;
   }
 
   handleSchedule(event) {
@@ -25,17 +35,33 @@ class AddItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const { name, next_purchase, user_token } = this.state;
-    this.props.firestore
+    event.preventDefault();
+    const { state, props } = this;
+
+    const name_normalized = this.normalizeUserInput(state.name);
+    const hasDupe = props.list.some(
+      item => item.name_normalized === name_normalized,
+    );
+
+    if (hasDupe) {
+      this.setState({ hasDupe });
+      return;
+    }
+
+    props.firestore
       .collection(ITEMS)
-      .add({ name, next_purchase, user_token })
+      .add({
+        name: state.name,
+        name_normalized,
+        next_purchase: state.next_purchase,
+        user_token: props.userToken,
+      })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
       .catch(function(error) {
         console.error('Error adding document:', error);
       });
-    event.preventDefault();
 
     //To reset the input field after the user hits submit
     this.setState({
@@ -70,6 +96,9 @@ class AddItemForm extends React.Component {
         </label>
         <br />
         <input className="submit-btn" type="submit" value="Submit" />
+        {this.state.hasDupe && (
+          <p>{this.state.name} has already been added to your shopping list.</p>
+        )}
       </form>
     );
   }

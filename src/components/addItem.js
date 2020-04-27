@@ -7,7 +7,7 @@ class AddItem extends React.Component {
     return (
       <div>
         <h1>Add Item</h1>
-        <AddItemForm userToken={this.props.userToken} />
+        <AddItemForm userToken={this.props.userToken} list={this.props.list} />
       </div>
     );
   }
