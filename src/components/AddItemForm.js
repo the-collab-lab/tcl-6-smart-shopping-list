@@ -49,14 +49,13 @@ class AddItemForm extends React.Component {
     }
 
     props.firestore
-      .collection('items')
+      .collection(ITEMS)
       .add({
         name: state.name,
         name_normalized,
         next_purchase: state.next_purchase,
         user_token: props.userToken,
       })
-
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
       })
