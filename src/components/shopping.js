@@ -26,7 +26,7 @@ function Shopping(props) {
             <h1>Shopping List</h1>
             <ul>
               {data.map(item => (
-                <li key={item.id} onClick={() => handleClick(item.id)}>
+                <li key={item.id}>
                   {item.name} / {item.next_purchase}
                 </li>
               ))}
