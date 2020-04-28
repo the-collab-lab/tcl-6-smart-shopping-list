@@ -48,14 +48,6 @@ class AddItemForm extends React.Component {
       return;
     }
 
-    // function handleSubmit(event) {
-    //   this.props.firestore
-    //     .collection('users')
-    //     .doc(this.props.userToken)
-    //     .add({ user_token: token });
-    //   event.preventDefault();
-    // }
-
     props.firestore
       .collection(`${USERS}/${props.userToken}/${ITEMS}`)
       .add({
