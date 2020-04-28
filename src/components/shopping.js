@@ -1,9 +1,18 @@
 import React from 'react';
-import TestList from '../lib/testList';
 import '../App.css';
 
 function Shopping(props) {
-  return <TestList userToken={props.userToken} />;
+  return (
+    <div>
+      <h1>Shopping List</h1>
+      <ul>
+        {props.list.map(item => (
+          <li key={item.id}>
+            {item.name} / {item.next_purchase}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-
 export default Shopping;
