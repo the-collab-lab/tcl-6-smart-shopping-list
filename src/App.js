@@ -29,9 +29,7 @@ function App() {
                 />
                 <Route
                   path="/add"
-                  render={props => (
-                    <AddItem userToken={userToken} list={data} />
-                  )}
+                  render={() => <AddItem userToken={userToken} list={data} />}
                 />
                 <nav id="nav">
                   <NavButton path="/" text="Shopping" />
