@@ -1,6 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
-import { ITEMS } from '../../src/constants';
+import { ITEMS, USERS } from '../../src/constants';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -48,13 +48,20 @@ class AddItemForm extends React.Component {
       return;
     }
 
+    // function handleSubmit(event) {
+    //   this.props.firestore
+    //     .collection('users')
+    //     .doc(this.props.userToken)
+    //     .add({ user_token: token });
+    //   event.preventDefault();
+    // }
+
     props.firestore
-      .collection(ITEMS)
+      .collection(`${USERS}/${props.userToken}/${ITEMS}`)
       .add({
         name: state.name,
         name_normalized,
         next_purchase: state.next_purchase,
-        user_token: props.userToken,
       })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);

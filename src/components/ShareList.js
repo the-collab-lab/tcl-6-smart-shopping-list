@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
-import { ITEMS, USER_TOKEN } from '../constants';
+import { USERS, USER_TOKEN } from '../constants';
 
 const ShareList = props => {
   const [isError, toggleError] = useState(false);
@@ -13,14 +13,14 @@ const ShareList = props => {
   };
 
   const verifySharedToken = token => {
-    db.collection(ITEMS)
-      .where(USER_TOKEN, '==', token)
+    db.collection(USERS)
+      .doc(token)
       .get()
-      .then(function(querySnapshot) {
-        if (querySnapshot.docs.length === 0) {
-          toggleError(true);
-        } else {
+      .then(function(doc) {
+        if (doc.exists) {
           setTokenInAppStateAndStorage(token);
+        } else {
+          toggleError(true);
         }
       });
   };
