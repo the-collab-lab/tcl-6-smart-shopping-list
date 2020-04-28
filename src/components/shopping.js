@@ -25,7 +25,8 @@ function Shopping(props) {
           return (
             <div>
               <h1>Shopping List</h1>
-              <h2>***</h2>
+              <h2>***Click item to delete from cart***</h2>
+
               <ul>
                 {data.map(item => (
                   <li
@@ -52,4 +53,5 @@ function Shopping(props) {
     />
   );
 }
+
 export default Shopping;
