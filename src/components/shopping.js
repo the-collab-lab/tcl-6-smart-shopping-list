@@ -28,7 +28,7 @@ function Shopping(props) {
             <h1>Shopping List</h1>
             <ul>
               {data.map(item => (
-                <ListItem key={item.id} {...item} />
+                <ListItem key={item.id} item={item} token={props.userToken} />
               ))}
             </ul>
           </div>
