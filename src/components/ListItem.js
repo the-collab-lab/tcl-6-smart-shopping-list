@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
-import { ITEMS, USER_TOKEN } from '../constants';
+import { ITEMS } from '../constants';
 import { db } from '../lib/firebase';
 import '../CSS/ListItem.css';
 
 const ListItem = props => {
   const [isPurchased, setPurchased] = useState(false);
-  const [itemState, setItemState] = useState({ last_purchase: '' });
 
   let buttonClass = isPurchased ? 'purchased' : 'not-purchased';
-  console.log(itemState);
 
   function onHandle(event) {
     event.preventDefault();
-
     setPurchased(!isPurchased);
-    onPurchase();
-  }
-
-  function onPurchase() {
-    let { last_purchase, ...restOfItemState } = itemState;
-    let lastPurchasedDate = new Date().toISOString();
-    setItemState({ ...restOfItemState, last_purchase: lastPurchasedDate });
+    saveLastPurchasedDate();
   }
 
   function saveLastPurchasedDate() {
     db.collection(ITEMS)
-      .where(USER_TOKEN, '==', props.token)
+      .doc(props.item.id)
       .set(
         {
-          last_purchase: true,
+          lastPurchase: new Date().toISOString(),
         },
         { merge: true },
       );
