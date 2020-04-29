@@ -19,7 +19,7 @@ const ListItem = props => {
       .doc(props.item.id)
       .set(
         {
-          lastPurchase: new Date().toISOString(),
+          last_purchased: new Date().toISOString(),
         },
         { merge: true },
       );
@@ -27,7 +27,8 @@ const ListItem = props => {
 
   return (
     <li>
-      {props.item.name} / {props.item.next_purchase}
+      {props.item.name} : {props.item.next_purchase} :
+      {props.item.last_purchased}
       <button className={buttonClass} onClick={onHandle}>
         Purchase
       </button>
