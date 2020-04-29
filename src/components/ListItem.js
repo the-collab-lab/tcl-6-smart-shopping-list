@@ -3,17 +3,25 @@ import { ITEMS } from '../constants';
 import { db } from '../lib/firebase';
 import '../CSS/ListItem.css';
 
-const ListItem = props => {
-  //let testNow = "2020-04-30T19:00:00Z";
-  let lastPurchaseTimeStamp = new Date(props.item.last_purchased);
-  let now = new Date();
-  let nowTimeStamp = now.getTime();
-  var microSecondsDiff = Math.abs(lastPurchaseTimeStamp - nowTimeStamp);
-  var daysDiff = Math.floor(microSecondsDiff / (1000 * 60 * 60));
+// THESE ARE FOR PR REVIEW TESTING ONLY
+let fakeTimeMonth = `04`;
+let fakeTimeDay = `30`;
+let fakeTimeHour = `22`;
+let fakeTimeMinute = `09`;
+let fakeTimeSeconds = `13.814`;
+let fakeCurrentTime = `2020-${fakeTimeMonth}-${fakeTimeDay}T${fakeTimeHour}:${fakeTimeMinute}:${fakeTimeSeconds}Z`;
 
+const ListItem = props => {
+  let nowTimeStamp = new Date(fakeCurrentTime).getTime();
+
+  let lastPurchaseTimeStamp = new Date(props.item.last_purchased).getTime();
+
+  let microSecondsDiff = Math.abs(lastPurchaseTimeStamp - nowTimeStamp);
+  let hoursDiff = Math.floor(microSecondsDiff / (1000 * 60 * 60));
+  console.log(props.item.name, 'hoursDiff', isNaN(hoursDiff));
   const [isPurchased, setPurchased] = useState(false);
 
-  if (daysDiff >= 24 && isPurchased !== true) {
+  if (!isNaN(hoursDiff) && hoursDiff >= 24 && isPurchased !== true) {
     setPurchased(!isPurchased);
   }
 
@@ -33,15 +41,14 @@ const ListItem = props => {
         { merge: true },
       );
   }
-
   return (
     <li>
       {props.item.name} : {props.item.next_purchase} :
       {props.item.last_purchased}
       <button
-        className={isPurchased ? 'purchased' : 'not-purchased'}
+        className={isPurchased ? 'not-purchased' : 'purchased'}
         onClick={onHandle}
-        disabled={isPurchased ? !null : null}
+        disabled={isPurchased ? null : !null}
       >
         Purchase
       </button>
