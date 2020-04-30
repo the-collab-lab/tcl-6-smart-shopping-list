@@ -4,11 +4,11 @@ import { db } from '../lib/firebase';
 import '../CSS/ListItem.css';
 
 // THESE ARE FOR PR REVIEW TESTING ONLY
-let fakeTimeMonth = `04`;
-let fakeTimeDay = `30`;
-let fakeTimeHour = `22`;
-let fakeTimeMinute = `09`;
-let fakeTimeSeconds = `13.814`;
+let fakeTimeMonth = `05`;
+let fakeTimeDay = `01`;
+let fakeTimeHour = `19`;
+let fakeTimeMinute = `54`;
+let fakeTimeSeconds = `14.`;
 let fakeCurrentTime = `2020-${fakeTimeMonth}-${fakeTimeDay}T${fakeTimeHour}:${fakeTimeMinute}:${fakeTimeSeconds}Z`;
 
 const ListItem = props => {
@@ -46,9 +46,9 @@ const ListItem = props => {
       {props.item.name} : {props.item.next_purchase} :
       {props.item.last_purchased}
       <button
-        className={isPurchased ? 'not-purchased' : 'purchased'}
+        className={isPurchased ? 'purchased' : 'not-purchased'}
         onClick={onHandle}
-        disabled={isPurchased ? null : !null}
+        disabled={isPurchased ? !null : null}
       >
         Purchase
       </button>
