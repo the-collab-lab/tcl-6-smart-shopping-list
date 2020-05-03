@@ -39,8 +39,8 @@ function Shopping(props) {
   } else {
     return (
       <div>
-        <h1> Shopping List</h1>
-        <p>Theres nothing in your cart, please buy our stuff.</p>
+        <h1>Shopping List</h1>
+        <p>Your list is empty!</p>
         <Link to="/add">Add Your First Item</Link>
       </div>
     );
