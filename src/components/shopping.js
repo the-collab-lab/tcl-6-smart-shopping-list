@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ITEMS } from '../constants';
 import { db } from '../lib/firebase';
 
@@ -40,6 +41,7 @@ function Shopping(props) {
       <div>
         <h1> Shopping List</h1>
         <p>Theres nothing in your cart, please buy our stuff.</p>
+        <Link to="/add">Add Your First Item</Link>
       </div>
     );
   }
