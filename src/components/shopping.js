@@ -10,16 +10,34 @@ function Shopping(props) {
       path={ITEMS}
       filter={[USER_TOKEN, '==', props.userToken]}
       render={({ data }) => {
-        return (
-          <div>
-            <h1>Shopping List</h1>
-            <ul>
-              {data.map(item => (
-                <ListItem key={item.id} item={item} token={props.userToken} />
-              ))}
-            </ul>
-          </div>
-        );
+        if (data.length > 0) {
+          return (
+            <div>
+              <h1>Shopping List</h1>
+              <h2>***Click item to delete from cart***</h2>
+
+              <ul>
+                {data.map(item => (
+                  <li
+                    key={item.id}
+                    onClick={() => {
+                      return handleClick(item.id);
+                    }}
+                  >
+                    {item.name} / {item.next_purchase}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <h1> Shopping List</h1>
+              <p>Theres nothing in your cart, please buy our stuff.</p>
+            </div>
+          );
+        }
       }}
     />
   );
