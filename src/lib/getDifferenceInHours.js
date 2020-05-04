@@ -1,8 +1,6 @@
-import { fakeCurrentTime } from '../timeConstants';
-
 export function getDifferenceInHours(last_purchased) {
   // REMOVE fakeCurrentTime TO GET THE TRUE CURRENT DATE/TIME.
-  let nowTimeStamp = new Date(fakeCurrentTime).getTime();
+  let nowTimeStamp = new Date().getTime();
   let lastPurchaseTimeStamp = new Date(last_purchased).getTime();
 
   let microSecondsDiff = Math.abs(lastPurchaseTimeStamp - nowTimeStamp);
