@@ -9,6 +9,7 @@ class AddItemForm extends React.Component {
     this.state = {
       name: '',
       next_purchase: 14,
+      last_purchased: '',
       hasDupe: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -54,6 +55,7 @@ class AddItemForm extends React.Component {
         name: state.name,
         name_normalized,
         next_purchase: state.next_purchase,
+        last_purchased: state.last_purchased,
         user_token: props.userToken,
       })
       .then(function(docRef) {
