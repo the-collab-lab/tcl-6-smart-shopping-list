@@ -34,7 +34,7 @@ const ShareList = props => {
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="sharedToken">
-          Share List:
+          Join a list:
           <input
             type="text"
             name="sharedToken"
@@ -46,7 +46,10 @@ const ShareList = props => {
       </form>
       <div>
         {isError ? (
-          <p>'Invalid token. Please try again or create a new token.'</p>
+          <p>
+            'We couldn't find that shopping list. Please try again or create a
+            new list.'
+          </p>
         ) : null}
       </div>
     </div>
