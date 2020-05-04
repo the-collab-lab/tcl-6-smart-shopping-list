@@ -7,5 +7,6 @@ export function getDifferenceInHours(last_purchased) {
 
   let microSecondsDiff = Math.abs(lastPurchaseTimeStamp - nowTimeStamp);
   let hoursDiff = Math.floor(microSecondsDiff / (1000 * 60 * 60));
+  console.log(hoursDiff);
   return hoursDiff;
 }

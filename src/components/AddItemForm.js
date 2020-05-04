@@ -9,7 +9,7 @@ class AddItemForm extends React.Component {
     this.state = {
       name: '',
       next_purchase: 14,
-      last_purchased: '2020-01-01T00:00:00Z',
+      last_purchased: '',
       hasDupe: false,
     };
     this.handleChange = this.handleChange.bind(this);
