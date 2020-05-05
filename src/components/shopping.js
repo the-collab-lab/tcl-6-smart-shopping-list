@@ -20,7 +20,7 @@ function Shopping(props) {
     return (
       <div>
         <h1>Shopping List</h1>
-        <h2>***Click item to delete from cart***</h2>
+        <h2>***Click item to delete from your list***</h2>
 
         <ul>
           {props.list.map(item => (
