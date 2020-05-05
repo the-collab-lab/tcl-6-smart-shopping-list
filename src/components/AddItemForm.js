@@ -58,7 +58,6 @@ class AddItemForm extends React.Component {
         next_purchase: state.next_purchase,
         last_purchased: state.last_purchased,
         number_purchases: state.number_purchases,
-        user_token: props.userToken,
       })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
