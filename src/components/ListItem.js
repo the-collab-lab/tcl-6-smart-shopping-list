@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ITEMS } from '../constants';
+import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
 import { getDifferenceInHours } from '../lib/getDifferenceInHours';
 import '../CSS/ListItem.css';
@@ -19,7 +19,7 @@ const ListItem = props => {
   }
 
   function saveLastPurchasedDate() {
-    db.collection(ITEMS)
+    db.collection(`${USERS}/${props.token}/${ITEMS}`)
       .doc(props.item.id)
       .set(
         {

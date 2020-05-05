@@ -1,45 +1,23 @@
 import React from 'react';
-import '../App.css';
-import { ITEMS, USER_TOKEN } from '../constants';
-import { FirestoreCollection } from 'react-firestore';
+import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
 
 function Shopping(props) {
-  return (
-    <FirestoreCollection
-      path={ITEMS}
-      filter={[USER_TOKEN, '==', props.userToken]}
-      render={({ data }) => {
-        if (data.length > 0) {
-          return (
-            <div>
-              <h1>Shopping List</h1>
-              <h2>***Click item to delete from cart***</h2>
-
-              <ul>
-                {data.map(item => (
-                  <li
-                    key={item.id}
-                    onClick={() => {
-                      return handleClick(item.id);
-                    }}
-                  >
-                    {item.name} / {item.next_purchase}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        } else {
-          return (
-            <div>
-              <h1> Shopping List</h1>
-              <p>Theres nothing in your cart, please buy our stuff.</p>
-            </div>
-          );
-        }
-      }}
-    />
+  return props.list.length > 0 ? (
+    <div>
+      <h1>Shopping List</h1>
+      <ul>
+        {props.list.map(item => (
+          <ListItem key={item.id} item={item} token={props.userToken} />
+        ))}
+      </ul>
+    </div>
+  ) : (
+    <div>
+      <h1>Shopping List</h1>
+      <p>Your list is empty!</p>
+      <Link to="/add">Add Your First Item</Link>
+    </div>
   );
 }
 

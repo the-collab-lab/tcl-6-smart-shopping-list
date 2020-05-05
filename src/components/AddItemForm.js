@@ -1,6 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
-import { ITEMS } from '../../src/constants';
+import { ITEMS, USERS } from '../../src/constants';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -50,7 +50,7 @@ class AddItemForm extends React.Component {
     }
 
     props.firestore
-      .collection(ITEMS)
+      .collection(`${USERS}/${props.userToken}/${ITEMS}`)
       .add({
         name: state.name,
         name_normalized,

@@ -4,10 +4,11 @@ import { withFirestore } from 'react-firestore';
 class AddTestItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', category: '' };
+    this.state = { name: '', last_purchase: '', next_purchase: 7 };
 
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleNextPurchaseChange = this.handleNextPurchaseChange.bind(this);
+    this.handleLastPurchaseChange = this.handleLastPurchaseChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -15,20 +16,20 @@ class AddTestItem extends React.Component {
     this.setState({ name: event.target.value });
   }
 
-  handleCategoryChange(event) {
-    this.setState({ category: event.target.value });
+  handleLastPurchaseChange(event) {
+    this.setState({ last_purchase: event.target.value });
+  }
+
+  handleNextPurchaseChange(event) {
+    this.setState({ next_purchase: parseInt(event.target.value) });
   }
 
   handleSubmit(event) {
     this.props.firestore
-      .collection('testitems')
-      .add(this.state)
-      .then(function(docRef) {
-        console.log('Document written with ID: ', docRef.id);
-      })
-      .catch(function(error) {
-        console.error('Error adding document: ', error);
-      });
+      .collection('users')
+      .doc(this.props.userToken)
+      .collection('shopping_list')
+      .add(this.state);
     event.preventDefault();
   }
 
@@ -44,12 +45,24 @@ class AddTestItem extends React.Component {
           />
         </label>
         <label>
-          Category:
+          Last Purchase:
           <input
-            type="text"
-            value={this.state.category}
-            onChange={this.handleCategoryChange}
+            type="date"
+            value={this.state.last_purchase}
+            onChange={this.handleLastPurchaseChange}
           />
+        </label>
+        <label>
+          Next Purchase:
+          <select
+            name="next"
+            id="next-purchase"
+            onChange={this.handleNextPurchaseChange}
+          >
+            <option value="7">Soon</option>
+            <option value="14">Kind of soon</option>
+            <option value="30">Not soon</option>
+          </select>
         </label>
         <input type="submit" value="Submit" />
       </form>
