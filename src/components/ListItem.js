@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
-import { getDifferenceInHours } from '../lib/getDifferenceInHours';
+import {
+  getDifferenceInHours,
+  getDifferenceInDays,
+} from '../lib/getDifferenceInHours';
+import calculateEstimate from '../lib/estimates';
 import '../CSS/ListItem.css';
 
 const ListItem = props => {
   let hoursDiff = getDifferenceInHours(props.item.last_purchased);
+  let daysDiff;
   const [isPurchased, setPurchased] = useState(false);
 
   if (hoursDiff < 24 && isPurchased === false) {
@@ -14,15 +19,32 @@ const ListItem = props => {
 
   function onHandle(event) {
     event.preventDefault();
+
+    if (props.item.last_purchased === 0) {
+      let currentDate = new Date().toISOString();
+      daysDiff = getDifferenceInDays(currentDate);
+    } else {
+      daysDiff = getDifferenceInDays(props.item.last_purchased);
+    }
+
+    //let daysDiff = getDifferenceInDays(props.item.last_purchased);
+    console.log(daysDiff);
+    let newEstimate = calculateEstimate(
+      props.item.next_purchase,
+      daysDiff,
+      props.item.number_purchases,
+    );
+
     setPurchased(true);
-    saveLastPurchasedDate();
+    saveLastPurchasedDate(newEstimate);
   }
 
-  function saveLastPurchasedDate() {
+  function saveLastPurchasedDate(newEstimate) {
     db.collection(`${USERS}/${props.token}/${ITEMS}`)
       .doc(props.item.id)
       .set(
         {
+          next_purchase: newEstimate,
           last_purchased: new Date().toISOString(),
           number_purchases: props.item.number_purchases + 1,
         },
