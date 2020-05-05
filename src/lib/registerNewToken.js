@@ -1,6 +1,8 @@
 import { db } from '../lib/firebase';
-import { ITEMS } from '../../src/constants';
+import { USERS } from '../../src/constants';
 
 export default function registerNewToken(token) {
-  db.collection(ITEMS).add({ user_token: token });
+  db.collection(USERS)
+    .doc(token)
+    .set({ user_token: token });
 }
