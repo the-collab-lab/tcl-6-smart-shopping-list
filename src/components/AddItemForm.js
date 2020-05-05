@@ -33,13 +33,12 @@ class AddItemForm extends React.Component {
   }
 
   handleSchedule(event) {
-    this.setState({ next_purchase: event.target.value });
+    this.setState({ next_purchase: parseInt(event.target.value) });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const { state, props } = this;
-
     const name_normalized = this.normalizeUserInput(state.name);
     const hasDupe = props.list.some(
       item => item.name_normalized === name_normalized,
