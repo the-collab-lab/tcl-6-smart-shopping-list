@@ -24,6 +24,7 @@ const ListItem = props => {
       .set(
         {
           last_purchased: new Date().toISOString(),
+          number_purchases: props.item.number_purchases + 1,
         },
         { merge: true },
       );
