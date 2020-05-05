@@ -1,0 +1,9 @@
+.not-purchased {
+  background-color: blue;
+  color: white;
+}
+
+.purchased {
+  background-color: #ff7b00;
+  color: white;
+}
