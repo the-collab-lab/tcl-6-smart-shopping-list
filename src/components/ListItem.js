@@ -20,7 +20,7 @@ const ListItem = props => {
     let estimate = calculateEstimate(
       item.next_purchase,
       daysDiff,
-      item.number_purchases,
+      item.number_purchases + 1,
     );
     saveLastPurchasedDate(estimate);
     setPurchased(true);
