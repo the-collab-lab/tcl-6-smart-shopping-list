@@ -14,8 +14,12 @@ const calculateEstimate = (lastEstimate, latestInterval, numberOfPurchases) => {
     lastEstimate = 14;
   }
 
-  if (numberOfPurchases === 0) {
-    numberOfPurchases = 1;
+  if (latestInterval === 0) {
+    return lastEstimate;
+  }
+
+  if (numberOfPurchases === 1) {
+    return latestInterval;
   }
 
   // FIXME algorithm doesn't work when there's only 1 purchase in the database

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
-import {
-  getDifferenceInHours,
-  getDifferenceInDays,
-} from '../lib/getDifferenceInHours';
-import calculateEstimate from '../lib/estimates';
+import { useTime } from '../lib/useTime';
 import '../CSS/ListItem.css';
 
 const ListItem = props => {
-  let hoursDiff = getDifferenceInHours(props.item.last_purchased);
-  let daysDiff;
+  const { item, token } = props;
   const [isPurchased, setPurchased] = useState(false);
+  const [hoursDiff, estimatedNextPurchase] = useTime(
+    item.last_purchased,
+    item.next_purchase,
+    item.number_purchases,
+  );
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
@@ -19,42 +19,25 @@ const ListItem = props => {
 
   function onHandle(event) {
     event.preventDefault();
-
-    if (props.item.last_purchased === 0) {
-      let currentDate = new Date().toISOString();
-      daysDiff = getDifferenceInDays(currentDate);
-    } else {
-      daysDiff = getDifferenceInDays(props.item.last_purchased);
-    }
-
-    //let daysDiff = getDifferenceInDays(props.item.last_purchased);
-    console.log(daysDiff);
-    let newEstimate = calculateEstimate(
-      props.item.next_purchase,
-      daysDiff,
-      props.item.number_purchases,
-    );
-
+    saveLastPurchasedDate();
     setPurchased(true);
-    saveLastPurchasedDate(newEstimate);
   }
 
-  function saveLastPurchasedDate(newEstimate) {
-    db.collection(`${USERS}/${props.token}/${ITEMS}`)
-      .doc(props.item.id)
+  function saveLastPurchasedDate() {
+    db.collection(`${USERS}/${token}/${ITEMS}`)
+      .doc(item.id)
       .set(
         {
-          next_purchase: newEstimate,
+          next_purchase: estimatedNextPurchase.toFixed(2),
           last_purchased: new Date().toISOString(),
-          number_purchases: props.item.number_purchases + 1,
+          number_purchases: item.number_purchases + 1,
         },
         { merge: true },
       );
   }
   return (
     <li>
-      {props.item.name} : {props.item.next_purchase} :
-      {props.item.last_purchased}
+      {item.name} : {item.next_purchase} :{item.last_purchased}
       <button
         className={isPurchased ? 'purchased' : 'not-purchased'}
         onClick={onHandle}

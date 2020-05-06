@@ -9,6 +9,7 @@ export function getDifferenceInHours(last_purchased) {
 }
 
 export function getDifferenceInDays(last_purchased) {
+  if (last_purchased === '') return 0;
   let nowTimeStamp = new Date().getTime();
   let lastPurchaseTimeStamp = new Date(last_purchased).getTime();
 
