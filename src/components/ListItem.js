@@ -28,7 +28,7 @@ const ListItem = props => {
       .doc(item.id)
       .set(
         {
-          next_purchase: estimatedNextPurchase.toFixed(2),
+          next_purchase: estimatedNextPurchase,
           last_purchased: new Date().toISOString(),
           number_purchases: item.number_purchases + 1,
         },
