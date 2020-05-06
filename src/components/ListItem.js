@@ -40,7 +40,8 @@ const ListItem = props => {
   }
   return (
     <li>
-      {item.name} : {item.next_purchase} :{item.last_purchased}
+      {item.name} :: Next Purchase: {item.next_purchase} days :: Last Purchased
+      On: {item.last_purchased}
       <button
         className={isPurchased ? 'purchased' : 'not-purchased'}
         onClick={onHandle}
