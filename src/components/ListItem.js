@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
 import { useTime } from '../lib/useTime';
+import calculateEstimate from '../lib/estimates';
+
 import '../CSS/ListItem.css';
 
 const ListItem = props => {
   const { item, token } = props;
   const [isPurchased, setPurchased] = useState(false);
-  const [hoursDiff, estimatedNextPurchase] = useTime(
-    item.last_purchased,
-    item.next_purchase,
-    item.number_purchases,
-  );
+  const [hoursDiff, daysDiff] = useTime(item.last_purchased);
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
@@ -19,16 +17,21 @@ const ListItem = props => {
 
   function onHandle(event) {
     event.preventDefault();
-    saveLastPurchasedDate();
+    let estimate = calculateEstimate(
+      item.next_purchase,
+      daysDiff,
+      item.number_purchases,
+    );
+    saveLastPurchasedDate(estimate);
     setPurchased(true);
   }
 
-  function saveLastPurchasedDate() {
+  function saveLastPurchasedDate(estimate) {
     db.collection(`${USERS}/${token}/${ITEMS}`)
       .doc(item.id)
       .set(
         {
-          next_purchase: estimatedNextPurchase,
+          next_purchase: estimate,
           last_purchased: new Date().toISOString(),
           number_purchases: item.number_purchases + 1,
         },
