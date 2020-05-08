@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Filter = props => {
-  // need to add event listener logic here
+  function handleTextChange() {
+    console.log('Hey you typed something');
+  }
 
-  // use onChange ini a function
-  function handleTextChange(event) {}
-
-  return <input type="text" placeholder="Search"></input>;
+  return (
+    <input onChange={handleTextChange} type="text" placeholder="Search"></input>
+  );
 };
 
 export default Filter;
