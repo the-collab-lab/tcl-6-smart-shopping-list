@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
+import Filter from './Filter';
 
 function Shopping(props) {
   return props.list.length > 0 ? (
     <div>
       <h1>Shopping List</h1>
+      <Filter />
       <ul>
         {props.list.map(item => (
           <ListItem key={item.id} item={item} token={props.userToken} />
