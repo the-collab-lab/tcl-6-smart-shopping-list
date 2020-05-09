@@ -6,8 +6,7 @@ import calculateEstimate from '../lib/estimates';
 
 import '../CSS/ListItem.css';
 
-const ListItem = props => {
-  const { item, token } = props;
+const ListItem = ({ item, token }) => {
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
