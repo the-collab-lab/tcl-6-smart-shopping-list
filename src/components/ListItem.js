@@ -9,7 +9,7 @@ import '../CSS/ListItem.css';
 const ListItem = props => {
   const { item, token } = props;
   const [isPurchased, setPurchased] = useState(false);
-  let numberOfPurchases = item.number_purchases;
+  let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
 
   if (hoursDiff < 24 && isPurchased === false) {
