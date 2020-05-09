@@ -10,6 +10,7 @@ class AddItemForm extends React.Component {
       name: '',
       next_purchase: 14,
       last_purchased: '',
+      number_purchases: 0,
       hasDupe: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -32,13 +33,12 @@ class AddItemForm extends React.Component {
   }
 
   handleSchedule(event) {
-    this.setState({ next_purchase: event.target.value });
+    this.setState({ next_purchase: parseInt(event.target.value) });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const { state, props } = this;
-
     const name_normalized = this.normalizeUserInput(state.name);
     const hasDupe = props.list.some(
       item => item.name_normalized === name_normalized,
@@ -56,7 +56,7 @@ class AddItemForm extends React.Component {
         name_normalized,
         next_purchase: state.next_purchase,
         last_purchased: state.last_purchased,
-        user_token: props.userToken,
+        number_purchases: state.number_purchases,
       })
       .then(function(docRef) {
         console.log('Document written with ID: ', docRef.id);
