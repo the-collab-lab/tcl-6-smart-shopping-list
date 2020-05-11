@@ -10,6 +10,13 @@ const ListItem = ({ item, token }) => {
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
+  let className = '';
+  className =
+    item.next_purchase < 8
+      ? 'soon'
+      : item.next_purchase < 15
+      ? 'kind-of-soon'
+      : 'not-soon';
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
@@ -43,7 +50,7 @@ const ListItem = ({ item, token }) => {
       );
   }
   return (
-    <li>
+    <li className={className}>
       {item.name} :: Next Purchase: {item.next_purchase} days :: Last Purchased
       On: {item.last_purchased}
       <button
