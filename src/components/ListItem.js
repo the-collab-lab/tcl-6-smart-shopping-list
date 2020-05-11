@@ -3,8 +3,11 @@ import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
 import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
 import calculateEstimate from '../lib/estimates';
-
+//Image
+import trash from '../image/Trash.png';
+//Css Styles
 import '../CSS/ListItem.css';
+import '../CSS/DeleteItem.css';
 
 const ListItem = ({ item, token }) => {
   const [isPurchased, setPurchased] = useState(false);
@@ -52,6 +55,9 @@ const ListItem = ({ item, token }) => {
         disabled={isPurchased ? !null : null}
       >
         Purchase
+      </button>
+      <button>
+        <img className="trash" src={trash} alt="delete item" />
       </button>
     </li>
   );
