@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
 
 function Shopping(props) {
+  //Delete an item from the database
+  // That functionality should go here
+
   return props.list.length > 0 ? (
     <div>
       <h1>Shopping List</h1>
