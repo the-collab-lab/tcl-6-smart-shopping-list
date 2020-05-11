@@ -56,7 +56,7 @@ const ListItem = ({ item, token }) => {
       >
         Purchase
       </button>
-      <button>
+      <button onClick={handleClick}>
         <img className="trash" src={trash} alt="delete item" />
       </button>
     </li>
