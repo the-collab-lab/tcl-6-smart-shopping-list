@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
 
 function Shopping(props) {
+  // TODO: sort items by estimated next purchase.
   return props.list.length > 0 ? (
     <div>
       <h1>Shopping List</h1>
