@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
-import { sortAlphabetically } from '../lib/sortUtils';
+import { sortAlphabetically, sortByNextPurchase } from '../lib/sortUtils';
 
 function Shopping(props) {
   // TODO: sort items by estimated next purchase.
   sortAlphabetically(props.list);
+  sortByNextPurchase(props.list);
   return props.list.length > 0 ? (
     <div>
       <h1>Shopping List</h1>

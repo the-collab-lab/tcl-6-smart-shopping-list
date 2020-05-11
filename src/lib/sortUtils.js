@@ -1,5 +1,4 @@
 export function sortAlphabetically(list) {
-  //sort alphabetically
   list.sort(function(a, b) {
     var nameA = a.name.toUpperCase(); // ignore upper and lowercase
     var nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -11,5 +10,11 @@ export function sortAlphabetically(list) {
     }
     // names must be equal
     return 0;
+  });
+}
+
+export function sortByNextPurchase(list) {
+  list.sort(function(a, b) {
+    return a.next_purchase - b.next_purchase;
   });
 }
