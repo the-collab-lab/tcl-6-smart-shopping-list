@@ -6,9 +6,6 @@ import { db } from '../lib/firebase';
 import { ITEMS, USERS } from '../constants';
 
 function Shopping(props) {
-  //Delete an item from the database
-  // That functionality should go here
-
   function handleClick({ id, token }) {
     db.collection(`${USERS}/${token}/${ITEMS}`)
       .doc(id)
@@ -27,10 +24,10 @@ function Shopping(props) {
       <ul>
         {props.list.map(item => (
           <ListItem
-            {...props}
             key={item.id}
             item={item}
             token={props.userToken}
+            onClick={handleClick}
           />
         ))}
       </ul>

@@ -45,6 +45,17 @@ const ListItem = ({ item, token }) => {
         { merge: true },
       );
   }
+
+  function handleClick(event) {
+    console.log('clicked');
+    console.log(item.id);
+
+    // error message "TypeError: event.preventDefault is not a function
+
+    event.preventDefault();
+    handleClick(item.id);
+  }
+
   return (
     <li>
       {item.name} :: Next Purchase: {item.next_purchase} days :: Last Purchased
