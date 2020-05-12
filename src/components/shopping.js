@@ -27,7 +27,7 @@ function Shopping(props) {
             key={item.id}
             item={item}
             token={props.userToken}
-            onClick={handleClick}
+            onClick={event => handleClick(event)}
           />
         ))}
       </ul>

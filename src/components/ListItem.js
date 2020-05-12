@@ -4,7 +4,7 @@ import { db } from '../lib/firebase';
 import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
 import calculateEstimate from '../lib/estimates';
 //Image
-import trash from '../image/Trash.png';
+import trash from '../image/trash-icon.svg';
 //Css Styles
 import '../CSS/ListItem.css';
 import '../CSS/DeleteItem.css';
@@ -52,7 +52,7 @@ const ListItem = ({ item, token }) => {
 
     // error message "TypeError: event.preventDefault is not a function
 
-    event.preventDefault();
+    //event.preventDefault();
     // alert pop-up
     //are you sure you want to delete
     //alert(`are you sure you want to delete ${item.id.name}`)
@@ -71,7 +71,7 @@ const ListItem = ({ item, token }) => {
       >
         Purchase
       </button>
-      <button onClick={handleClick}>
+      <button onClick={event => handleClick(event)}>
         <img className="trash" src={trash} alt="delete item" />
       </button>
     </li>
