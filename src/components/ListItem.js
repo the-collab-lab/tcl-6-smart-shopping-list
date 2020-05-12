@@ -53,6 +53,10 @@ const ListItem = ({ item, token }) => {
     // error message "TypeError: event.preventDefault is not a function
 
     event.preventDefault();
+    // alert pop-up
+    //are you sure you want to delete
+    //alert(`are you sure you want to delete ${item.id.name}`)
+    //if want to delete do this
     handleClick(item.id);
   }
 
