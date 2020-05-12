@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
+import Filter from './Filter';
 
 function Shopping(props) {
+  const [filterString, setFilterString] = useState('');
+  const [filteredList, setFilteredList] = useState(props.list);
+  useEffect(() => {
+    setFilteredList(props.list);
+  }, [props.list]);
+  const handleTextChange = event => {
+    setFilterString(event.target.value);
+    const newList = props.list.filter(item =>
+      item.name.toLowerCase().includes(event.target.value.toLowerCase()),
+    );
+    setFilteredList(newList);
+  };
+  const handleClear = () => {
+    setFilterString('');
+    props.list.length > 0 && setFilteredList(props.list);
+  };
   return props.list.length > 0 ? (
     <div>
       <h1>Shopping List</h1>
+      <Filter
+        value={filterString}
+        onChange={event => handleTextChange(event)}
+        clear={() => handleClear()}
+      />
       <ul>
-        {props.list.map(item => (
+        {filteredList.map(item => (
           <ListItem key={item.id} item={item} token={props.userToken} />
         ))}
       </ul>
