@@ -6,8 +6,8 @@ import { db } from '../lib/firebase';
 import { ITEMS, USERS } from '../constants';
 
 function Shopping(props) {
-  function handleClick({ id, token }) {
-    if (window.confirm('Are you sure you want to delete?')) {
+  function handleClick({ name, id, token }) {
+    if (window.confirm(`Are you sure you want to delete ${name}?`)) {
       db.collection(`${USERS}/${token}/${ITEMS}`)
         .doc(id)
         .delete()
@@ -18,7 +18,7 @@ function Shopping(props) {
           console.error('Error removing document: ', error);
         });
     } else {
-      console.log('you hit cancel.');
+      console.log(`${name} was not deleted.`);
     }
   }
 
@@ -32,7 +32,11 @@ function Shopping(props) {
             item={item}
             token={props.userToken}
             onDelete={() =>
-              handleClick({ id: item.id, token: props.userToken })
+              handleClick({
+                name: item.name,
+                id: item.id,
+                token: props.userToken,
+              })
             }
           />
         ))}
