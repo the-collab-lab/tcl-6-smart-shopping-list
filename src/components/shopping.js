@@ -7,15 +7,19 @@ import { ITEMS, USERS } from '../constants';
 
 function Shopping(props) {
   function handleClick({ id, token }) {
-    db.collection(`${USERS}/${token}/${ITEMS}`)
-      .doc(id)
-      .delete()
-      .then(function() {
-        console.log('Document successfully deleted!');
-      })
-      .catch(function(error) {
-        console.error('Error removing document: ', error);
-      });
+    if (window.confirm('Are you sure you want to delete?')) {
+      db.collection(`${USERS}/${token}/${ITEMS}`)
+        .doc(id)
+        .delete()
+        .then(function() {
+          console.log('Document successfully deleted!');
+        })
+        .catch(function(error) {
+          console.error('Error removing document: ', error);
+        });
+    } else {
+      console.log('you hit cancel.');
+    }
   }
 
   return props.list.length > 0 ? (
