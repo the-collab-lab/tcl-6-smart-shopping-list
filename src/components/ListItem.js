@@ -26,6 +26,7 @@ const ListItem = props => {
       daysDiff,
       numberOfPurchases,
     );
+    estimate = parseFloat(estimate.toFixed(2));
     saveLastPurchasedDate(estimate);
     setPurchased(true);
   }
