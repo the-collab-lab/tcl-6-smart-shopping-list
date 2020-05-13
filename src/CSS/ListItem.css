@@ -7,7 +7,7 @@
 .not-purchased {
   background-color: #09d3ac;
   border: 1px solid #09d3ac;
-  color: #ffffff;
+  color: #000000;
 }
 
 .purchased::before {
