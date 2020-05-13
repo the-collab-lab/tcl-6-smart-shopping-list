@@ -12,17 +12,18 @@ function Shopping(props) {
   const [filterString, setFilterString] = useState('');
   const [filteredList, setFilteredList] = useState(props.list);
 
-  sortAlphabetically(props.list);
-  sortByNextPurchase(props.list);
-  let sortedList = sortInactive(props.list);
-
   useEffect(() => {
     setFilteredList(props.list);
   }, [props.list]);
 
+  sortAlphabetically(filteredList);
+  sortByNextPurchase(filteredList);
+  let sortedList = sortInactive(filteredList);
+  console.log(sortedList);
+
   const handleTextChange = event => {
     setFilterString(event.target.value);
-    const newList = sortedList.filter(item =>
+    const newList = props.list.filter(item =>
       item.name.toLowerCase().includes(event.target.value.toLowerCase()),
     );
     setFilteredList(newList);
@@ -30,7 +31,7 @@ function Shopping(props) {
 
   const handleClear = () => {
     setFilterString('');
-    sortedList.length > 0 && setFilteredList(sortedList);
+    props.list.length > 0 && setFilteredList(props.list);
   };
 
   return sortedList.length > 0 ? (
@@ -42,7 +43,7 @@ function Shopping(props) {
         clear={() => handleClear()}
       />
       <ul>
-        {filteredList.map(item => (
+        {sortedList.map(item => (
           <ListItem key={item.id} item={item} token={props.userToken} />
         ))}
       </ul>

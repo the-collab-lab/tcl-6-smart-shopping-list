@@ -14,7 +14,7 @@ const ListItem = ({ item, token }) => {
 
   let className = '';
   className =
-    numberOfPurchases === 1 || daysDiff > 45
+    daysDiff > 2 * item.next_purchase
       ? 'inactive'
       : item.next_purchase < 8
       ? 'soon'

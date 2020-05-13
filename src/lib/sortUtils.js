@@ -22,19 +22,17 @@ export function sortByNextPurchase(list) {
 }
 
 export function sortInactive(list) {
-  let sortedList = list.filter(
-    item =>
-      item.number_purchases !== 1 &&
-      getDifferenceInDays(item.last_purchased) < 2 * item.next_purchase,
+  let activeItemsList = list.filter(
+    item => getDifferenceInDays(item.last_purchased) < 2 * item.next_purchase,
   );
 
-  let inactiveList = list.filter(
-    item =>
-      item.number_purchases === 1 ||
-      getDifferenceInDays(item.last_purchased) > 2 * item.next_purchase,
+  let sortedList = [...activeItemsList];
+
+  let inactiveItemsList = list.filter(
+    item => getDifferenceInDays(item.last_purchased) > 2 * item.next_purchase,
   );
 
-  sortedList.push(inactiveList);
+  sortedList.push(inactiveItemsList);
 
   return sortedList.flat();
 }
