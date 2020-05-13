@@ -7,7 +7,6 @@ import calculateEstimate from '../lib/estimates';
 import trash from '../image/trash-icon.svg';
 //Css Styles
 import '../CSS/ListItem.css';
-import '../CSS/DeleteItem.css';
 
 const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);
