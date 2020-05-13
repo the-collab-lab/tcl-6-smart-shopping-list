@@ -9,7 +9,7 @@ import trash from '../image/trash-icon.svg';
 import '../CSS/ListItem.css';
 import '../CSS/DeleteItem.css';
 
-const ListItem = ({ item, token }) => {
+const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
@@ -46,20 +46,6 @@ const ListItem = ({ item, token }) => {
       );
   }
 
-  function handleClick(event) {
-    console.log('clicked');
-    console.log(item.id);
-
-    // error message "TypeError: event.preventDefault is not a function
-
-    //event.preventDefault();
-    // alert pop-up
-    //are you sure you want to delete
-    //alert(`are you sure you want to delete ${item.id.name}`)
-    //if want to delete do this
-    handleClick(item.id);
-  }
-
   return (
     <li>
       {item.name} :: Next Purchase: {item.next_purchase} days :: Last Purchased
@@ -71,7 +57,7 @@ const ListItem = ({ item, token }) => {
       >
         Purchase
       </button>
-      <button onClick={event => handleClick(event)}>
+      <button onClick={onDelete}>
         <img className="trash" src={trash} alt="delete item" />
       </button>
     </li>
