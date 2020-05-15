@@ -12,8 +12,7 @@ const ListItem = ({ item, token }) => {
   let hoursDiff = getDifferenceInHours(item.last_purchased);
   let daysDiff = getDifferenceInDays(item.last_purchased);
 
-  let className = '';
-  className =
+  let className =
     daysDiff > 2 * item.next_purchase
       ? 'inactive'
       : item.next_purchase < 8
