@@ -53,8 +53,10 @@ const ListItem = ({ item, token }) => {
   }
   return (
     <li className={className}>
-      {item.name} :: Next Purchase: {item.next_purchase} days :: Last Purchased
-      On: {item.last_purchased}
+      {item.name}{' '}
+      <span className="screen-reader-only">
+        Next Purchase In {item.next_purchase} Days
+      </span>
       <button
         className={isPurchased ? 'purchased' : 'not-purchased'}
         onClick={onHandle}
