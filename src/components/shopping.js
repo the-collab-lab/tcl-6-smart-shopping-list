@@ -19,7 +19,6 @@ function Shopping(props) {
   sortAlphabetically(filteredList);
   sortByNextPurchase(filteredList);
   let sortedList = sortInactive(filteredList);
-  console.log(sortedList);
 
   const handleTextChange = event => {
     setFilterString(event.target.value);
