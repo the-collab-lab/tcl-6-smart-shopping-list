@@ -7,3 +7,19 @@
   background-color: #ff7b00;
   color: white;
 }
+
+.soon {
+  color: #00aa00;
+}
+
+.kind-of-soon {
+  color: #1f3a93;
+}
+
+.not-soon {
+  color: #ff4500;
+}
+
+.inactive {
+  color: #7e7e7e;
+}
