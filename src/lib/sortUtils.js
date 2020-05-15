@@ -26,13 +26,9 @@ export function sortInactive(list) {
     item => getDifferenceInDays(item.last_purchased) < 2 * item.next_purchase,
   );
 
-  let sortedList = [...activeItemsList];
-
   let inactiveItemsList = list.filter(
     item => getDifferenceInDays(item.last_purchased) > 2 * item.next_purchase,
   );
 
-  sortedList.push(inactiveItemsList);
-
-  return sortedList.flat();
+  return [...activeItemsList, ...inactiveItemsList];
 }
