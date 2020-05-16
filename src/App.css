@@ -1,3 +1,9 @@
+:root {
+  --highlight-color: #09d3ac;
+  --light-gray: #cccccc;
+  --dark-gray: #282c34;
+}
+
 .App {
   text-align: center;
   min-height: 100vh;
@@ -15,7 +21,7 @@ nav {
   height: 70px;
   padding: 5px 15px;
   background-color: #ffffff;
-  color: #282c34;
+  color: var(--dark-gray);
   border-radius: 0;
   font-size: 1.25em;
   text-decoration: none;
@@ -24,6 +30,6 @@ nav {
   text-decoration: underline;
 }
 .selected {
-  background-color: #282c34;
-  color: #09d3ac;
+  background-color: var(--dark-gray);
+  color: var(--highlight-color);
 }
