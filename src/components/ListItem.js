@@ -12,6 +12,16 @@ const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
+  let daysDiff = getDifferenceInDays(item.last_purchased);
+
+  let [className, purchaseNext] =
+    daysDiff > 2 * item.next_purchase
+      ? ['inactive', 'inactive']
+      : item.next_purchase < 8
+      ? ['soon', 'soon']
+      : item.next_purchase < 15
+      ? ['kind-of-soon', 'kind of soon']
+      : ['not-soon', 'not soon'];
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
@@ -20,14 +30,13 @@ const ListItem = ({ item, onDelete, token }) => {
   function onHandle(event) {
     event.preventDefault();
     numberOfPurchases++;
-    let daysDiff = getDifferenceInDays(item.last_purchased);
 
     let estimate = calculateEstimate(
       item.next_purchase,
       daysDiff,
       numberOfPurchases,
     );
-    estimate = parseFloat(estimate.toFixed(2));
+    estimate = Math.round(estimate);
     saveLastPurchasedDate(estimate);
     setPurchased(true);
   }
@@ -46,15 +55,21 @@ const ListItem = ({ item, onDelete, token }) => {
   }
 
   return (
-    <li>
-      {item.name} :: Next Purchase: {item.next_purchase} days :: Last Purchased
-      On: {item.last_purchased}
+    <li className={className}>
+      <span className="label" aria-hidden="true">
+        {purchaseNext}
+      </span>
+      {item.name}
+      <span className="screen-reader-only">
+        Next purchase in {item.next_purchase} days.
+      </span>
       <button
         className={isPurchased ? 'purchased' : 'not-purchased'}
         onClick={onHandle}
         disabled={isPurchased ? !null : null}
       >
         Purchase
+        <span className="screen-reader-only">{item.name}.</span>
       </button>
       <button onClick={onDelete}>
         <img className="trash" src={trash} alt="delete item" />

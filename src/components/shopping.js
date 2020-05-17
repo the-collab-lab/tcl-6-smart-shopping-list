@@ -4,6 +4,11 @@ import { db } from '../lib/firebase';
 // Components
 import ListItem from './ListItem';
 import Filter from './Filter';
+import {
+  sortAlphabetically,
+  sortByNextPurchase,
+  sortInactive,
+} from '../lib/sortUtils';
 // Constants
 import { ITEMS, USERS } from '../constants';
 
@@ -14,6 +19,10 @@ function Shopping(props) {
   useEffect(() => {
     setFilteredList(props.list);
   }, [props.list]);
+
+  sortAlphabetically(filteredList);
+  sortByNextPurchase(filteredList);
+  let sortedList = sortInactive(filteredList);
 
   const handleTextChange = event => {
     setFilterString(event.target.value);
@@ -45,7 +54,7 @@ function Shopping(props) {
     }
   }
 
-  return props.list.length > 0 ? (
+  return sortedList.length > 0 ? (
     <div>
       <h1>Shopping List</h1>
       <Filter
@@ -54,7 +63,7 @@ function Shopping(props) {
         clear={() => handleClear()}
       />
       <ul>
-        {filteredList.map(item => (
+        {sortedList.map(item => (
           <ListItem
             key={item.id}
             item={item}

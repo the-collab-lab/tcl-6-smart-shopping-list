@@ -1,6 +1,20 @@
+:root {
+  --not-purchased-color: blue;
+  --purchased-color: #ff7b00;
+  --soon-color: #00aa00;
+  --kind-of-soon-color: #1f3a93;
+  --not-soon-color: #ff4500;
+  --inactive-color: #7e7e7e;
+}
+
+.not-purchased {
+  background-color: var(--not-purchased-color);
+  color: white;
+}
+
 .purchased {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--purchased-color);
+  color: white;
   border: 1px solid var(--light-gray);
 }
 
@@ -48,4 +62,39 @@ ul li button:hover {
 .trash {
   height: 18px;
   padding: 5px;
+}
+
+.soon {
+  color: var(--soon-color);
+  font-weight: bold;
+}
+
+.kind-of-soon {
+  color: var(--kind-of-soon-color);
+  font-family: monospace;
+}
+
+.not-soon {
+  color: var(--not-soon-color);
+  font-stretch: expanded;
+}
+
+.inactive {
+  color: var(--inactive-color);
+}
+
+.label {
+  padding: 0 10px 0 0;
+  display: inline-block;
+}
+
+.screen-reader-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px 1px 1px 1px); /* IE 6 and 7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  overflow: hidden !important;
 }
