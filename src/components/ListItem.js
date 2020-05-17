@@ -3,10 +3,12 @@ import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
 import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
 import calculateEstimate from '../lib/estimates';
-
+//Image
+import trash from '../image/trash-icon.svg';
+//Css Styles
 import '../CSS/ListItem.css';
 
-const ListItem = ({ item, token }) => {
+const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
@@ -51,6 +53,7 @@ const ListItem = ({ item, token }) => {
         { merge: true },
       );
   }
+
   return (
     <li className={className}>
       <span className="label" aria-hidden="true">
@@ -67,6 +70,9 @@ const ListItem = ({ item, token }) => {
       >
         Purchase
         <span className="screen-reader-only">{item.name}.</span>
+      </button>
+      <button onClick={onDelete}>
+        <img className="trash" src={trash} alt="delete item" />
       </button>
     </li>
   );
