@@ -1,27 +1,64 @@
+:root {
+  --not-purchased-color: blue;
+  --purchased-color: #ff7b00;
+  --soon-color: #00aa00;
+  --kind-of-soon-color: #1f3a93;
+  --not-soon-color: #ff4500;
+  --inactive-color: #7e7e7e;
+}
+
+button {
+  margin-left: 5px;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+li:before {
+  content: var(--li-label);
+  padding-right: 5px;
+}
+
 .not-purchased {
-  background-color: blue;
+  background-color: var(--not-purchased-color);
   color: white;
 }
 
 .purchased {
-  background-color: #ff7b00;
+  background-color: var(--purchased-color);
   color: white;
 }
 
 .soon {
-  color: #00aa00;
+  color: var(--soon-color);
+  font-weight: bold;
 }
 
 .kind-of-soon {
-  color: #1f3a93;
+  color: var(--kind-of-soon-color);
+  font-family: monospace;
 }
 
 .not-soon {
-  color: #ff4500;
+  color: var(--not-soon-color);
+  font-stretch: expanded;
 }
 
 .inactive {
-  color: #7e7e7e;
+  color: var(--inactive-color);
+}
+
+.label {
+  padding: 0 10px 0 0;
+  display: inline-block;
 }
 
 .screen-reader-only {

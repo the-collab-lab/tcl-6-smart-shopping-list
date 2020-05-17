@@ -12,14 +12,14 @@ const ListItem = ({ item, token }) => {
   let hoursDiff = getDifferenceInHours(item.last_purchased);
   let daysDiff = getDifferenceInDays(item.last_purchased);
 
-  let className =
+  let [className, purchaseNext] =
     daysDiff > 2 * item.next_purchase
-      ? 'inactive'
+      ? ['inactive', 'inactive']
       : item.next_purchase < 8
-      ? 'soon'
+      ? ['soon', 'soon']
       : item.next_purchase < 15
-      ? 'kind-of-soon'
-      : 'not-soon';
+      ? ['kind-of-soon', 'kind of soon']
+      : ['not-soon', 'not soon'];
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
@@ -53,9 +53,12 @@ const ListItem = ({ item, token }) => {
   }
   return (
     <li className={className}>
-      {item.name}{' '}
+      <span className="label" aria-hidden="true">
+        {purchaseNext}
+      </span>
+      {item.name}
       <span className="screen-reader-only">
-        Next Purchase In {item.next_purchase} Days
+        Next purchase in {item.next_purchase} days.
       </span>
       <button
         className={isPurchased ? 'purchased' : 'not-purchased'}
@@ -63,6 +66,7 @@ const ListItem = ({ item, token }) => {
         disabled={isPurchased ? !null : null}
       >
         Purchase
+        <span className="screen-reader-only">{item.name}.</span>
       </button>
     </li>
   );
