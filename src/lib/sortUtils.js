@@ -1,3 +1,5 @@
+import { getDifferenceInDays } from '../lib/timeUtils';
+
 export function sortAlphabetically(list) {
   list.sort(function(a, b) {
     var nameA = a.name.toUpperCase(); // ignore upper and lowercase
@@ -17,4 +19,22 @@ export function sortByNextPurchase(list) {
   list.sort(function(a, b) {
     return a.next_purchase - b.next_purchase;
   });
+}
+
+export function sortInactive(list) {
+  let sortedList = list.filter(
+    item =>
+      item.number_purchases !== 1 &&
+      getDifferenceInDays(item.last_purchased) < 2 * item.next_purchase,
+  );
+
+  let inactiveList = list.filter(
+    item =>
+      item.number_purchases === 1 ||
+      getDifferenceInDays(item.last_purchased) > 2 * item.next_purchase,
+  );
+
+  sortedList.push(inactiveList);
+
+  return sortedList.flat();
 }

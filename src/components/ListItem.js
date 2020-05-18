@@ -10,9 +10,13 @@ const ListItem = ({ item, token }) => {
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
+  let daysDiff = getDifferenceInDays(item.last_purchased);
+
   let className = '';
   className =
-    item.next_purchase < 8
+    numberOfPurchases === 1 || daysDiff > 45
+      ? 'inactive'
+      : item.next_purchase < 8
       ? 'soon'
       : item.next_purchase < 15
       ? 'kind-of-soon'
@@ -25,7 +29,6 @@ const ListItem = ({ item, token }) => {
   function onHandle(event) {
     event.preventDefault();
     numberOfPurchases++;
-    let daysDiff = getDifferenceInDays(item.last_purchased);
 
     let estimate = calculateEstimate(
       item.next_purchase,

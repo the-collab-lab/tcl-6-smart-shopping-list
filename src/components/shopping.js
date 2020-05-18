@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
 import Filter from './Filter';
-import { sortAlphabetically, sortByNextPurchase } from '../lib/sortUtils';
+import {
+  sortAlphabetically,
+  sortByNextPurchase,
+  sortInactive,
+} from '../lib/sortUtils';
 
 function Shopping(props) {
-  // TODO: sort items by estimated next purchase.
-  sortAlphabetically(props.list);
-  sortByNextPurchase(props.list);
   const [filterString, setFilterString] = useState('');
   const [filteredList, setFilteredList] = useState(props.list);
+
+  sortAlphabetically(props.list);
+  sortByNextPurchase(props.list);
+  let sortedList = sortInactive(props.list);
 
   useEffect(() => {
     setFilteredList(props.list);
@@ -17,7 +22,7 @@ function Shopping(props) {
 
   const handleTextChange = event => {
     setFilterString(event.target.value);
-    const newList = props.list.filter(item =>
+    const newList = sortedList.filter(item =>
       item.name.toLowerCase().includes(event.target.value.toLowerCase()),
     );
     setFilteredList(newList);
@@ -25,10 +30,10 @@ function Shopping(props) {
 
   const handleClear = () => {
     setFilterString('');
-    props.list.length > 0 && setFilteredList(props.list);
+    sortedList.length > 0 && setFilteredList(sortedList);
   };
 
-  return props.list.length > 0 ? (
+  return sortedList.length > 0 ? (
     <div>
       <h1>Shopping List</h1>
       <Filter
