@@ -32,7 +32,7 @@ const ListItem = ({ item, token }) => {
       daysDiff,
       numberOfPurchases,
     );
-    estimate = parseFloat(estimate.toFixed(2));
+    estimate = Math.round(estimate);
     saveLastPurchasedDate(estimate);
     setPurchased(true);
   }
