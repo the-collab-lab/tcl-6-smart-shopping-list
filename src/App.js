@@ -6,6 +6,7 @@ import { ITEMS, USERS } from './constants';
 // Components
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
+import ItemDetail from './components/ItemDetail';
 import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
 import { useToken } from './lib/useToken';
@@ -25,11 +26,17 @@ function App() {
                 <Route
                   exact
                   path="/"
-                  render={() => <Shopping list={data} userToken={userToken} />}
+                  render={() => <Shopping userToken={userToken} list={data} />}
                 />
                 <Route
                   path="/add"
                   render={() => <AddItem userToken={userToken} list={data} />}
+                />
+                <Route
+                  path="/detail/:itemId"
+                  render={() => (
+                    <ItemDetail userToken={userToken} list={data} />
+                  )}
                 />
                 <nav id="nav">
                   <NavButton path="/" text="Shopping" />

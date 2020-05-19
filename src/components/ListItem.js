@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { ITEMS, USERS } from '../constants';
+
 //Lib Items
 import { db } from '../lib/firebase';
 import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
@@ -75,6 +78,7 @@ const ListItem = ({ item, onDelete, token }) => {
       <button onClick={onDelete}>
         <img className="trash" src={trash} alt="delete item" />
       </button>
+      <Link to={'detail/' + item.id}>View Details</Link>
     </li>
   );
 };
