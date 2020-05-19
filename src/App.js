@@ -45,13 +45,15 @@ function App() {
     return (
       <div className="App">
         <h1>Eggheadded</h1>
-        <h2>Eggs, bread, cheese and all the things you need.</h2>
-        <p>To get started create a new list:</p>
+        <h2 className="tagline">
+          Eggs, bread, cheese and all the things you need.
+        </h2>
+        <p>Get started by creating a new list.</p>
         <button className="button" onClick={createToken}>
           Create New List
         </button>
         <p>or</p>
-        <p>join an existing shopping list.</p>
+        <p>Join an existing shopping list.</p>
         <ShareList setToken={setToken} />
       </div>
     );

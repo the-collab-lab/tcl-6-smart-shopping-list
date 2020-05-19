@@ -21,8 +21,9 @@ body {
   flex-direction: column;
   font-size: 1em;
   background-color: #dff2f2;
-  max-width: 500px;
+  max-width: 450px;
   margin: 0 auto;
+  padding: 0 4%;
 }
 
 h1 {
@@ -34,6 +35,14 @@ h1 {
 h2 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  font-size: 1.25em;
+}
+
+.tagline {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 7% 0;
+  text-align: center;
   font-size: 1.5em;
 }
 

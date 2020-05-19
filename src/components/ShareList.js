@@ -31,10 +31,10 @@ const ShareList = props => {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="sharedToken">
-          Enter Token:
+          Token:
           <input
             type="text"
             name="sharedToken"
@@ -52,7 +52,7 @@ const ShareList = props => {
           </p>
         ) : null}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
