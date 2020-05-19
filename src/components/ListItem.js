@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ITEMS, USERS } from '../constants';
 import { db } from '../lib/firebase';
-import { useTime } from '../lib/useTime';
+import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
 import calculateEstimate from '../lib/estimates';
 
 import '../CSS/ListItem.css';
@@ -10,8 +10,7 @@ const ListItem = props => {
   const { item, token } = props;
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases;
-
-  const [hoursDiff, daysDiff] = useTime(item.last_purchased);
+  let hoursDiff = getDifferenceInHours(item.last_purchased);
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
@@ -20,7 +19,7 @@ const ListItem = props => {
   function onHandle(event) {
     event.preventDefault();
     numberOfPurchases++;
-    console.log(numberOfPurchases);
+    let daysDiff = getDifferenceInDays(item.last_purchased);
 
     let estimate = calculateEstimate(
       item.next_purchase,
