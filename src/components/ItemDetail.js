@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import arrowLeft from '../image/arrow-left.svg';
+import '../CSS/Icon.css';
 
 const ItemDetail = ({ list }) => {
   let { itemId } = useParams();
   let item = list.find(item => item.id === itemId);
   return item ? (
     <main>
-      <Link to={'/'}>Back to Shopping</Link>
+      <Link className="to-shopping" to={'/'}>
+        <img
+          className="arrow-left"
+          src={arrowLeft}
+          alt="Back to shopping list"
+        />{' '}
+        <span className="back-text">Back to shopping</span>
+      </Link>
 
       <h1>Item Details</h1>
       <h2>Name: {item.name}</h2>
