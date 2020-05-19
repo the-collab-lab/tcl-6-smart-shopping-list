@@ -45,7 +45,7 @@ function App() {
     return (
       <div className="App">
         <h1>Eggheadded</h1>
-        <h2>The best place in cyberspace to find what you need.</h2>
+        <h2>Eggs, bread, cheese and all the things you need.</h2>
         <button className="button" onClick={createToken}>
           Create New List
         </button>
