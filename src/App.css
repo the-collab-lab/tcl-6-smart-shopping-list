@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans&display=swap');
+
+/* Google Fonts
+  font-family: 'Fredoka One', cursive;
+  font-family: 'Open Sans', sans-serif;
+*/
+
 :root {
   --highlight-color: #09d3ac;
   --light-gray: #cccccc;
@@ -10,6 +17,11 @@
   display: flex;
   flex-direction: column;
   font-size: 1em;
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3em;
 }
 
 /* NavButton Component Styles */

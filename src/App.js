@@ -44,7 +44,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <h1>GIMME THAT THING</h1>
+        <h1>Eggheadded</h1>
         <h2>The best place in cyberspace to find what you need.</h2>
         <button className="button" onClick={createToken}>
           Create New List
