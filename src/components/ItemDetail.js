@@ -6,6 +6,9 @@ import '../CSS/Icon.css';
 const ItemDetail = ({ list }) => {
   let { itemId } = useParams();
   let item = list.find(item => item.id === itemId);
+
+  let lastPurchase = item ? new Date(item.last_purchased).toDateString() : '';
+
   return item ? (
     <main>
       <Link className="to-shopping" to={'/'}>
@@ -19,7 +22,7 @@ const ItemDetail = ({ list }) => {
 
       <h1>Item Details</h1>
       <h2>Name: {item.name}</h2>
-      <h2>Last Purchased: {item.last_purchased}</h2>
+      <h2>Last Purchased: {lastPurchase}</h2>
       <h2>Next Purchase: {item.next_purchase} days</h2>
       <h2>Number of Purchases: {item.number_purchases}</h2>
     </main>
