@@ -21,7 +21,7 @@
 .not-purchased {
   background-color: var(--highlight-color);
   border: 1px solid var(--highlight-color);
-  color: #000000;
+  color: var(--black);
 }
 
 .purchased::before {

@@ -9,7 +9,25 @@
   --highlight-color: #09d3ac;
   --light-gray: #cccccc;
   --dark-gray: #282c34;
+  --black: #0f272a;
 }
+
+.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-1-hex {
+  color: #32838c;
+}
+.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-2-hex {
+  color: #60bfbf;
+}
+.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-3-hex {
+  color: #bad9d9;
+}
+.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-4-hex {
+  color: #dff2f2;
+}
+.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-5-hex {
+  color: #f2d1b3;
+}
+
 body {
   background-color: #f2d1b3;
 }
@@ -29,7 +47,7 @@ body {
 h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 3em;
-  color: #0f272a;
+  color: var(--black);
 }
 
 h2 {
@@ -54,20 +72,24 @@ input,
 a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  color: #0f272a;
+  color: var(--black);
 }
 
 button,
 input[value='Join List'] {
-  border: 1px solid #0f272a;
+  display: block;
   width: 200px;
+  height: 50px;
+  border: 1px solid var(--black);
+  border-radius: 3px;
   text-align: center;
   font-size: 1em;
   padding: 2%;
   margin: 1% auto;
   color: #32838c;
   font-weight: 400;
-  display: block;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.25);
+  transition: all 0.15s;
 }
 
 input {
@@ -78,8 +100,12 @@ input {
 button:hover,
 input[value='Join List']:hover {
   color: #ffffff;
-  background-color: #32838c;
-  border: 1px solid #f2d1b3;
+  background-color: var(--black);
+  border: 1px solid #ffffff;
+  text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.1em;
+  font-weight: 400;
 }
 
 /* NavButton Component Styles */
