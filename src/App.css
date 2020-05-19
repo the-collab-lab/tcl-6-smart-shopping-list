@@ -28,6 +28,7 @@ body {
 h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 3em;
+  color: #0f272a;
 }
 
 h2 {
@@ -44,11 +45,12 @@ input,
 a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  color: #0f272a;
 }
 
 button,
 input[value='Join List'] {
-  border: 2px solid var(--dark-gray);
+  border: 1px solid #0f272a;
   width: 200px;
   text-align: center;
   font-size: 1em;
@@ -68,7 +70,7 @@ button:hover,
 input[value='Join List']:hover {
   color: #ffffff;
   background-color: #32838c;
-  border: 2px solid #f2d1b3;
+  border: 1px solid #f2d1b3;
 }
 
 /* NavButton Component Styles */
