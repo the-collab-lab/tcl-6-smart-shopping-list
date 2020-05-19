@@ -46,9 +46,12 @@ function App() {
       <div className="App">
         <h1>Eggheadded</h1>
         <h2>Eggs, bread, cheese and all the things you need.</h2>
+        <p>To get started create a new list:</p>
         <button className="button" onClick={createToken}>
           Create New List
         </button>
+        <p>or</p>
+        <p>join an existing shopping list.</p>
         <ShareList setToken={setToken} />
       </div>
     );

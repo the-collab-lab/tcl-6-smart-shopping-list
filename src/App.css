@@ -10,6 +10,9 @@
   --light-gray: #cccccc;
   --dark-gray: #282c34;
 }
+body {
+  background-color: #f2d1b3;
+}
 
 .App {
   text-align: center;
@@ -17,6 +20,9 @@
   display: flex;
   flex-direction: column;
   font-size: 1em;
+  background-color: #dff2f2;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -34,16 +40,42 @@ p,
 legend,
 label,
 button,
+input,
 a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+}
+
+button,
+input[value='Join List'] {
+  border: 2px solid var(--dark-gray);
+  width: 200px;
+  text-align: center;
+  font-size: 1em;
+  padding: 2%;
+  margin: 1% auto;
+  color: #32838c;
+  font-weight: 400;
+  display: block;
+}
+
+input {
+  padding: 1%;
+  margin: 1%;
+}
+
+button:hover,
+input[value='Join List']:hover {
+  color: #ffffff;
+  background-color: #32838c;
+  border: 2px solid #f2d1b3;
 }
 
 /* NavButton Component Styles */
 nav {
   margin-top: 20px;
 }
-.button {
+nav .button {
   align-items: flex-end;
   height: 70px;
   padding: 5px 15px;
@@ -53,10 +85,10 @@ nav {
   font-size: 1.25em;
   text-decoration: none;
 }
-.button:hover {
+nav .button:hover {
   text-decoration: underline;
 }
-.selected {
+nav .selected {
   background-color: var(--dark-gray);
   color: var(--highlight-color);
 }
