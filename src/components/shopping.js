@@ -56,38 +56,42 @@ function Shopping(props) {
   }
 
   return sortedList.length > 0 ? (
-    <main>
+    <React.Fragment>
       <Header />
-      <h2>Shopping List</h2>
-      <Filter
-        value={filterString}
-        onChange={event => handleTextChange(event)}
-        clear={() => handleClear()}
-      />
-      <ul>
-        {sortedList.map(item => (
-          <ListItem
-            key={item.id}
-            item={item}
-            token={props.userToken}
-            onDelete={() =>
-              handleClick({
-                name: item.name,
-                id: item.id,
-                token: props.userToken,
-              })
-            }
-          />
-        ))}
-      </ul>
-    </main>
+      <main>
+        <h2>Shopping List</h2>
+        <Filter
+          value={filterString}
+          onChange={event => handleTextChange(event)}
+          clear={() => handleClear()}
+        />
+        <ul>
+          {sortedList.map(item => (
+            <ListItem
+              key={item.id}
+              item={item}
+              token={props.userToken}
+              onDelete={() =>
+                handleClick({
+                  name: item.name,
+                  id: item.id,
+                  token: props.userToken,
+                })
+              }
+            />
+          ))}
+        </ul>
+      </main>
+    </React.Fragment>
   ) : (
-    <main>
+    <React.Fragment>
       <Header />
-      <h2>Shopping List</h2>
-      <p>Your list is empty!</p>
-      <Link to="/add">Add Your First Item</Link>
-    </main>
+      <main>
+        <h2>Shopping List</h2>
+        <p>Your list is empty!</p>
+        <Link to="/add">Add Your First Item</Link>
+      </main>
+    </React.Fragment>
   );
 }
 
