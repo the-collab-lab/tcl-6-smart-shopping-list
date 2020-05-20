@@ -4,8 +4,8 @@ import arrowLeft from '../image/arrow-left.svg';
 import '../CSS/Icon.css';
 
 const ItemDetail = ({ list }) => {
-  let { itemId } = useParams();
-  let item = list.find(item => item.id === itemId);
+  let { itemName } = useParams();
+  let item = list.find(item => item.name_normalized === itemName);
 
   let lastPurchase = item ? new Date(item.last_purchased).toDateString() : '';
 

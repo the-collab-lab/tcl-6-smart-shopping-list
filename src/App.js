@@ -32,7 +32,7 @@ function App() {
                   render={() => <AddItem userToken={userToken} list={data} />}
                 />
                 <Route
-                  path="/detail/:itemId"
+                  path="/detail/:itemName"
                   render={() => (
                     <ItemDetail userToken={userToken} list={data} />
                   )}
