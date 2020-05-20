@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { db } from '../lib/firebase';
 // Components
 import ListItem from './ListItem';
+import Nav from './Nav';
 import Filter from './Filter';
 import {
   sortAlphabetically,
@@ -78,6 +79,7 @@ function Shopping(props) {
           />
         ))}
       </ul>
+      <Nav />
     </div>
   ) : (
     <div>

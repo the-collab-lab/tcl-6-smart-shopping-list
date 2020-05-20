@@ -4,7 +4,6 @@ import { FirestoreCollection } from 'react-firestore';
 import { ITEMS, USERS } from './constants';
 
 // Components
-import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
 import ItemDetail from './components/ItemDetail';
 import AddItem from './components/addItem';
@@ -38,10 +37,6 @@ function App() {
                     <ItemDetail userToken={userToken} list={data} />
                   )}
                 />
-                <nav id="nav">
-                  <NavButton path="/" text="Shopping" />
-                  <NavButton path="/add" text="Add Item" />
-                </nav>
               </div>
             );
           }}
