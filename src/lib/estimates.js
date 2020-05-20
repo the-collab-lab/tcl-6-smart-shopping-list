@@ -6,20 +6,12 @@
  * @param {Number} numberOfPurchases Total number of purchases for the item
  */
 const calculateEstimate = (lastEstimate, latestInterval, numberOfPurchases) => {
-  console.log(
-    `lastEstimate= ${lastEstimate}, latestInterval= ${latestInterval}, numberOfPurchases= ${numberOfPurchases}`,
-  );
-
   if (isNaN(lastEstimate)) {
     lastEstimate = 14;
   }
 
   if (latestInterval === 0) {
     return lastEstimate;
-  }
-
-  if (numberOfPurchases === 1) {
-    return latestInterval;
   }
 
   // FIXME algorithm doesn't work when there's only 1 purchase in the database
