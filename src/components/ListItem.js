@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { ITEMS, USERS } from '../constants';
+import TestModal from './TestModal';
 
 //Lib Items
 import { db } from '../lib/firebase';
@@ -11,8 +11,14 @@ import calculateEstimate from '../lib/estimates';
 import trash from '../image/trash-icon.svg';
 //Css Styles
 import '../CSS/ListItem.css';
+import '../CSS/TestModal.css';
 
 const ListItem = ({ item, onDelete, token }) => {
+  //Modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
@@ -59,27 +65,30 @@ const ListItem = ({ item, onDelete, token }) => {
   }
 
   return (
-    <li className={className}>
-      <span className="label" aria-hidden="true">
-        {purchaseNext}
-      </span>
-      {item.name}
-      <span className="screen-reader-only">
-        Next purchase in {item.next_purchase} days.
-      </span>
-      <button
-        className={isPurchased ? 'purchased' : 'not-purchased'}
-        onClick={onHandle}
-        disabled={isPurchased ? !null : null}
-      >
-        Purchase
-        <span className="screen-reader-only">{item.name}.</span>
-      </button>
-      <button onClick={onDelete}>
-        <img className="trash" src={trash} alt="delete item" />
-      </button>
-      <Link to={'detail/' + item.name_normalized}>View Details</Link>
-    </li>
+    <>
+      <li className={className}>
+        <span className="label" aria-hidden="true">
+          {purchaseNext}
+        </span>
+        {item.name}
+        <span className="screen-reader-only">
+          Next purchase in {item.next_purchase} days.
+        </span>
+        <button
+          className={isPurchased ? 'purchased' : 'not-purchased'}
+          onClick={onHandle}
+          disabled={isPurchased ? !null : null}
+        >
+          Purchase
+          <span className="screen-reader-only">{item.name}.</span>
+        </button>
+        <button onClick={onDelete}>
+          <img className="trash" src={trash} alt="delete item" />
+        </button>
+        <button onClick={handleShow}>View Details</button>
+      </li>
+      <TestModal show={show} handleClose={handleClose} />
+    </>
   );
 };
 

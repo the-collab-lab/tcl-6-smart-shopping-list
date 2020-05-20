@@ -10,6 +10,7 @@ import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
 import { useToken } from './lib/useToken';
 import './App.css';
+import TestModal from './components/TestModal';
 
 function App() {
   const [userToken, createToken, setToken] = useToken();
@@ -33,9 +34,7 @@ function App() {
                 />
                 <Route
                   path="/detail/:itemName"
-                  render={() => (
-                    <ItemDetail userToken={userToken} list={data} />
-                  )}
+                  render={() => <TestModal userToken={userToken} list={data} />}
                 />
               </div>
             );
