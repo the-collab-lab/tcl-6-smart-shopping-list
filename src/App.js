@@ -4,6 +4,7 @@ import { FirestoreCollection } from 'react-firestore';
 import { ITEMS, USERS } from './constants';
 
 // Components
+import Header from './components/Header';
 import NavButton from './components/navbutton';
 import Shopping from './components/shopping';
 import AddItem from './components/addItem';
@@ -44,7 +45,7 @@ function App() {
   } else {
     return (
       <div className="App">
-        <h1>Eggheadded</h1>
+        <Header />
         <h2 className="tagline">
           Eggs, bread, cheese and all the things you need.
         </h2>

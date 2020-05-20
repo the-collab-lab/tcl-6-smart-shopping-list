@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../lib/firebase';
 // Components
+import Header from './Header';
 import ListItem from './ListItem';
 import Filter from './Filter';
 import {
@@ -55,8 +56,9 @@ function Shopping(props) {
   }
 
   return sortedList.length > 0 ? (
-    <div>
-      <h1>Shopping List</h1>
+    <main>
+      <Header />
+      <h2>Shopping List</h2>
       <Filter
         value={filterString}
         onChange={event => handleTextChange(event)}
@@ -78,13 +80,14 @@ function Shopping(props) {
           />
         ))}
       </ul>
-    </div>
+    </main>
   ) : (
-    <div>
-      <h1>Shopping List</h1>
+    <main>
+      <Header />
+      <h2>Shopping List</h2>
       <p>Your list is empty!</p>
       <Link to="/add">Add Your First Item</Link>
-    </div>
+    </main>
   );
 }
 

@@ -46,9 +46,9 @@ const ShareList = props => {
       </form>
       <div>
         {isError ? (
-          <p>
-            'We couldn't find that shopping list. Please try again or create a
-            new list.'
+          <p className="error">
+            We couldn't find that shopping list. Please try again or create a
+            new list.
           </p>
         ) : null}
       </div>

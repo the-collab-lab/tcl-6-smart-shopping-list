@@ -6,7 +6,7 @@
 */
 
 :root {
-  --highlight-color: #09d3ac;
+  --highlight-color: #60bfbf;
   --light-gray: #cccccc;
   --dark-gray: #282c34;
   --black: #0f272a;
@@ -106,6 +106,13 @@ input[value='Join List']:hover {
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
   font-size: 1.1em;
   font-weight: 400;
+}
+
+/* Error Message*/
+.error {
+  color: var(--black);
+  transition: all 0.5s ease-in-out;
+  height: 0;
 }
 
 /* NavButton Component Styles */
