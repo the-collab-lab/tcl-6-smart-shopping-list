@@ -9,6 +9,8 @@ import '../CSS/ListItem.css';
 const ListItem = props => {
   const { item, token } = props;
   const [isPurchased, setPurchased] = useState(false);
+  let numberOfPurchases = item.number_purchases;
+
   const [hoursDiff, daysDiff] = useTime(item.last_purchased);
 
   if (hoursDiff < 24 && isPurchased === false) {
@@ -17,23 +19,28 @@ const ListItem = props => {
 
   function onHandle(event) {
     event.preventDefault();
+    numberOfPurchases++;
+    console.log(numberOfPurchases);
+
     let estimate = calculateEstimate(
       item.next_purchase,
       daysDiff,
-      item.number_purchases + 1,
+      numberOfPurchases,
     );
     saveLastPurchasedDate(estimate);
     setPurchased(true);
   }
 
   function saveLastPurchasedDate(estimate) {
+    console.log(numberOfPurchases);
+
     db.collection(`${USERS}/${token}/${ITEMS}`)
       .doc(item.id)
       .set(
         {
           next_purchase: estimate,
           last_purchased: new Date().toISOString(),
-          number_purchases: item.number_purchases + 1,
+          number_purchases: numberOfPurchases,
         },
         { merge: true },
       );
