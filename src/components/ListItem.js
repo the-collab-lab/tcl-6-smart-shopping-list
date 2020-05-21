@@ -87,7 +87,7 @@ const ListItem = ({ item, onDelete, token }) => {
         </button>
         <button onClick={handleShow}>View Details</button>
       </li>
-      <TestModal show={show} handleClose={handleClose} />
+      <TestModal item={item} show={show} handleClose={handleClose} />
     </>
   );
 };

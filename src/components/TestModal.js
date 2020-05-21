@@ -2,16 +2,20 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-const TestModal = props => {
+const TestModal = ({ show, handleClose, item }) => {
+  let lastPurchase = item ? new Date(item.last_purchased).toDateString() : '';
+
   return (
     <>
-      <Modal show={props.show} onHide={props.handleClose}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>{item.name} details</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>Modal body text goes here.</p>
+          <h2>Last Purchased: {lastPurchase}</h2>
+          <h2>Next Purchase: {item.next_purchase} days</h2>
+          <h2>Number of Purchases: {item.number_purchases}</h2>
         </Modal.Body>
 
         <Modal.Footer>
