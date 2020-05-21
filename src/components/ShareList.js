@@ -8,6 +8,11 @@ const ShareList = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    if (tokenToCheck === undefined || tokenToCheck === '') {
+      toggleError(true);
+      return;
+    }
+
     toggleError(false);
     verifySharedToken(tokenToCheck);
   };
