@@ -2,14 +2,28 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+import { Link } from 'react-router-dom';
+import arrowLeft from '../image/arrow-left.svg';
+import '../CSS/Icon.css';
+
 const TestModal = ({ show, handleClose, item }) => {
   let lastPurchase = item ? new Date(item.last_purchased).toDateString() : '';
 
   return (
     <>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{item.name} details</Modal.Title>
+        <Modal.Header>
+          <Button onClick={handleClose} className="to-shopping">
+            <img
+              className="arrow-left"
+              src={arrowLeft}
+              alt="Back to shopping list"
+            />{' '}
+            <span className="back-text">Back to shopping</span>
+          </Button>
+          <Modal.Title>
+            <h3>{item.name} details</h3>
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -19,8 +33,7 @@ const TestModal = ({ show, handleClose, item }) => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save changes</Button>
+          <Button onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
     </>
