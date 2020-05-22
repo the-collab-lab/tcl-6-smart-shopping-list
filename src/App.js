@@ -25,16 +25,12 @@ function App() {
               <div className="App">
                 <Route
                   exact
-                  path="/"
+                  path="/:itemId?"
                   render={() => <Shopping userToken={userToken} list={data} />}
                 />
                 <Route
                   path="/add"
                   render={() => <AddItem userToken={userToken} list={data} />}
-                />
-                <Route
-                  path="/detail/:itemName"
-                  render={() => <TestModal userToken={userToken} list={data} />}
                 />
               </div>
             );

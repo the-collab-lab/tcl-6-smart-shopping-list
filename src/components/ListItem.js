@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { ITEMS, USERS } from '../constants';
 import TestModal from './TestModal';
 
@@ -14,10 +14,8 @@ import '../CSS/ListItem.css';
 import '../CSS/TestModal.css';
 
 const ListItem = ({ item, onDelete, token }) => {
-  //Modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const history = useHistory();
+  const params = useParams();
 
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
@@ -85,9 +83,15 @@ const ListItem = ({ item, onDelete, token }) => {
         <button onClick={onDelete}>
           <img className="trash" src={trash} alt="delete item" />
         </button>
-        <button onClick={handleShow}>View Details</button>
+        <Link to={item.id}>
+          <button>View Details</button>
+        </Link>
       </li>
-      <TestModal item={item} show={show} handleClose={handleClose} />
+      <TestModal
+        item={item}
+        show={!!params.itemId}
+        handleClose={() => history.push('/')}
+      />
     </>
   );
 };
