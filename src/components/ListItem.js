@@ -32,8 +32,6 @@ const ListItem = props => {
   }
 
   function saveLastPurchasedDate(estimate) {
-    console.log(numberOfPurchases);
-
     db.collection(`${USERS}/${token}/${ITEMS}`)
       .doc(item.id)
       .set(
