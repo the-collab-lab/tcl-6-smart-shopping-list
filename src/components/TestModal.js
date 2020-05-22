@@ -10,33 +10,31 @@ const TestModal = ({ show, handleClose, item }) => {
   let lastPurchase = item ? new Date(item.last_purchased).toDateString() : '';
 
   return (
-    <>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header>
-          <Button onClick={handleClose} className="to-shopping">
-            <img
-              className="arrow-left"
-              src={arrowLeft}
-              alt="Back to shopping list"
-            />{' '}
-            <span className="back-text">Back to shopping</span>
-          </Button>
-          <Modal.Title>
-            <h3>{item.name} details</h3>
-          </Modal.Title>
-        </Modal.Header>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header>
+        <Button onClick={handleClose} className="to-shopping">
+          <img
+            className="arrow-left"
+            src={arrowLeft}
+            alt="Back to shopping list"
+          />{' '}
+          <span className="back-text">Back to shopping</span>
+        </Button>
+        <Modal.Title>
+          <h3>{item.name} details</h3>
+        </Modal.Title>
+      </Modal.Header>
 
-        <Modal.Body>
-          <h2>Last Purchased: {lastPurchase}</h2>
-          <h2>Next Purchase: {item.next_purchase} days</h2>
-          <h2>Number of Purchases: {item.number_purchases}</h2>
-        </Modal.Body>
+      <Modal.Body>
+        <h2>Last Purchased: {lastPurchase}</h2>
+        <h2>Next Purchase: {item.next_purchase} days</h2>
+        <h2>Number of Purchases: {item.number_purchases}</h2>
+      </Modal.Body>
 
-        <Modal.Footer>
-          <Button onClick={handleClose}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+      <Modal.Footer>
+        <Button onClick={handleClose}>Close</Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 
