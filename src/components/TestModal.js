@@ -7,7 +7,10 @@ import arrowLeft from '../image/arrow-left.svg';
 import '../CSS/Icon.css';
 
 const TestModal = ({ show, handleClose, item }) => {
-  let lastPurchase = item ? new Date(item.last_purchased).toDateString() : '';
+  let lastPurchase =
+    item && item.last_purchased !== ''
+      ? new Date(item.last_purchased).toDateString()
+      : '';
 
   return (
     <>
@@ -27,7 +30,7 @@ const TestModal = ({ show, handleClose, item }) => {
         </Modal.Header>
 
         <Modal.Body>
-          <h2>Last Purchased: {lastPurchase}</h2>
+          {lastPurchase === '' ? null : <h2>Last Purchased: {lastPurchase}</h2>}
           <h2>Next Purchase: {item.next_purchase} days</h2>
           <h2>Number of Purchases: {item.number_purchases}</h2>
         </Modal.Body>
