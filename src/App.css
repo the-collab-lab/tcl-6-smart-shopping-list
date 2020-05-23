@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@300;400;600&display=swap');
 
 /* Google Fonts
   font-family: 'Fredoka One', cursive;
   font-family: 'Open Sans', sans-serif;
+    (font-weights 300, 400, and 600)
+  font-family: 'Open Sans Condensed', sans-serif;
 */
 
 :root {
@@ -12,21 +14,18 @@
   --black: #0f272a;
 }
 
-.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-1-hex {
-  color: #32838c;
-}
-.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-2-hex {
-  color: #60bfbf;
-}
-.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-3-hex {
-  color: #bad9d9;
-}
-.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-4-hex {
-  color: #dff2f2;
-}
-.Close-up-soft-wave-of-the-sea-on-the-sandy-beach-5-hex {
-  color: #f2d1b3;
-}
+/* Color Pallet
+  Blue/greens dark to light
+    #32838c;
+    #60bfbf;
+    #bad9d9;
+    #dff2f2;
+  Tan
+    #f2d1b3;
+  Oranges
+    #faac3d
+    #f89a2e
+*/
 
 body {
   background-size: 22%;
@@ -88,15 +87,14 @@ input[value='Join List'] {
   display: block;
   width: 200px;
   height: 50px;
+  padding: 2%;
+  margin: 1% auto 5%;
   border: 1px solid var(--black);
   border-radius: 3px;
   text-align: center;
   font-size: 1em;
-  padding: 2%;
-  margin: 1% auto 5%;
   color: #32838c;
-  font-weight: 400;
-  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.25);
+  font-weight: 600;
   transition: all 0.15s;
 }
 
@@ -110,16 +108,14 @@ input[value='Join List']:hover {
   color: #ffffff;
   background-color: var(--black);
   border: 1px solid #ffffff;
-  text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+  text-shadow: 0 0 2em rgba(255, 255, 255, 3);
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
   font-size: 1.1em;
-  font-weight: 400;
 }
 
 /* Error Message*/
 .error {
-  font-weight: 400;
-  font-style: italic;
+  font-family: 'Open Sans Condensed', sans-serif;
   color: #f89a2e;
   margin: 3px;
 }
