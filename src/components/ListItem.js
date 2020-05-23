@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ITEMS, USERS } from '../constants';
 import TestModal from './TestModal';
 
@@ -14,10 +14,9 @@ import '../CSS/ListItem.css';
 import '../CSS/TestModal.css';
 
 const ListItem = ({ item, onDelete, token }) => {
-  //Modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const history = useHistory();
+
+  let [show, setShow] = useState(false);
 
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
@@ -37,7 +36,7 @@ const ListItem = ({ item, onDelete, token }) => {
     setPurchased(true);
   }
 
-  function onHandle(event) {
+  function onPurchase(event) {
     event.preventDefault();
     numberOfPurchases++;
 
@@ -72,11 +71,11 @@ const ListItem = ({ item, onDelete, token }) => {
         </span>
         {item.name}
         <span className="screen-reader-only">
-          Next purchase in {item.next_purchase} days.
+          You might want this in {item.next_purchase} days.
         </span>
         <button
           className={isPurchased ? 'purchased' : 'not-purchased'}
-          onClick={onHandle}
+          onClick={onPurchase}
           disabled={isPurchased ? !null : null}
         >
           Purchase
@@ -85,9 +84,19 @@ const ListItem = ({ item, onDelete, token }) => {
         <button onClick={onDelete}>
           <img className="trash" src={trash} alt="delete item" />
         </button>
-        <button onClick={handleShow}>View Details</button>
+        <Link onClick={() => setShow(true)}>
+          <button>View Details</button>
+        </Link>
       </li>
-      <TestModal item={item} show={show} handleClose={handleClose} />
+      <TestModal
+        item={item}
+        show={show}
+        handleClose={() => {
+          setShow(false);
+          history.push('/');
+        }}
+      />
+      {console.log(show)}
     </>
   );
 };

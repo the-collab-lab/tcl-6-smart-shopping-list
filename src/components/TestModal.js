@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import { Link } from 'react-router-dom';
 import arrowLeft from '../image/arrow-left.svg';
 import '../CSS/Icon.css';
 
@@ -30,7 +29,7 @@ const TestModal = ({ show, handleClose, item }) => {
 
       <Modal.Body>
         <h2>Number of Purchases: {item.number_purchases}</h2>
-        <h2>You might want this in: {item.next_purchase} days</h2>
+        <h2>Next Purchase: {item.next_purchase} days</h2>
         {lastPurchase === '' ? null : <h2>Last Purchased: {lastPurchase}</h2>}
       </Modal.Body>
 

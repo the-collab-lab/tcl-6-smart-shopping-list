@@ -5,12 +5,10 @@ import { ITEMS, USERS } from './constants';
 
 // Components
 import Shopping from './components/shopping';
-import ItemDetail from './components/ItemDetail';
 import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
 import { useToken } from './lib/useToken';
 import './App.css';
-import TestModal from './components/TestModal';
 
 function App() {
   const [userToken, createToken, setToken] = useToken();
@@ -23,19 +21,15 @@ function App() {
           render={({ data }) => {
             return (
               <div className="App">
-                <Route
-                  exact
-                  path="/"
-                  render={() => <Shopping userToken={userToken} list={data} />}
-                />
-                <Route
-                  path="/add"
-                  render={() => <AddItem userToken={userToken} list={data} />}
-                />
-                <Route
-                  path="/detail/:itemName"
-                  render={() => <TestModal userToken={userToken} list={data} />}
-                />
+                <Route exact path={`/`}>
+                  <Shopping userToken={userToken} list={data} />
+                </Route>
+                <Route path="/detail/:itemId?">
+                  <Shopping userToken={userToken} list={data} />
+                </Route>
+                <Route path="/add">
+                  <AddItem userToken={userToken} list={data} />
+                </Route>
               </div>
             );
           }}
