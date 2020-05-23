@@ -10,7 +10,7 @@ const calculateEstimate = (lastEstimate, latestInterval, numberOfPurchases) => {
     lastEstimate = 14;
   }
 
-  if (latestInterval === 0) {
+  if (numberOfPurchases === 1) {
     return lastEstimate;
   }
 
