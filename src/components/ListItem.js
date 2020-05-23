@@ -96,7 +96,6 @@ const ListItem = ({ item, onDelete, token }) => {
           history.push('/');
         }}
       />
-      {console.log(show)}
     </>
   );
 };
