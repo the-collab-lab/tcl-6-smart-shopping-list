@@ -29,6 +29,9 @@
 }
 
 body {
+  background-size: 22%;
+  background-image: url(./image/eggheadded-repeat.svg);
+  background-repeat: repeat;
   background-color: #f2d1b3;
 }
 
@@ -57,11 +60,16 @@ h2 {
 }
 
 .tagline {
-  max-width: 70%;
+  max-width: 65%;
   margin: 0 auto;
   padding: 7% 0;
   text-align: center;
   font-size: 1.5em;
+}
+
+.home {
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 p,
@@ -85,7 +93,7 @@ input[value='Join List'] {
   text-align: center;
   font-size: 1em;
   padding: 2%;
-  margin: 1% auto;
+  margin: 1% auto 5%;
   color: #32838c;
   font-weight: 400;
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.25);
@@ -110,9 +118,10 @@ input[value='Join List']:hover {
 
 /* Error Message*/
 .error {
-  color: var(--black);
-  transition: all 0.5s ease-in-out;
-  height: 0;
+  font-weight: 400;
+  font-style: italic;
+  color: #f89a2e;
+  margin: 3px;
 }
 
 /* NavButton Component Styles */
