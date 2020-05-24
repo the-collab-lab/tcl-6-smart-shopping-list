@@ -56,7 +56,7 @@ function Shopping(props) {
   }
 
   return sortedList.length > 0 ? (
-    <React.Fragment>
+    <>
       <Header />
       <main>
         <h2>Shopping List</h2>
@@ -82,16 +82,16 @@ function Shopping(props) {
           ))}
         </ul>
       </main>
-    </React.Fragment>
+    </>
   ) : (
-    <React.Fragment>
+    <>
       <Header />
       <main>
         <h2>Shopping List</h2>
         <p>Your list is empty!</p>
         <Link to="/add">Add Your First Item</Link>
       </main>
-    </React.Fragment>
+    </>
   );
 }
 

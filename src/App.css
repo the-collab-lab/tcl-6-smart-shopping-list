@@ -110,7 +110,7 @@ input {
 button:hover,
 input[value='Join List']:hover {
   color: var(--white);
-  background-color: var(--primary-dark);
+  background-color: var(--black);
   border: 1px solid var(--white);
   text-shadow: 0 0 2em rgba(255, 255, 255, 3);
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);

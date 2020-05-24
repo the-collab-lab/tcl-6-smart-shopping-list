@@ -51,10 +51,10 @@ const ShareList = props => {
       </form>
       <div>
         {isError ? (
-          <React.Fragment>
+          <>
             <p className="error">We couldn't find that shopping list.</p>
             <p className="error">Please try again or create a new list.</p>
-          </React.Fragment>
+          </>
         ) : null}
       </div>
     </div>
