@@ -9,12 +9,12 @@
 
 .not-purchased {
   background-color: var(--not-purchased-color);
-  color: white;
+  color: var(--white);
 }
 
 .purchased {
   background-color: var(--purchased-color);
-  color: white;
+  color: var(--white);
   border: 1px solid var(--light-gray);
 }
 
@@ -49,6 +49,7 @@ ul li button {
   border: 1px solid var(--highlight-color);
   margin: 0 3px;
   height: 30px;
+  width: auto;
   font-size: 0.9em;
   border-radius: 3px;
 }
@@ -56,7 +57,8 @@ ul li button {
 ul li button:hover {
   background-color: var(--dark-gray);
   border: 1px solid var(--highlight-color);
-  color: #ffffff;
+  color: var(--white);
+  font-size: 0.9em;
 }
 
 .trash {
