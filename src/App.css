@@ -123,25 +123,3 @@ input[value='Join List']:hover {
   color: #95170e;
   margin: 3px;
 }
-
-/* NavButton Component Styles */
-nav {
-  margin-top: 20px;
-}
-nav .button {
-  align-items: flex-end;
-  height: 70px;
-  padding: 5px 15px;
-  background-color: var(--white);
-  color: var(--dark-gray);
-  border-radius: 0;
-  font-size: 1.25em;
-  text-decoration: none;
-}
-nav .button:hover {
-  text-decoration: underline;
-}
-nav .selected {
-  background-color: var(--dark-gray);
-  color: var(--highlight-color);
-}
