@@ -21,15 +21,16 @@ function App() {
             return (
               <div className="App">
                 <Switch>
-                  <Route exact path={`/`}>
-                    <Shopping userToken={userToken} list={data} />
-                  </Route>
-                  <Route path="/detail/:itemId?">
-                    <Shopping userToken={userToken} list={data} />
-                  </Route>
-                  <Route path="/add">
-                    <AddItem userToken={userToken} list={data} />
-                  </Route>
+                  <Route
+                    path="/add"
+                    render={() => <AddItem userToken={userToken} list={data} />}
+                  />
+                  <Route
+                    path="/:itemId?"
+                    render={() => (
+                      <Shopping userToken={userToken} list={data} />
+                    )}
+                  />
                 </Switch>
               </div>
             );
