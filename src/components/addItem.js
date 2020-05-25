@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import Header from './Header';
 import AddItemForm from './AddItemForm';
+import Nav from './Nav';
 
 class AddItem extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class AddItem extends React.Component {
             list={this.props.list}
           />
         </main>
+        <Nav />
       </>
     );
   }

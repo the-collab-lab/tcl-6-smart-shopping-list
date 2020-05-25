@@ -83,7 +83,7 @@ function Shopping(props) {
           ))}
         </ul>
       </main>
-    <Nav />
+      <Nav />
     </>
   ) : (
     <>
@@ -93,6 +93,7 @@ function Shopping(props) {
         <p>Your list is empty!</p>
         <Link to="/add">Add Your First Item</Link>
       </main>
+      <Nav />
     </>
   );
 }

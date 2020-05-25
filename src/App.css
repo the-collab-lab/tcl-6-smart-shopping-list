@@ -49,6 +49,11 @@ body {
   padding: 0 4%;
 }
 
+main {
+  flex: 1 0 auto;
+  min-height: auto;
+}
+
 h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 3em;

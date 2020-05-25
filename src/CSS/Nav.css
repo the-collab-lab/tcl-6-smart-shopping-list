@@ -1,20 +1,26 @@
-nav {
+#nav {
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
-nav .button {
-  align-items: flex-end;
-  height: 70px;
+#nav .button {
+  align-self: flex-end;
+  height: 50px;
   padding: 5px 15px;
   background-color: var(--white);
   color: var(--dark-gray);
   border-radius: 0;
   font-size: 1.25em;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
-nav .button:hover {
+#nav .button:hover {
   text-decoration: underline;
 }
-nav .selected {
+#nav .selected {
   background-color: var(--dark-gray);
   color: var(--highlight-color);
 }
