@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../lib/firebase';
 // Components
+import Header from './Header';
 import ListItem from './ListItem';
 import Nav from './Nav';
 import Filter from './Filter';
@@ -56,37 +57,43 @@ function Shopping(props) {
   }
 
   return sortedList.length > 0 ? (
-    <div>
-      <h1>Shopping List</h1>
-      <Filter
-        value={filterString}
-        onChange={event => handleTextChange(event)}
-        clear={() => handleClear()}
-      />
-      <ul>
-        {sortedList.map(item => (
-          <ListItem
-            key={item.id}
-            item={item}
-            token={props.userToken}
-            onDelete={() =>
-              handleClick({
-                name: item.name,
-                id: item.id,
-                token: props.userToken,
-              })
-            }
-          />
-        ))}
-      </ul>
-      <Nav />
-    </div>
+    <>
+      <Header />
+      <main>
+        <h2>Shopping List</h2>
+        <Filter
+          value={filterString}
+          onChange={event => handleTextChange(event)}
+          clear={() => handleClear()}
+        />
+        <ul>
+          {sortedList.map(item => (
+            <ListItem
+              key={item.id}
+              item={item}
+              token={props.userToken}
+              onDelete={() =>
+                handleClick({
+                  name: item.name,
+                  id: item.id,
+                  token: props.userToken,
+                })
+              }
+            />
+          ))}
+        </ul>
+      </main>
+    <Nav />
+    </>
   ) : (
-    <div>
-      <h1>Shopping List</h1>
-      <p>Your list is empty!</p>
-      <Link to="/add">Add Your First Item</Link>
-    </div>
+    <>
+      <Header />
+      <main>
+        <h2>Shopping List</h2>
+        <p>Your list is empty!</p>
+        <Link to="/add">Add Your First Item</Link>
+      </main>
+    </>
   );
 }
 

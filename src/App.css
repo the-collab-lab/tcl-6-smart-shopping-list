@@ -1,7 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans+Condensed:wght@700&family=Open+Sans:wght@300;400;600&display=swap');
+
+/* Google Fonts
+  font-family: 'Fredoka One', cursive;
+  font-family: 'Open Sans', sans-serif;
+    (font-weights 300, 400, and 600)
+  font-family: 'Open Sans Condensed', sans-serif;
+*/
+
 :root {
-  --highlight-color: #09d3ac;
+  --highlight-color: #60bfbf;
   --light-gray: #cccccc;
   --dark-gray: #282c34;
+  --black: #0f272a;
+  --white: #ffffff;
+  --tint-whtie: #dff2f2;
+  --primary-dark: #1f5158;
+}
+
+/* Color Pallet
+  Blue/greens dark to light
+    #32838c;
+    #60bfbf;
+    #bad9d9;
+    #dff2f2;
+  Tan
+    #f2d1b3;
+  Oranges
+    #faac3d
+    #f89a2e
+*/
+
+body {
+  background-size: 22%;
+  background-image: url(./image/eggheadded-repeat.svg);
+  background-repeat: repeat;
+  background-color: var(--tint-whtie);
 }
 
 .App {
@@ -10,26 +43,105 @@
   display: flex;
   flex-direction: column;
   font-size: 1em;
+  background-color: var(--white);
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3em;
+  color: var(--black);
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.25em;
+}
+
+.tagline {
+  max-width: 65%;
+  margin: 0 auto;
+  padding: 7% 0;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.home {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+p,
+legend,
+label,
+button,
+input,
+a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: var(--black);
+}
+
+button,
+input[value='Join List'] {
+  display: block;
+  width: 200px;
+  height: 50px;
+  padding: 2%;
+  margin: 1% auto 5%;
+  border: 1px solid var(--highlight-color);
+  border-radius: 3px;
+  text-align: center;
+  font-size: 1em;
+  color: var(--primary-dark);
+  background-color: var(--tint-whtie);
+  font-weight: 600;
+  transition: all 0.15s;
+}
+
+input {
+  padding: 1%;
+  margin: 1%;
+}
+
+button:hover,
+input[value='Join List']:hover {
+  color: var(--white);
+  background-color: var(--black);
+  border: 1px solid var(--white);
+  text-shadow: 0 0 2em rgba(255, 255, 255, 3);
+  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.1em;
+}
+
+/* Error Message*/
+.error {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #95170e;
+  margin: 3px;
 }
 
 /* NavButton Component Styles */
 nav {
   margin-top: 20px;
 }
-.button {
+nav .button {
   align-items: flex-end;
   height: 70px;
   padding: 5px 15px;
-  background-color: #ffffff;
+  background-color: var(--white);
   color: var(--dark-gray);
   border-radius: 0;
   font-size: 1.25em;
   text-decoration: none;
 }
-.button:hover {
+nav .button:hover {
   text-decoration: underline;
 }
-.selected {
+nav .selected {
   background-color: var(--dark-gray);
   color: var(--highlight-color);
 }
