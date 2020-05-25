@@ -4,7 +4,6 @@ import { FirestoreCollection } from 'react-firestore';
 import { ITEMS, USERS } from './constants';
 import Header from './components/Header';
 import Shopping from './components/shopping';
-import ItemDetail from './components/ItemDetail';
 import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
 import { useToken } from './lib/useToken';
@@ -21,21 +20,15 @@ function App() {
           render={({ data }) => {
             return (
               <div className="App">
-                <Route
-                  exact
-                  path="/"
-                  render={() => <Shopping userToken={userToken} list={data} />}
-                />
-                <Route
-                  path="/add"
-                  render={() => <AddItem userToken={userToken} list={data} />}
-                />
-                <Route
-                  path="/detail/:itemName"
-                  render={() => (
-                    <ItemDetail userToken={userToken} list={data} />
-                  )}
-                />
+                <Route exact path={`/`}>
+                  <Shopping userToken={userToken} list={data} />
+                </Route>
+                <Route path="/detail/:itemId?">
+                  <Shopping userToken={userToken} list={data} />
+                </Route>
+                <Route path="/add">
+                  <AddItem userToken={userToken} list={data} />
+                </Route>
               </div>
             );
           }}
