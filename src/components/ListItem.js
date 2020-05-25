@@ -84,7 +84,7 @@ const ListItem = ({ item, onDelete, token }) => {
         <button onClick={onDelete}>
           <img className="trash" src={trash} alt="delete item" />
         </button>
-        <Link onClick={() => setShow(true)}>
+        <Link to={item.id} onClick={() => setShow(true)}>
           <button>View Details</button>
         </Link>
       </li>
