@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import arrowLeft from '../image/arrow-left.svg';
 import '../CSS/Icon.css';
-
+// Small change
 const ItemDetail = ({ list }) => {
   let { itemName } = useParams();
   let item = list.find(item => item.name_normalized === itemName);
