@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ITEMS, USERS } from '../constants';
-import TestModal from './TestModal';
+import DetailModal from './DetailModal';
 
 //Lib Items
 import { db } from '../lib/firebase';
@@ -11,7 +11,7 @@ import calculateEstimate from '../lib/estimates';
 import trash from '../image/trash-icon.svg';
 //Css Styles
 import '../CSS/ListItem.css';
-import '../CSS/TestModal.css';
+import '../CSS/DetailModal.css';
 
 const ListItem = ({ item, onDelete, token }) => {
   const history = useHistory();
@@ -88,7 +88,7 @@ const ListItem = ({ item, onDelete, token }) => {
           <button>View Details</button>
         </Link>
       </li>
-      <TestModal
+      <DetailModal
         item={item}
         show={show}
         handleClose={() => {

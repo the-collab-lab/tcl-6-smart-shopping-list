@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import arrowLeft from '../image/arrow-left.svg';
 import '../CSS/Icon.css';
 
-const TestModal = ({ show, handleClose, item }) => {
+const DetailModal = ({ show, handleClose, item }) => {
   let lastPurchase =
     item && item.last_purchased !== ''
       ? new Date(item.last_purchased).toDateString()
@@ -40,4 +40,4 @@ const TestModal = ({ show, handleClose, item }) => {
   );
 };
 
-export default TestModal;
+export default DetailModal;
