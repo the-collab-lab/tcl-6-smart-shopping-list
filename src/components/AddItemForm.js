@@ -1,6 +1,7 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
 import { ITEMS, USERS } from '../../src/constants';
+import Nav from './Nav';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -74,34 +75,39 @@ class AddItemForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label className="name">
-          Name:
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-        </label>
-        <br />
-        <label className="schedule">
-          Schedule:
-          <select
-            className="schedule-btn"
-            value={this.state.next_purchase}
-            onChange={this.handleSchedule}
-          >
-            <option value="7">Soon</option>
-            <option value="14">Kind Of Soon</option>
-            <option value="30">Not Soon</option>
-          </select>
-        </label>
-        <br />
-        <input className="submit-btn" type="submit" value="Submit" />
-        {this.state.hasDupe && (
-          <p>{this.state.name} has already been added to your shopping list.</p>
-        )}
-      </form>
+      <>
+        <form onSubmit={this.handleSubmit}>
+          <label className="name">
+            Name:
+            <input
+              type="text"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </label>
+          <br />
+          <label className="schedule">
+            Schedule:
+            <select
+              className="schedule-btn"
+              value={this.state.next_purchase}
+              onChange={this.handleSchedule}
+            >
+              <option value="7">Soon</option>
+              <option value="14">Kind Of Soon</option>
+              <option value="30">Not Soon</option>
+            </select>
+          </label>
+          <br />
+          <input className="submit-btn" type="submit" value="Submit" />
+          {this.state.hasDupe && (
+            <p>
+              {this.state.name} has already been added to your shopping list.
+            </p>
+          )}
+        </form>
+        <Nav />
+      </>
     );
   }
 }

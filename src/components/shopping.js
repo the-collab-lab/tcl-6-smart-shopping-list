@@ -4,6 +4,7 @@ import { db } from '../lib/firebase';
 // Components
 import Header from './Header';
 import ListItem from './ListItem';
+import Nav from './Nav';
 import Filter from './Filter';
 import {
   sortAlphabetically,
@@ -82,6 +83,7 @@ function Shopping(props) {
           ))}
         </ul>
       </main>
+    <Nav />
     </>
   ) : (
     <>
