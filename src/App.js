@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FirestoreCollection } from 'react-firestore';
 import { ITEMS, USERS } from './constants';
 import Header from './components/Header';
@@ -20,15 +20,17 @@ function App() {
           render={({ data }) => {
             return (
               <div className="App">
-                <Route exact path={`/`}>
-                  <Shopping userToken={userToken} list={data} />
-                </Route>
-                <Route path="/detail/:itemId?">
-                  <Shopping userToken={userToken} list={data} />
-                </Route>
-                <Route path="/add">
-                  <AddItem userToken={userToken} list={data} />
-                </Route>
+                <Switch>
+                  <Route exact path={`/`}>
+                    <Shopping userToken={userToken} list={data} />
+                  </Route>
+                  <Route path="/detail/:itemId?">
+                    <Shopping userToken={userToken} list={data} />
+                  </Route>
+                  <Route path="/add">
+                    <AddItem userToken={userToken} list={data} />
+                  </Route>
+                </Switch>
               </div>
             );
           }}
