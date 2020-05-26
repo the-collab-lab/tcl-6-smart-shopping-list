@@ -53,6 +53,7 @@ h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 3em;
   color: var(--black);
+  font-weight: normal;
 }
 
 h2 {

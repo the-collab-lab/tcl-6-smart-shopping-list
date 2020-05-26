@@ -14,16 +14,8 @@ const DetailModal = ({ show, handleClose, item }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header className="modal-header">
-        <Button onClick={handleClose} className="to-shopping">
-          <img
-            className="arrow-left"
-            src={arrowLeft}
-            alt="Back to shopping list"
-          />{' '}
-          <span className="back-text">Back to list</span>
-        </Button>
         <Modal.Title>
-          <h3>{item.name} details</h3>
+          <h1 className="modal-item-name">{item.name} </h1>
         </Modal.Title>
       </Modal.Header>
 
@@ -34,7 +26,9 @@ const DetailModal = ({ show, handleClose, item }) => {
       </Modal.Body>
 
       <Modal.Footer className="modal-footer">
-        <Button onClick={handleClose}>Close</Button>
+        <Button className="modal-button" onClick={handleClose}>
+          Back to list
+        </Button>
       </Modal.Footer>
     </Modal>
   );

@@ -146,12 +146,13 @@
 }
 
 .modal-backdrop.show {
-  opacity: 0.5;
+  opacity: 0.85;
+  backdrop-filter: blur(2px);
 }
 
 .modal-header {
   display: -ms-flexbox;
-  display: flex;
+
   -ms-flex-align: start;
   align-items: flex-start;
   -ms-flex-pack: justify;
@@ -243,11 +244,32 @@
     max-width: 1140px;
   }
 }
-/* Modal Designs*/
+
+/* Non-Bootstrap Modal Designs */
+.modal-item-name {
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 .modal-header {
   background-color: var(--tint-white);
 }
 
 .modal-footer {
   background-color: var(--tint-white);
+}
+
+.modal-button {
+  color: var(--white);
+  background-color: var(--black);
+  border: 1px solid var(--white);
+  text-shadow: 0 0 2em rgba(255, 255, 255, 3);
+  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.1em;
+}
+.modal-button:hover {
+  color: var(--primary-dark);
+  background-color: var(--tint-white);
+  border: 1px solid var(--highlight-color);
 }
