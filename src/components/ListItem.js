@@ -9,8 +9,8 @@ import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
 import calculateEstimate from '../lib/estimates';
 //Image
 import trash from '../image/trash-icon.svg';
-import lemon from '../image/lemon-regular.svg';
-import lemonSolid from '../image/lemon-solid.svg';
+import eggWhole from '../image/egg-whole.svg';
+import eggHeartCracked from '../image/egg-heart-cracked.svg';
 import rightChevron from '../image/angle-right-solid.svg';
 //Css Styles
 import '../CSS/ListItem.css';
@@ -63,16 +63,18 @@ const ListItem = ({ item, onDelete, token }) => {
   }
 
   return (
-    <li className={className}>
+    <li>
       <button
-        // className={isPurchased ? 'purchased' : 'not-purchased'}
+        className={`${
+          isPurchased ? 'purchased' : 'not-purchased'
+        } ${className}`}
         onClick={onHandle}
         disabled={isPurchased ? !null : null}
       >
         {isPurchased ? (
-          <img className="lemon" src={lemonSolid} alt="purchase item" />
+          <img className="egg" src={eggHeartCracked} alt="purchase item" />
         ) : (
-          <img className="lemon" src={lemon} alt="purchase item" />
+          <img className="egg" src={eggWhole} alt="purchase item" />
         )}
 
         <span className="screen-reader-only">Purchase {item.name}.</span>
@@ -84,8 +86,8 @@ const ListItem = ({ item, onDelete, token }) => {
         Next purchase in {item.next_purchase} days.
       </span>
 
-      <button onClick={onDelete}>
-        <img className="trash" src={trash} alt="delete item" />
+      <button className="trash" onClick={onDelete}>
+        <img className="trashIcon" src={trash} alt="delete item" />
       </button>
 
       <Link to={`detail/${item.name_normalized}`}>

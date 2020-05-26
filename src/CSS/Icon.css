@@ -1,8 +1,11 @@
+/* Lemon */
+.egg {
+  height: 25px;
+}
+
 /* Trash */
-.lemon,
-.trash {
+.trashIcon {
   height: 18px;
-  /* padding: 5px; */
 }
 
 .chevron {

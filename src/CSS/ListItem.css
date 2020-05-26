@@ -1,33 +1,11 @@
 :root {
-  --not-purchased-color: blue;
+  --not-purchased-color: #000;
   --purchased-color: #ff7b00;
   --soon-color: #00aa00;
   --kind-of-soon-color: #1f3a93;
   --not-soon-color: #ff4500;
   --inactive-color: #7e7e7e;
 }
-
-/* .not-purchased {
-  background-color: var(--not-purchased-color);
-  color: var(--white);
-} */
-
-/* .purchased {
-  background-color: var(--purchased-color);
-  color: var(--white);
-  border: 1px solid var(--light-gray);
-}
-
-.not-purchased {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--highlight-color);
-  color: var(--black);
-} */
-
-/* .purchased::before {
-  color: var(--highlight-color);
-  content: '\2713 ';
-} */
 
 ul {
   list-style-type: none;
@@ -40,6 +18,7 @@ ul li {
   padding: 5px;
   display: flex;
   align-items: center;
+  border: solid 1px var(--highlight-color);
 }
 
 ul li button {
@@ -48,8 +27,8 @@ ul li button {
   background-color: var(--highlight-color);
   border: 1px solid var(--highlight-color);
   margin: 0 3px;
-  height: 30px;
-  width: auto;
+  height: 40px;
+  width: 40px;
   font-size: 0.9em;
   border-radius: 3px;
 }
@@ -61,23 +40,20 @@ ul li button:hover {
   font-size: 0.9em;
 }
 
-.soon {
-  color: var(--soon-color);
-  font-weight: bold;
+button.soon {
+  background-color: var(--soon-color);
 }
 
-.kind-of-soon {
-  color: var(--kind-of-soon-color);
-  font-family: monospace;
+button.kind-of-soon {
+  background-color: var(--kind-of-soon-color);
 }
 
-.not-soon {
-  color: var(--not-soon-color);
-  font-stretch: expanded;
+button.not-soon {
+  background-color: var(--not-soon-color);
 }
 
-.inactive {
-  color: var(--inactive-color);
+button.inactive {
+  background-color: var(--inactive-color);
 }
 
 .label {
@@ -100,4 +76,9 @@ ul li button:hover {
   margin: 0 0 0 15px;
   width: 200px;
   text-align: left;
+  font-weight: bold;
+}
+
+.trash button {
+  background-color: var(--highlight-color);
 }

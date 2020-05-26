@@ -44,6 +44,7 @@ body {
   flex-direction: column;
   font-size: 1em;
   background-color: var(--white);
+  border: solid 1px #000;
   max-width: 450px;
   margin: 0 auto;
   padding: 0 4%;
