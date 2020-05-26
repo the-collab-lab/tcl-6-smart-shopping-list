@@ -265,12 +265,12 @@
   background-color: var(--black);
   border: 1px solid var(--white);
   text-shadow: 0 0 2em rgba(255, 255, 255, 3);
-  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
   font-size: 1.1em;
   width: 150px;
 }
 .modal-button:hover {
   color: var(--primary-dark);
   background-color: var(--tint-white);
+  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--highlight-color);
 }
