@@ -1,7 +1,6 @@
 import React from 'react';
 import { withFirestore } from 'react-firestore';
 import { ITEMS, USERS } from '../../src/constants';
-import Nav from './Nav';
 import '../CSS/AddItemForm.css';
 
 class AddItemForm extends React.Component {
@@ -106,7 +105,6 @@ class AddItemForm extends React.Component {
             </p>
           )}
         </form>
-        <Nav />
       </>
     );
   }
