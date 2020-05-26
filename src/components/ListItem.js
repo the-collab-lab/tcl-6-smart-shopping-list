@@ -9,8 +9,12 @@ import { getDifferenceInHours, getDifferenceInDays } from '../lib/timeUtils';
 import calculateEstimate from '../lib/estimates';
 //Image
 import trash from '../image/trash-icon.svg';
+import lemon from '../image/lemon-regular.svg';
+import lemonSolid from '../image/lemon-solid.svg';
+import rightChevron from '../image/angle-right-solid.svg';
 //Css Styles
 import '../CSS/ListItem.css';
+import '../CSS/Icon.css';
 
 const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);
@@ -60,25 +64,34 @@ const ListItem = ({ item, onDelete, token }) => {
 
   return (
     <li className={className}>
-      <span className="label" aria-hidden="true">
-        {purchaseNext}
-      </span>
-      {item.name}
-      <span className="screen-reader-only">
-        Next purchase in {item.next_purchase} days.
-      </span>
       <button
-        className={isPurchased ? 'purchased' : 'not-purchased'}
+        // className={isPurchased ? 'purchased' : 'not-purchased'}
         onClick={onHandle}
         disabled={isPurchased ? !null : null}
       >
-        Purchase
-        <span className="screen-reader-only">{item.name}.</span>
+        {isPurchased ? (
+          <img className="lemon" src={lemonSolid} alt="purchase item" />
+        ) : (
+          <img className="lemon" src={lemon} alt="purchase item" />
+        )}
+
+        <span className="screen-reader-only">Purchase {item.name}.</span>
       </button>
+
+      <span className="item-name">{item.name}</span>
+
+      <span className="screen-reader-only">
+        Next purchase in {item.next_purchase} days.
+      </span>
+
       <button onClick={onDelete}>
         <img className="trash" src={trash} alt="delete item" />
       </button>
-      <Link to={`detail/${item.name_normalized}`}>View Details</Link>
+
+      <Link to={`detail/${item.name_normalized}`}>
+        {' '}
+        <img className="chevron" src={rightChevron} alt="View item details" />
+      </Link>
     </li>
   );
 };

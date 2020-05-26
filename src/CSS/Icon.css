@@ -1,3 +1,15 @@
+/* Trash */
+.lemon,
+.trash {
+  height: 18px;
+  /* padding: 5px; */
+}
+
+.chevron {
+  height: 30px;
+  margin: 0 0 0 15px;
+}
+
 /* Arrow-Left */
 .arrow-left {
   display: flex;
