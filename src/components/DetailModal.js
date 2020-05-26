@@ -13,7 +13,7 @@ const DetailModal = ({ show, handleClose, item }) => {
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Modal.Header>
+      <Modal.Header className="modal-header">
         <Button onClick={handleClose} className="to-shopping">
           <img
             className="arrow-left"
@@ -33,7 +33,7 @@ const DetailModal = ({ show, handleClose, item }) => {
         {lastPurchase === '' ? null : <h2>Last Purchased: {lastPurchase}</h2>}
       </Modal.Body>
 
-      <Modal.Footer>
+      <Modal.Footer className="modal-footer">
         <Button onClick={handleClose}>Close</Button>
       </Modal.Footer>
     </Modal>

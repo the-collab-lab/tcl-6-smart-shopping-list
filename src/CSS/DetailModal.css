@@ -1,5 +1,14 @@
 /** Modal Styling **/
 /** From bootstrap.css **/
+:root {
+  --highlight-color: #60bfbf;
+  --light-gray: #cccccc;
+  --dark-gray: #282c34;
+  --black: #0f272a;
+  --white: #ffffff;
+  --tint-white: #dff2f2;
+  --primary-dark: #1f5158;
+}
 
 .modal-open {
   overflow: hidden;
@@ -233,4 +242,12 @@
   .modal-xl {
     max-width: 1140px;
   }
+}
+/* Modal Designs*/
+.modal-header {
+  background-color: var(--tint-white);
+}
+
+.modal-footer {
+  background-color: var(--tint-white);
 }
