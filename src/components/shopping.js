@@ -56,7 +56,7 @@ function Shopping(props) {
     }
   }
 
-  return sortedList.length > 0 ? (
+  return props.list.length > 0 ? (
     <>
       <Header />
       <main>
@@ -66,6 +66,7 @@ function Shopping(props) {
           onChange={event => handleTextChange(event)}
           clear={() => handleClear()}
         />
+        {sortedList.length === 0 ? <p>No matches found.</p> : null}
         <ul>
           {sortedList.map(item => (
             <ListItem
@@ -83,7 +84,7 @@ function Shopping(props) {
           ))}
         </ul>
       </main>
-    <Nav />
+      <Nav />
     </>
   ) : (
     <>
