@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../lib/firebase';
-// Components
 import Header from './Header';
 import ListItem from './ListItem';
 import Nav from './Nav';
@@ -11,7 +10,6 @@ import {
   sortByNextPurchase,
   sortInactive,
 } from '../lib/sortUtils';
-// Constants
 import { ITEMS, USERS } from '../constants';
 
 function Shopping(props) {
@@ -83,7 +81,7 @@ function Shopping(props) {
           ))}
         </ul>
       </main>
-    <Nav />
+      <Nav />
     </>
   ) : (
     <>
