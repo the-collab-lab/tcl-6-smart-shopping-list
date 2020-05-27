@@ -8,6 +8,7 @@
 }
 
 ul {
+  padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -74,7 +75,7 @@ button.inactive {
 
 .item-name {
   margin: 0 0 0 15px;
-  width: 200px;
+  width: 300px;
   text-align: left;
   font-weight: bold;
 }
