@@ -72,9 +72,19 @@ const ListItem = ({ item, onDelete, token }) => {
         disabled={isPurchased ? !null : null}
       >
         {isPurchased ? (
-          <img className="egg" src={eggHeartCracked} alt="purchase item" />
+          <img
+            className="egg"
+            src={eggHeartCracked}
+            title="Item is purchased"
+            alt="Item is purchased"
+          />
         ) : (
-          <img className="egg" src={eggWhole} alt="purchase item" />
+          <img
+            className="egg"
+            src={eggWhole}
+            title="Purchase item"
+            alt="Purchase item"
+          />
         )}
 
         <span className="screen-reader-only">Purchase {item.name}.</span>
@@ -87,12 +97,22 @@ const ListItem = ({ item, onDelete, token }) => {
       </span>
 
       <button className="trash" onClick={onDelete}>
-        <img className="trashIcon" src={trash} alt="delete item" />
+        <img
+          className="trashIcon"
+          src={trash}
+          title="Delete item"
+          alt="Delete item"
+        />
       </button>
 
       <Link to={`detail/${item.name_normalized}`}>
         {' '}
-        <img className="chevron" src={rightChevron} alt="View item details" />
+        <img
+          className="chevron"
+          src={rightChevron}
+          title="View item details"
+          alt="View item details"
+        />
       </Link>
     </li>
   );
