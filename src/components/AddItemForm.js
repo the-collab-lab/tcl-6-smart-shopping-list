@@ -87,19 +87,11 @@ class AddItemForm extends React.Component {
           </label>
           <br />
           <label className="schedule">
-            Schedule:
-            <select
-              className="schedule-btn"
-              value={this.state.next_purchase}
-              onChange={this.handleSchedule}
-            >
-              <option value="7">Soon</option>
-              <option value="14">Kind Of Soon</option>
-              <option value="30">Not Soon</option>
-            </select>
+            <button className="time-frame square1">Soon</button>
+            <button className="time-frame square2">Kind of soon</button>
+            <button className="time-frame square3">Not so soon</button>
           </label>
           <br />
-          <input className="submit-btn" type="submit" value="Submit" />
           {this.state.hasDupe && (
             <p>
               {this.state.name} has already been added to your shopping list.

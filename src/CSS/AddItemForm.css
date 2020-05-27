@@ -10,12 +10,15 @@
 
 /*Schedule*/
 .schedule {
-  margin-right: 85px;
-  line-height: 1.6;
+  display: flex;
+  margin-top: 10%;
 }
 
-.schedule-btn {
-  margin-left: 5px;
+/* .square1{
+  color: #
+} */
+.time-frame {
+  margin-right: 3%;
 }
 /*Last Purchase Date*/
 .lastpurchase {
