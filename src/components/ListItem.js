@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
 import { ITEMS, USERS } from '../constants';
+import DetailModal from './DetailModal';
 
 //Lib Items
 import { db } from '../lib/firebase';
@@ -11,8 +11,13 @@ import calculateEstimate from '../lib/estimates';
 import trash from '../image/trash-icon.svg';
 //Css Styles
 import '../CSS/ListItem.css';
+import '../CSS/DetailModal.css';
 
 const ListItem = ({ item, onDelete, token }) => {
+  const history = useHistory();
+
+  let [show, setShow] = useState(false);
+
   const [isPurchased, setPurchased] = useState(false);
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
@@ -31,7 +36,7 @@ const ListItem = ({ item, onDelete, token }) => {
     setPurchased(true);
   }
 
-  function onHandle(event) {
+  function onPurchase(event) {
     event.preventDefault();
     numberOfPurchases++;
 
@@ -59,27 +64,39 @@ const ListItem = ({ item, onDelete, token }) => {
   }
 
   return (
-    <li className={className}>
-      <span className="label" aria-hidden="true">
-        {purchaseNext}
-      </span>
-      {item.name}
-      <span className="screen-reader-only">
-        Next purchase in {item.next_purchase} days.
-      </span>
-      <button
-        className={isPurchased ? 'purchased' : 'not-purchased'}
-        onClick={onHandle}
-        disabled={isPurchased ? !null : null}
-      >
-        Purchase
-        <span className="screen-reader-only">{item.name}.</span>
-      </button>
-      <button onClick={onDelete}>
-        <img className="trash" src={trash} alt="delete item" />
-      </button>
-      <Link to={`detail/${item.name_normalized}`}>View Details</Link>
-    </li>
+    <>
+      <li className={className}>
+        <span className="label" aria-hidden="true">
+          {purchaseNext}
+        </span>
+        {item.name}
+        <span className="screen-reader-only">
+          You might want this in {item.next_purchase} days.
+        </span>
+        <button
+          className={isPurchased ? 'purchased' : 'not-purchased'}
+          onClick={onPurchase}
+          disabled={isPurchased ? !null : null}
+        >
+          Purchase
+          <span className="screen-reader-only">{item.name}.</span>
+        </button>
+        <button onClick={onDelete}>
+          <img className="trash" src={trash} alt="delete item" />
+        </button>
+        <Link to={item.id} onClick={() => setShow(true)}>
+          <button>View Details</button>
+        </Link>
+      </li>
+      <DetailModal
+        item={item}
+        show={show}
+        handleClose={() => {
+          setShow(false);
+          history.push('/');
+        }}
+      />
+    </>
   );
 };
 
