@@ -1,3 +1,12 @@
+:root {
+  --not-purchased-color: blue;
+  --purchased-color: #ff7b00;
+  --soon-color: #00aa00;
+  --kind-of-soon-color: #1f3a93;
+  --not-soon-color: #ff4500;
+  --inactive-color: #7e7e7e;
+}
+
 /*Name*/
 .name {
   margin-right: 54px;
@@ -9,27 +18,26 @@
   width: 150px;
 }
 
-/*Schedule*/
+/*Schedule Buttons*/
 .schedule {
   display: flex;
+  justify-content: space-between;
   margin-top: 10%;
 }
 
-.time-frame {
-  margin-right: 3%;
+.btn1:hover {
+  background-color: var(--soon-color);
 }
 
-.square3 {
-  margin-right: 0%;
+.btn2:hover {
+  background-color: var(--kind-of-soon-color);
 }
+.btn3:hover {
+  background-color: var(--not-soon-color);
+}
+
 /*Last Purchase Date*/
 .lastpurchase {
   margin-right: 105px;
   line-height: 1.6;
 }
-
-/* Submit */
-/* .submit-btn {
-  font-size: 1rem;
-  margin: 10px 0px;
-} */

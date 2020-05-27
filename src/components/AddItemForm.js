@@ -86,30 +86,33 @@ class AddItemForm extends React.Component {
             />
           </label>
           <br />
-          <label className="schedule">
+          <label>Schedule</label>
+          <span className="schedule">
             <button
               type="submit"
-              className="time-frame square1"
+              className="time-frame btn1"
               value="7"
               onClick={this.handleSchedule}
             >
               Soon
             </button>
             <button
-              className="time-frame square2"
+              type="submit"
+              className="time-frame btn2"
               value="14"
               onClick={this.handleSchedule}
             >
               Kind of soon
             </button>
             <button
-              className="time-frame square3"
+              type="submit"
+              className="time-frame btn3"
               value="30"
               onClick={this.handleSchedule}
             >
               Not so soon
             </button>
-          </label>
+          </span>
           <br />
           {this.state.hasDupe && (
             <p>
