@@ -7,34 +7,11 @@
   font-family: 'Open Sans Condensed', sans-serif;
 */
 
-:root {
-  --highlight-color: #60bfbf;
-  --light-gray: #cccccc;
-  --dark-gray: #282c34;
-  --black: #0f272a;
-  --white: #ffffff;
-  --tint-whtie: #dff2f2;
-  --primary-dark: #1f5158;
-}
-
-/* Color Pallet
-  Blue/greens dark to light
-    #32838c;
-    #60bfbf;
-    #bad9d9;
-    #dff2f2;
-  Tan
-    #f2d1b3;
-  Oranges
-    #faac3d
-    #f89a2e
-*/
-
 body {
   background-size: 22%;
   background-image: url(./image/eggheadded-repeat.svg);
   background-repeat: repeat;
-  background-color: var(--tint-whtie);
+  background-color: var(--tint-white);
 }
 
 .App {
@@ -102,7 +79,7 @@ input[value='Join List'] {
   text-align: center;
   font-size: 1em;
   color: var(--primary-dark);
-  background-color: var(--tint-whtie);
+  background-color: var(--tint-white);
   font-weight: 600;
   transition: all 0.15s;
 }

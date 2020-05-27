@@ -15,6 +15,7 @@ import rightChevron from '../image/angle-right-solid.svg';
 //Css Styles
 import '../CSS/ListItem.css';
 import '../CSS/Icon.css';
+import '../CSS/colors.css';
 
 const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);

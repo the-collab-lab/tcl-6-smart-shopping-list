@@ -9,6 +9,7 @@ import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
 import { useToken } from './lib/useToken';
 import './App.css';
+import './CSS/colors.css';
 
 function App() {
   const [userToken, createToken, setToken] = useToken();
