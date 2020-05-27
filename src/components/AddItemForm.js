@@ -13,6 +13,7 @@ class AddItemForm extends React.Component {
       last_purchased: '',
       number_purchases: 0,
       hasDupe: false,
+      invalid: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSchedule = this.handleSchedule.bind(this);
@@ -23,6 +24,7 @@ class AddItemForm extends React.Component {
     this.setState({
       name: event.target.value,
       hasDupe: false,
+      invalid: false,
     });
   }
 
@@ -44,6 +46,13 @@ class AddItemForm extends React.Component {
     const hasDupe = props.list.some(
       item => item.name_normalized === name_normalized,
     );
+
+    const invalid = name_normalized.length > 0;
+
+    if (!invalid) {
+      this.setState({ invalid: true });
+      return;
+    }
 
     if (hasDupe) {
       this.setState({ hasDupe });
@@ -101,10 +110,11 @@ class AddItemForm extends React.Component {
           <br />
           <input className="submit-btn" type="submit" value="Submit" />
           {this.state.hasDupe && (
-            <p>
+            <p className="error">
               {this.state.name} has already been added to your shopping list.
             </p>
           )}
+          {this.state.invalid && <p className="error">Invalid item name.</p>}
         </form>
         <Nav />
       </>
