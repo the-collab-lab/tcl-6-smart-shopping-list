@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { ITEMS, USERS } from '../constants';
 
@@ -107,13 +109,7 @@ const ListItem = ({ item, onDelete, token }) => {
       </button>
 
       <Link to={`detail/${item.name_normalized}`}>
-        {' '}
-        <img
-          className="chevron"
-          src={rightChevron}
-          title="View item details"
-          alt="View item details"
-        />
+        <FontAwesomeIcon icon={faAngleRight} size="3x" className="chevron" />
       </Link>
     </li>
   );

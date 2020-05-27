@@ -13,6 +13,10 @@
   margin: 0 0 0 15px;
 }
 
+FontAwesomeIcon:hover {
+  color: var(--highlight-color);
+}
+
 .chevron:hover {
   filter: invert(0.9) sepia(0.1) saturate(50) hue-rotate(180deg);
 }
