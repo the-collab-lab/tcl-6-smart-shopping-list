@@ -6,6 +6,7 @@
   margin: 0px 10px;
   line-height: 1.6;
   margin-right: 31px;
+  width: 150px;
 }
 
 /*Schedule*/
@@ -14,11 +15,12 @@
   margin-top: 10%;
 }
 
-/* .square1{
-  color: #
-} */
 .time-frame {
   margin-right: 3%;
+}
+
+.square3 {
+  margin-right: 0%;
 }
 /*Last Purchase Date*/
 .lastpurchase {
@@ -27,7 +29,7 @@
 }
 
 /* Submit */
-.submit-btn {
+/* .submit-btn {
   font-size: 1rem;
   margin: 10px 0px;
-}
+} */
