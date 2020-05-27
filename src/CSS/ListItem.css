@@ -20,6 +20,8 @@ ul li {
   display: flex;
   align-items: center;
   border: solid 1px var(--highlight-color);
+  background-color: var(--light-gray);
+  margin: 2px;
 }
 
 ul li button {
