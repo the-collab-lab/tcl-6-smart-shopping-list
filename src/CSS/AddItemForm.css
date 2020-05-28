@@ -5,32 +5,60 @@
   --kind-of-soon-color: #1f3a93;
   --not-soon-color: #ff4500;
   --inactive-color: #7e7e7e;
+  --button-margin: 10px;
+  --margin-five: 5%;
+}
+label {
+  display: inline-block;
+  font-weight: 400;
 }
 
 /*Name*/
 .name {
-  margin-right: 54px;
+  white-space: nowrap;
+  margin-right: 2%;
+}
+input {
+  font-weight: 400;
+  font-size: 1em;
 }
 .name input {
-  margin: 0px 10px;
   line-height: 1.6;
-  margin-right: 31px;
   width: 150px;
+  margin-left: var(--margin-five);
+  font-weight: 400;
 }
 
 /*Schedule Buttons*/
 .schedule {
+  margin-top: var(--margin-five);
+  margin-bottom: var(--margin-five);
+  margin-left: var(--margin-five);
+}
+
+.btn-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10%;
+  flex-direction: column;
+  margin-right: 25%;
+}
+
+.btn1 {
+  margin-right: var(--button-margin);
 }
 
 .btn1:hover {
   background-color: var(--soon-color);
 }
 
+.btn2 {
+  margin-right: var(--button-margin);
+}
+
 .btn2:hover {
   background-color: var(--kind-of-soon-color);
+}
+.btn3 {
+  margin-right: var(--button-margin);
 }
 .btn3:hover {
   background-color: var(--not-soon-color);

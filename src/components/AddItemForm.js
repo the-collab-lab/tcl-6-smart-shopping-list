@@ -87,7 +87,7 @@ class AddItemForm extends React.Component {
       <>
         <form onSubmit={this.handleSubmit}>
           <label className="name">
-            Name:
+            Name
             <input
               type="text"
               value={this.state.name}
@@ -95,11 +95,13 @@ class AddItemForm extends React.Component {
             />
           </label>
           <br />
-          <label>Schedule</label>
-          <span className="schedule">
+          <label className="schedule">
+            How soon do you need to buy {this.state.name}?
+          </label>
+          <span className="btn-container">
             <button
               type="submit"
-              className="time-frame btn1"
+              className="btn1"
               value="7"
               onClick={this.handleSchedule}
             >
@@ -107,7 +109,7 @@ class AddItemForm extends React.Component {
             </button>
             <button
               type="submit"
-              className="time-frame btn2"
+              className="btn2"
               value="14"
               onClick={this.handleSchedule}
             >
@@ -115,7 +117,7 @@ class AddItemForm extends React.Component {
             </button>
             <button
               type="submit"
-              className="time-frame btn3"
+              className="btn3"
               value="30"
               onClick={this.handleSchedule}
             >
