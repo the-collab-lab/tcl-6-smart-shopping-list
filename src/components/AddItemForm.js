@@ -96,7 +96,8 @@ class AddItemForm extends React.Component {
           </label>
           <br />
           <label className="schedule">
-            How soon do you need to buy {this.state.name}?
+            How soon do you need to buy{' '}
+            {this.state.name !== '' ? this.state.name : 'this'}?
           </label>
           <span className="btn-container">
             <button
