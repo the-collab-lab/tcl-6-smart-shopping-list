@@ -87,7 +87,7 @@ class AddItemForm extends React.Component {
       <>
         <form onSubmit={this.handleSubmit}>
           <label className="name">
-            Name:
+            Name
             <input
               type="text"
               value={this.state.name}
@@ -96,19 +96,35 @@ class AddItemForm extends React.Component {
           </label>
           <br />
           <label className="schedule">
-            Schedule:
-            <select
-              className="schedule-btn"
-              value={this.state.next_purchase}
-              onChange={this.handleSchedule}
-            >
-              <option value="7">Soon</option>
-              <option value="14">Kind Of Soon</option>
-              <option value="30">Not Soon</option>
-            </select>
+            How soon do you need to buy {this.state.name}?
           </label>
+          <span className="btn-container">
+            <button
+              type="submit"
+              className="btn1"
+              value="7"
+              onClick={this.handleSchedule}
+            >
+              Soon
+            </button>
+            <button
+              type="submit"
+              className="btn2"
+              value="14"
+              onClick={this.handleSchedule}
+            >
+              Kind of soon
+            </button>
+            <button
+              type="submit"
+              className="btn3"
+              value="30"
+              onClick={this.handleSchedule}
+            >
+              Not so soon
+            </button>
+          </span>
           <br />
-          <input className="submit-btn" type="submit" value="Submit" />
           {this.state.hasDupe && (
             <p className="error">
               {this.state.name} has already been added to your shopping list.
