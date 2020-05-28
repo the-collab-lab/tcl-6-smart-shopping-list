@@ -13,7 +13,6 @@ import calculateEstimate from '../lib/estimates';
 import trash from '../image/trash-icon.svg';
 import eggWhole from '../image/egg-whole.svg';
 import eggHeartCracked from '../image/egg-heart-cracked.svg';
-import rightChevron from '../image/angle-right-solid.svg';
 //Css Styles
 import '../CSS/ListItem.css';
 import '../CSS/Icon.css';
@@ -25,14 +24,14 @@ const ListItem = ({ item, onDelete, token }) => {
   let hoursDiff = getDifferenceInHours(item.last_purchased);
   let daysDiff = getDifferenceInDays(item.last_purchased);
 
-  let [className, purchaseNext] =
+  let className =
     daysDiff > 2 * item.next_purchase
-      ? ['inactive', 'inactive']
-      : item.next_purchase < 8
-      ? ['soon', 'soon']
-      : item.next_purchase < 15
-      ? ['kind-of-soon', 'kind of soon']
-      : ['not-soon', 'not soon'];
+      ? 'inactive'
+      : item.next_purchase > 14
+      ? 'not-soon'
+      : item.next_purchase > 8
+      ? 'kind-of-soon'
+      : 'soon';
 
   if (hoursDiff < 24 && isPurchased === false) {
     setPurchased(true);
