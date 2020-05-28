@@ -6,6 +6,7 @@
   --button-margin: 10px;
   --margin-five: 5%;
 }
+
 label {
   display: inline-block;
   font-weight: 400;
@@ -58,10 +59,4 @@ input {
 }
 .btn3:hover {
   background-color: var(--not-soon-color);
-}
-
-/*Last Purchase Date*/
-.lastpurchase {
-  margin-right: 105px;
-  line-height: 1.6;
 }
