@@ -163,11 +163,6 @@
   border-top-right-radius: calc(0.3rem - 1px);
 }
 
-.modal-header .close {
-  padding: 1rem 1rem;
-  margin: -1rem -1rem -1rem auto;
-}
-
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
