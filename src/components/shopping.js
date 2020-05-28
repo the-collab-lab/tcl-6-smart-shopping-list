@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../lib/firebase';
+// Components
 import Header from './Header';
 import ListItem from './ListItem';
 import Nav from './Nav';
 import Filter from './Filter';
-import {
-  sortAlphabetically,
-  sortByNextPurchase,
-  sortInactive,
-} from '../lib/sortUtils';
+import { sortList } from '../lib/sortUtils';
+// Constants
 import { ITEMS, USERS } from '../constants';
 
 function Shopping(props) {
@@ -20,9 +18,7 @@ function Shopping(props) {
     setFilteredList(props.list);
   }, [props.list]);
 
-  sortAlphabetically(filteredList);
-  sortByNextPurchase(filteredList);
-  let sortedList = sortInactive(filteredList);
+  let sortedList = sortList(filteredList);
 
   const handleTextChange = event => {
     setFilterString(event.target.value);
@@ -54,7 +50,7 @@ function Shopping(props) {
     }
   }
 
-  return props.list.length > 0 ? (
+  return sortedList.length > 0 ? (
     <>
       <Header />
       <main>
@@ -64,7 +60,6 @@ function Shopping(props) {
           onChange={event => handleTextChange(event)}
           clear={() => handleClear()}
         />
-        {sortedList.length === 0 ? <p>No matches found.</p> : null}
         <ul>
           {sortedList.map(item => (
             <ListItem
@@ -92,7 +87,6 @@ function Shopping(props) {
         <p>Your list is empty!</p>
         <Link to="/add">Add Your First Item</Link>
       </main>
-      <Nav />
     </>
   );
 }
