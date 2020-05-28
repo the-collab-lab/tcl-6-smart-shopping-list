@@ -2,14 +2,15 @@ import React from 'react';
 
 const Filter = ({ value, onChange, clear }) => {
   return (
-    <div>
+    <div id="search">
+      <label className="screen-reader-only">Search List</label>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Search List"
         value={value}
         onChange={onChange}
       />
-      <button onClick={clear}>CLEAR</button>
+      <button onClick={clear}>Clear</button>
     </div>
   );
 };

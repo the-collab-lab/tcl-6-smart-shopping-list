@@ -76,3 +76,25 @@ button.inactive {
 .trash button {
   background-color: var(--highlight-color);
 }
+
+#search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 2%;
+}
+
+#search input {
+  line-height: 1.6;
+  width: 200px;
+  margin-left: var(--margin-five);
+  font-weight: 400;
+}
+
+#search button {
+  width: 100px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
