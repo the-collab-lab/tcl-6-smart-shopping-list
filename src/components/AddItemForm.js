@@ -101,7 +101,7 @@ class AddItemForm extends React.Component {
             How soon do you need to buy{' '}
             {this.state.name !== '' ? this.state.name : 'this'}?
           </label>
-          <span className="btn-container">
+          <div className="btn-container">
             <button
               type="submit"
               className="btn1"
@@ -126,7 +126,7 @@ class AddItemForm extends React.Component {
             >
               Not so soon
             </button>
-          </span>
+          </div>
           <br />
           {this.state.hasDupe && (
             <p className="error">
