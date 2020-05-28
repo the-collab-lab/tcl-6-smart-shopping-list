@@ -3,8 +3,11 @@ import React from 'react';
 const Filter = ({ value, onChange, clear }) => {
   return (
     <div id="search">
-      <label className="screen-reader-only">Search List</label>
+      <label className="screen-reader-only" for="search">
+        Search List
+      </label>
       <input
+        id="search"
         type="text"
         placeholder="Search List"
         value={value}
