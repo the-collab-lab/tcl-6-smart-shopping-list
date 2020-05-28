@@ -83,7 +83,7 @@ function Shopping(props) {
           ))}
         </ul>
       </main>
-    <Nav />
+      <Nav />
     </>
   ) : (
     <>

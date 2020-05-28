@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-import arrowLeft from '../image/arrow-left.svg';
 import '../CSS/Icon.css';
 
 const DetailModal = ({ show, handleClose, item }) => {
