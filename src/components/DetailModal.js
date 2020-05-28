@@ -1,17 +1,22 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 import '../CSS/Icon.css';
 
 const DetailModal = ({ show, handleClose, item }) => {
+  let showModal = show;
+  const url = useParams();
+  item && item.id === url.itemId ? (showModal = true) : (showModal = false);
+
   let lastPurchase =
     item && item.last_purchased !== ''
       ? new Date(item.last_purchased).toDateString()
       : '';
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={showModal} onHide={handleClose}>
       <Modal.Header className="modal-header">
         <Modal.Title>
           <h1 className="modal-item-name">{item.name} </h1>
