@@ -55,7 +55,7 @@ function Shopping(props) {
     }
   }
 
-  return sortedList.length > 0 ? (
+  return props.list.length > 0 ? (
     <>
       <Header />
       <main>
