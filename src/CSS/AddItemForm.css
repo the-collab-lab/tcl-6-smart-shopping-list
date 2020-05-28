@@ -1,10 +1,8 @@
 :root {
-  --not-purchased-color: blue;
-  --purchased-color: #ff7b00;
-  --soon-color: #00aa00;
-  --kind-of-soon-color: #1f3a93;
-  --not-soon-color: #ff4500;
-  --inactive-color: #7e7e7e;
+  --soon-color: #60bfbf;
+  --kind-of-soon-color: #faac3d;
+  --not-soon-color: #d26c65;
+  --inactive-color: #d9d0c5;
   --button-margin: 10px;
   --margin-five: 5%;
 }
@@ -31,9 +29,7 @@ input {
 
 /*Schedule Buttons*/
 .schedule {
-  margin-top: var(--margin-five);
-  margin-bottom: var(--margin-five);
-  margin-left: var(--margin-five);
+  margin: 5% 0 5% 5%;
 }
 
 .btn-container {
