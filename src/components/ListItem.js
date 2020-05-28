@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// FontAwesomeIcon component and faAngleRight are courtesy of Font Awesome and licensed under Creative Commons Attribution 4.0 International license: https://fontawesome.com/license.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
