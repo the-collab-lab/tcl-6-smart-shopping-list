@@ -4,7 +4,6 @@
   --not-soon-color: #d26c65;
   --inactive-color: #d9d0c5;
   --button-margin: 10px;
-  --margin-five: 5%;
 }
 
 label {
@@ -13,19 +12,10 @@ label {
 }
 
 /*Name*/
-.name {
-  white-space: nowrap;
-  margin-right: 2%;
-}
 input {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1em;
-}
-.name input {
-  line-height: 1.6;
-  width: 150px;
-  margin-left: var(--margin-five);
-  font-weight: 400;
+  width: 190px;
 }
 
 /*Schedule Buttons*/
