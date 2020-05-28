@@ -16,15 +16,20 @@ function Shopping(props) {
 
   useEffect(() => {
     setFilteredList(props.list);
+    filterList(filterString);
   }, [props.list]);
 
   let sortedList = sortList(filteredList);
 
   const handleTextChange = event => {
-    setFilterString(event.target.value);
+    filterList(event.target.value);
+  };
+
+  const filterList = filterString => {
+    setFilterString(filterString);
 
     const newList = props.list.filter(item =>
-      item.name.toLowerCase().includes(event.target.value.toLowerCase()),
+      item.name.toLowerCase().includes(filterString.toLowerCase()),
     );
     setFilteredList(newList);
   };
