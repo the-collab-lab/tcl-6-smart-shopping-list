@@ -86,14 +86,16 @@ class AddItemForm extends React.Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <label className="name">
-            Name
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
+          <label className="name screen-reader-only" for="item-name">
+            Item Name
           </label>
+          <input
+            id="item-name"
+            type="text"
+            placeholder="Item Name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
           <br />
           <label className="schedule">
             How soon do you need to buy{' '}
