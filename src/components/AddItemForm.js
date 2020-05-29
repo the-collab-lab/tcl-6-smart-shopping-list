@@ -86,7 +86,7 @@ class AddItemForm extends React.Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <label className="name screen-reader-only" for="item-name">
+          <label className="name screen-reader-only" htmlFor="item-name">
             Item Name
           </label>
           <input
