@@ -110,7 +110,13 @@ const ListItem = ({ item, onDelete, token }) => {
       </button>
 
       <Link to={`detail/${item.name_normalized}`}>
-        <FontAwesomeIcon icon={faAngleRight} size="3x" className="chevron" />
+        <FontAwesomeIcon
+          icon={faAngleRight}
+          size="3x"
+          className="chevron"
+          title="{item.name} details"
+        />
+        <span className="screen-reader-only">View {item.name} Details</span>
       </Link>
     </li>
   );
