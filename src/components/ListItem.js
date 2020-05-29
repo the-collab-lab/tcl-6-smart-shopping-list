@@ -114,7 +114,7 @@ const ListItem = ({ item, onDelete, token }) => {
           icon={faAngleRight}
           size="3x"
           className="chevron"
-          title="{item.name} details"
+          title="view details"
         />
         <span className="screen-reader-only">View {item.name} Details</span>
       </Link>
