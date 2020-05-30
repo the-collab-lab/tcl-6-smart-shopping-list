@@ -1,30 +1,52 @@
+:root {
+  --soon-color: #60bfbf;
+  --kind-of-soon-color: #faac3d;
+  --not-soon-color: #d26c65;
+  --inactive-color: #d9d0c5;
+  --button-margin: 10px;
+}
+
+label {
+  display: inline-block;
+  font-weight: 400;
+}
+
 /*Name*/
-.name {
-  margin-right: 54px;
-}
-.name input {
-  margin: 0px 10px;
-  line-height: 1.6;
-  margin-right: 31px;
+input {
+  font-weight: 500;
+  font-size: 1em;
+  width: 190px;
 }
 
-/*Schedule*/
+/*Schedule Buttons*/
 .schedule {
-  margin-right: 85px;
-  line-height: 1.6;
+  margin: 5% 0 5% 5%;
 }
 
-.schedule-btn {
-  margin-left: 5px;
-}
-/*Last Purchase Date*/
-.lastpurchase {
-  margin-right: 105px;
-  line-height: 1.6;
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25%;
 }
 
-/* Submit */
-.submit-btn {
-  font-size: 1rem;
-  margin: 10px 0px;
+.btn1 {
+  margin-right: var(--button-margin);
+}
+
+.btn1:hover {
+  background-color: var(--soon-color);
+}
+
+.btn2 {
+  margin-right: var(--button-margin);
+}
+
+.btn2:hover {
+  background-color: var(--kind-of-soon-color);
+}
+.btn3 {
+  margin-right: var(--button-margin);
+}
+.btn3:hover {
+  background-color: var(--not-soon-color);
 }

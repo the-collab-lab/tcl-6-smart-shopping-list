@@ -41,7 +41,7 @@ h1 {
 h2 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 
 .tagline {
@@ -64,7 +64,7 @@ button,
 input,
 a {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--black);
 }
 

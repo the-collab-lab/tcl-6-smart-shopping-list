@@ -12,6 +12,7 @@ class AddItemForm extends React.Component {
       last_purchased: '',
       number_purchases: 0,
       hasDupe: false,
+      invalid: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSchedule = this.handleSchedule.bind(this);
@@ -22,6 +23,7 @@ class AddItemForm extends React.Component {
     this.setState({
       name: event.target.value,
       hasDupe: false,
+      invalid: false,
     });
   }
 
@@ -43,6 +45,13 @@ class AddItemForm extends React.Component {
     const hasDupe = props.list.some(
       item => item.name_normalized === name_normalized,
     );
+
+    const validItemName = name_normalized.length > 0;
+
+    if (!validItemName) {
+      this.setState({ invalid: true });
+      return;
+    }
 
     if (hasDupe) {
       this.setState({ hasDupe });
@@ -76,34 +85,54 @@ class AddItemForm extends React.Component {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <label className="name">
-            Name:
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
+          <label className="name screen-reader-only" htmlFor="item-name">
+            Item Name
           </label>
+          <input
+            id="item-name"
+            type="text"
+            placeholder="Item Name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
           <br />
-          <label className="schedule">
-            Schedule:
-            <select
-              className="schedule-btn"
-              value={this.state.next_purchase}
-              onChange={this.handleSchedule}
+          <p className="schedule">
+            How soon do you need to buy{' '}
+            {this.state.name !== '' ? this.state.name : 'this'}?
+          </p>
+          <div className="btn-container">
+            <button
+              type="submit"
+              className="btn1"
+              value="7"
+              onClick={this.handleSchedule}
             >
-              <option value="7">Soon</option>
-              <option value="14">Kind Of Soon</option>
-              <option value="30">Not Soon</option>
-            </select>
-          </label>
+              Soon
+            </button>
+            <button
+              type="submit"
+              className="btn2"
+              value="14"
+              onClick={this.handleSchedule}
+            >
+              Kind of soon
+            </button>
+            <button
+              type="submit"
+              className="btn3"
+              value="30"
+              onClick={this.handleSchedule}
+            >
+              Not so soon
+            </button>
+          </div>
           <br />
-          <input className="submit-btn" type="submit" value="Submit" />
           {this.state.hasDupe && (
-            <p>
+            <p className="error">
               {this.state.name} has already been added to your shopping list.
             </p>
           )}
+          {this.state.invalid && <p className="error">Invalid item name.</p>}
         </form>
       </>
     );
