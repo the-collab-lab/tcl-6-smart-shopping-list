@@ -14,15 +14,20 @@ function Shopping(props) {
 
   useEffect(() => {
     setFilteredList(props.list);
+    filterList(filterString);
   }, [props.list]);
 
   let sortedList = sortList(filteredList);
 
   const handleTextChange = event => {
-    setFilterString(event.target.value);
+    filterList(event.target.value);
+  };
+
+  const filterList = filterString => {
+    setFilterString(filterString);
 
     const newList = props.list.filter(item =>
-      item.name.toLowerCase().includes(event.target.value.toLowerCase()),
+      item.name.toLowerCase().includes(filterString.toLowerCase()),
     );
     setFilteredList(newList);
   };
@@ -32,7 +37,7 @@ function Shopping(props) {
     props.list.length > 0 && setFilteredList(props.list);
   };
 
-  return sortedList.length > 0 ? (
+  return props.list.length > 0 ? (
     <>
       <Header />
       <main>
