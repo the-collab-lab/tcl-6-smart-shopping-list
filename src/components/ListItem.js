@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 // FontAwesomeIcon component and faAngleRight are courtesy of Font Awesome and licensed under Creative Commons Attribution 4.0 International license: https://fontawesome.com/license.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { ITEMS, USERS } from '../constants';
+import DetailModal from './DetailModal';
 
 //Lib Items
 import { db } from '../lib/firebase';
@@ -19,10 +20,15 @@ import eggHeartCracked from '../image/egg-heart-cracked.svg';
 import '../CSS/ListItem.css';
 import '../CSS/Icon.css';
 import '../CSS/colors.css';
+import '../CSS/DetailModal.css';
 
 import DeleteItemModal from './DeleteItemModal';
 
 const ListItem = ({ item, onDelete, token }) => {
+  const history = useHistory();
+
+  let [show, setShow] = useState(false);
+
   const [isPurchased, setPurchased] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -43,7 +49,7 @@ const ListItem = ({ item, onDelete, token }) => {
     setPurchased(true);
   }
 
-  function onHandle(event) {
+  function onPurchase(event) {
     event.preventDefault();
     numberOfPurchases++;
 
@@ -71,64 +77,73 @@ const ListItem = ({ item, onDelete, token }) => {
   }
 
   return (
-    <li>
-      <button
-        className={`${
-          isPurchased ? 'purchased' : 'not-purchased'
-        } ${className}`}
-        onClick={onHandle}
-        disabled={isPurchased ? !null : null}
-      >
-        {isPurchased ? (
+    <>
+      <li>
+        <button
+          className={`${
+            isPurchased ? 'purchased' : 'not-purchased'
+          } ${className}`}
+          onClick={onPurchase}
+          disabled={isPurchased ? !null : null}
+        >
+          {isPurchased ? (
+            <img
+              className="egg"
+              src={eggHeartCracked}
+              title="Item is purchased"
+              alt="Item is purchased"
+            />
+          ) : (
+            <img
+              className="egg"
+              src={eggWhole}
+              title="Purchase item"
+              alt="Purchase item"
+            />
+          )}
+
+          <span className="screen-reader-only">Purchase {item.name}.</span>
+        </button>
+
+        <span className="item-name">{item.name}</span>
+
+        <span className="screen-reader-only">
+          Next purchase in {item.next_purchase} days.
+        </span>
+
+        <button className="trash" onClick={() => setModalIsOpen(true)}>
           <img
-            className="egg"
-            src={eggHeartCracked}
-            title="Item is purchased"
-            alt="Item is purchased"
+            className="trashIcon"
+            src={trash}
+            title="Delete item"
+            alt="Delete item"
           />
-        ) : (
-          <img
-            className="egg"
-            src={eggWhole}
-            title="Purchase item"
-            alt="Purchase item"
+        </button>
+        <DeleteItemModal
+          show={modalIsOpen}
+          onClose={setModalIsOpen}
+          token={token}
+          item={item}
+        />
+        <Link to={`${item.id}`}>
+          <FontAwesomeIcon
+            icon={faAngleRight}
+            size="3x"
+            className="chevron"
+            title="View Details"
           />
-        )}
-
-        <span className="screen-reader-only">Purchase {item.name}.</span>
-      </button>
-
-      <span className="item-name">{item.name}</span>
-
-      <span className="screen-reader-only">
-        Next purchase in {item.next_purchase} days.
-      </span>
-
-      <button className="trash" onClick={() => setModalIsOpen(true)}>
-        <img
-          className="trashIcon"
-          src={trash}
-          title="Delete item"
-          alt="Delete item"
+          <span className="screen-reader-only">View {item.name} Details</span>
+        </Link>
+        <DetailModal
+          item={item}
+          show={show}
+          handleClose={() => {
+            setShow(false);
+            history.push('/');
+          }}
         />
-      </button>
-      <DeleteItemModal
-        show={modalIsOpen}
-        onClose={setModalIsOpen}
-        token={token}
-        item={item}
-      />
-
-      <Link to={`detail/${item.name_normalized}`}>
-        <FontAwesomeIcon
-          icon={faAngleRight}
-          size="3x"
-          className="chevron"
-          title="View Details"
-        />
-        <span className="screen-reader-only">View {item.name} Details</span>
-      </Link>
-    </li>
+      </li>
+    </>
   );
 };
 

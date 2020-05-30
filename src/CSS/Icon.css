@@ -25,18 +25,23 @@ FontAwesomeIcon:hover {
 /* Arrow-Left */
 .arrow-left {
   display: flex;
-  height: 30px;
-  margin: 15px 0 0 15px;
+  height: 20px;
+  margin: 1px 0 0 15px;
 }
+
 .to-shopping {
   display: inline-flex;
   text-decoration: none;
   color: black;
-  margin-inline-end: 80%;
+  margin-right: 17%;
 }
 
 .back-text {
   align-self: center;
-  margin-top: 10px;
   margin-left: 10px;
+}
+
+button {
+  background: none;
+  border: none;
 }
