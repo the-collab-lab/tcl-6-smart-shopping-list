@@ -47,9 +47,9 @@ class AddItemForm extends React.Component {
       item => item.name_normalized === name_normalized,
     );
 
-    const invalid = name_normalized.length > 0;
+    const validItemName = name_normalized.length > 0;
 
-    if (!invalid) {
+    if (!validItemName) {
       this.setState({ invalid: true });
       return;
     }
@@ -97,10 +97,10 @@ class AddItemForm extends React.Component {
             onChange={this.handleChange}
           />
           <br />
-          <label className="schedule">
+          <p className="schedule">
             How soon do you need to buy{' '}
             {this.state.name !== '' ? this.state.name : 'this'}?
-          </label>
+          </p>
           <div className="btn-container">
             <button
               type="submit"
