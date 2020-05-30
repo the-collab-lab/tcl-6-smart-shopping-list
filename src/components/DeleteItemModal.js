@@ -20,8 +20,10 @@ const DeleteItemModal = ({ show, item, token, onClose }) => {
   return (
     <>
       <Modal show={show} animation={false}>
-        <Modal.Body>Are you sure you want to delete {item.name} ? </Modal.Body>
-        <Modal.Footer>
+        <Modal.Body>
+          <p>Are you sure you want to delete {item.name} ? </p>
+        </Modal.Body>
+        <Modal.Footer className="delete-buttons">
           <Button onClick={() => onClose(false)}>Cancel</Button>
           <Button onClick={handleClick}>OK</Button>
         </Modal.Footer>

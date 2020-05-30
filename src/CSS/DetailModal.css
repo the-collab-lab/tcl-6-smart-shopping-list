@@ -246,7 +246,10 @@
   margin-bottom: 0px;
   margin-top: 0px;
 }
-
+.modal-body p {
+  text-align: center;
+  font-weight: 600;
+}
 .modal-header {
   background-color: var(--tint-white);
 }
@@ -268,4 +271,9 @@
   background-color: var(--tint-white);
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--highlight-color);
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: center;
 }
