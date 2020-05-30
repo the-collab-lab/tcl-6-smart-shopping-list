@@ -20,8 +20,12 @@ import '../CSS/ListItem.css';
 import '../CSS/Icon.css';
 import '../CSS/colors.css';
 
+import DeleteItemModal from './DeleteItemModal';
+
 const ListItem = ({ item, onDelete, token }) => {
   const [isPurchased, setPurchased] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   let numberOfPurchases = item.number_purchases || 0;
   let hoursDiff = getDifferenceInHours(item.last_purchased);
   let daysDiff = getDifferenceInDays(item.last_purchased);
@@ -100,7 +104,7 @@ const ListItem = ({ item, onDelete, token }) => {
         Next purchase in {item.next_purchase} days.
       </span>
 
-      <button className="trash" onClick={onDelete}>
+      <button className="trash" onClick={() => setModalIsOpen(true)}>
         <img
           className="trashIcon"
           src={trash}
@@ -108,6 +112,12 @@ const ListItem = ({ item, onDelete, token }) => {
           alt="Delete item"
         />
       </button>
+      <DeleteItemModal
+        show={modalIsOpen}
+        onClose={setModalIsOpen}
+        token={token}
+        item={item}
+      />
 
       <Link to={`detail/${item.name_normalized}`}>
         <FontAwesomeIcon icon={faAngleRight} size="3x" className="chevron" />
