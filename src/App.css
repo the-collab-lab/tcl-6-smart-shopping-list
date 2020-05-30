@@ -13,7 +13,7 @@
   --dark-gray: #282c34;
   --black: #0f272a;
   --white: #ffffff;
-  --tint-whtie: #dff2f2;
+  --tint-white: #dff2f2;
   --primary-dark: #1f5158;
 }
 
@@ -34,7 +34,7 @@ body {
   background-size: 22%;
   background-image: url(./image/eggheadded-repeat.svg);
   background-repeat: repeat;
-  background-color: var(--tint-whtie);
+  background-color: var(--tint-white);
 }
 
 .App {
@@ -53,6 +53,7 @@ h1 {
   font-family: 'Fredoka One', cursive;
   font-size: 3em;
   color: var(--black);
+  font-weight: normal;
 }
 
 h2 {
@@ -97,7 +98,7 @@ input[value='Join List'] {
   text-align: center;
   font-size: 1em;
   color: var(--primary-dark);
-  background-color: var(--tint-whtie);
+  background-color: var(--tint-white);
   font-weight: 600;
   transition: all 0.15s;
 }
