@@ -1,5 +1,6 @@
 import React from 'react';
 import NavButton from './navbutton';
+import '../CSS/Nav.css';
 
 const Nav = () => {
   return (

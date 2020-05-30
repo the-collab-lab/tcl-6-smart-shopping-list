@@ -1,0 +1,41 @@
+#nav {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#nav .button {
+  align-self: flex-end;
+  height: 50px;
+  width: 96%;
+  margin: 5% 1.5%;
+  padding: 5px 15px;
+  color: var(--primary-dark);
+  background-color: var(--tint-white);
+  border: 1px solid var(--white);
+  border-radius: 3px;
+  font-size: 1.25em;
+  font-weight: 400;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#nav .button:hover {
+  text-decoration: underline;
+  color: var(--white);
+  background-color: var(--black);
+  text-shadow: 0 0 2em rgba(255, 255, 255, 3);
+  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--white);
+  font-size: 1.35em;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+#nav .selected {
+  text-decoration: underline;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  font-weight: 600;
+  transition: all 0.15s;
+}

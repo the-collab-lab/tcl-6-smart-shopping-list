@@ -7,29 +7,6 @@
   font-family: 'Open Sans Condensed', sans-serif;
 */
 
-:root {
-  --highlight-color: #60bfbf;
-  --light-gray: #cccccc;
-  --dark-gray: #282c34;
-  --black: #0f272a;
-  --white: #ffffff;
-  --tint-white: #dff2f2;
-  --primary-dark: #1f5158;
-}
-
-/* Color Pallet
-  Blue/greens dark to light
-    #32838c;
-    #60bfbf;
-    #bad9d9;
-    #dff2f2;
-  Tan
-    #f2d1b3;
-  Oranges
-    #faac3d
-    #f89a2e
-*/
-
 body {
   background-size: 22%;
   background-image: url(./image/eggheadded-repeat.svg);
@@ -47,6 +24,11 @@ body {
   max-width: 450px;
   margin: 0 auto;
   padding: 0 4%;
+}
+
+main {
+  flex: 1 0 auto;
+  min-height: auto;
 }
 
 h1 {
@@ -125,24 +107,6 @@ input[value='Join List']:hover {
   margin: 3px;
 }
 
-/* NavButton Component Styles */
-nav {
-  margin-top: 20px;
-}
-nav .button {
-  align-items: flex-end;
-  height: 70px;
-  padding: 5px 15px;
-  background-color: var(--white);
-  color: var(--dark-gray);
-  border-radius: 0;
-  font-size: 1.25em;
-  text-decoration: none;
-}
-nav .button:hover {
-  text-decoration: underline;
-}
-nav .selected {
-  background-color: var(--dark-gray);
-  color: var(--highlight-color);
+ul {
+  padding: 0;
 }

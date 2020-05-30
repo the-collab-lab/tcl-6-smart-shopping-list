@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { db } from '../lib/firebase';
+
 // Components
 import Header from './Header';
 import ListItem from './ListItem';
 import Nav from './Nav';
 import Filter from './Filter';
-import {
-  sortAlphabetically,
-  sortByNextPurchase,
-  sortInactive,
-} from '../lib/sortUtils';
-// Constants
-import { ITEMS, USERS } from '../constants';
+import { sortList } from '../lib/sortUtils';
 
 function Shopping(props) {
   const [filterString, setFilterString] = useState('');
@@ -20,17 +14,20 @@ function Shopping(props) {
 
   useEffect(() => {
     setFilteredList(props.list);
+    filterList(filterString);
   }, [props.list]);
 
-  sortAlphabetically(filteredList);
-  sortByNextPurchase(filteredList);
-  let sortedList = sortInactive(filteredList);
+  let sortedList = sortList(filteredList);
 
   const handleTextChange = event => {
-    setFilterString(event.target.value);
+    filterList(event.target.value);
+  };
+
+  const filterList = filterString => {
+    setFilterString(filterString);
 
     const newList = props.list.filter(item =>
-      item.name.toLowerCase().includes(event.target.value.toLowerCase()),
+      item.name.toLowerCase().includes(filterString.toLowerCase()),
     );
     setFilteredList(newList);
   };
@@ -40,23 +37,7 @@ function Shopping(props) {
     props.list.length > 0 && setFilteredList(props.list);
   };
 
-  function handleClick({ name, id, token }) {
-    if (window.confirm(`Are you sure you want to delete ${name}?`)) {
-      db.collection(`${USERS}/${token}/${ITEMS}`)
-        .doc(id)
-        .delete()
-        .then(function() {
-          console.log('Document successfully deleted!');
-        })
-        .catch(function(error) {
-          console.error('Error removing document: ', error);
-        });
-    } else {
-      console.log(`${name} was not deleted.`);
-    }
-  }
-
-  return sortedList.length > 0 ? (
+  return props.list.length > 0 ? (
     <>
       <Header />
       <main>
@@ -68,18 +49,7 @@ function Shopping(props) {
         />
         <ul>
           {sortedList.map(item => (
-            <ListItem
-              key={item.id}
-              item={item}
-              token={props.userToken}
-              onDelete={() =>
-                handleClick({
-                  name: item.name,
-                  id: item.id,
-                  token: props.userToken,
-                })
-              }
-            />
+            <ListItem key={item.id} item={item} token={props.userToken} />
           ))}
         </ul>
       </main>

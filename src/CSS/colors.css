@@ -1,0 +1,32 @@
+/* Color Pallet
+  Blue/greens dark to light
+    #32838c;
+    #60bfbf;
+    #bad9d9;
+    #dff2f2;
+  Tan
+    #f2d1b3;
+  Oranges
+    #faac3d
+    #f89a2e
+*/
+
+:root {
+  /* List Items */
+  --not-purchased-color: #000;
+  --purchased-color: #ff7b00;
+  --soon-color: #60bfbf;
+  --kind-of-soon-color: #faac3d;
+  --not-soon-color: #d26c65;
+  --inactive-color: #d9d0c5;
+
+  /* App */
+  --highlight-color: #60bfbf;
+  --light-gray: #cccccc;
+  --medium-gray: #494f5c;
+  --dark-gray: #282c34;
+  --black: #0f272a;
+  --white: #ffffff;
+  --tint-white: #dff2f2;
+  --primary-dark: #1f5158;
+}
