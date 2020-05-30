@@ -1,11 +1,3 @@
-:root {
-  --soon-color: #60bfbf;
-  --kind-of-soon-color: #faac3d;
-  --not-soon-color: #d26c65;
-  --inactive-color: #d9d0c5;
-  --button-margin: 10px;
-}
-
 label {
   display: inline-block;
   font-weight: 400;

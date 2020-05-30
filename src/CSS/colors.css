@@ -10,7 +10,6 @@
     #faac3d
     #f89a2e
 */
-
 :root {
   /* List Items */
   --not-purchased-color: #000;
@@ -19,6 +18,7 @@
   --kind-of-soon-color: #faac3d;
   --not-soon-color: #d26c65;
   --inactive-color: #d9d0c5;
+  --button-margin: 10px;
 
   /* App */
   --highlight-color: #60bfbf;
