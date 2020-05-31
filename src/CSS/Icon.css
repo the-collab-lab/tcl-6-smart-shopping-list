@@ -1,4 +1,4 @@
-/* Lemon */
+/* Egg */
 .egg {
   height: 25px;
 }
@@ -20,25 +20,6 @@ FontAwesomeIcon:hover {
 
 .chevron:hover {
   filter: invert(0.9) sepia(0.1) saturate(50) hue-rotate(180deg);
-}
-
-/* Arrow-Left */
-.arrow-left {
-  display: flex;
-  height: 20px;
-  margin: 1px 0 0 15px;
-}
-
-.to-shopping {
-  display: inline-flex;
-  text-decoration: none;
-  color: black;
-  margin-right: 17%;
-}
-
-.back-text {
-  align-self: center;
-  margin-left: 10px;
 }
 
 button {

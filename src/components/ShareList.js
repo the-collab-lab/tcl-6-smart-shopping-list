@@ -39,11 +39,12 @@ const ShareList = props => {
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="sharedToken">
-          Token:
+          <span className="screen-reader-only">Token</span>
           <input
             type="text"
             name="sharedToken"
             id="sharedToken"
+            placeholder="Enter a token"
             onChange={event => setUserToken(event.target.value)}
           />
         </label>
