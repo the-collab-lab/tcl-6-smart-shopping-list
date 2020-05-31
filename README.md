@@ -17,6 +17,19 @@ A smart shopping list.
 
 ## Summary
 
+### Welcome Screen
+<img width="1064" alt="Eggheadded welcome screen" src="https://user-images.githubusercontent.com/33433415/83363286-46eab500-a366-11ea-8756-48cd0ef87b79.png">
+
+### Shopping List View
+<img width="1064" alt="Shopping list with items added" src="https://user-images.githubusercontent.com/33433415/83363294-64b81a00-a366-11ea-8389-2d0e08d65454.png">
+
+Search list filter
+<img width="1064" alt="search filter" src="https://user-images.githubusercontent.com/33433415/83363298-6a156480-a366-11ea-94c4-164765a2fef3.png">
+
+### Add Item View
+<img width="1064" alt="add an item to the shopping list with this form" src="https://user-images.githubusercontent.com/33433415/83363331-bbbdef00-a366-11ea-820e-8a7603787176.png">
+
+
 ## Project Dependencies
 - React
 - Firebase
