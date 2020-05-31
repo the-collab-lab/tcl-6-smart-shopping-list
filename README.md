@@ -25,10 +25,10 @@ A smart shopping list.
 - Bootstrap Modal
 
 ## Contributors
-- Elise
-- Scott
-- Sara
-- Myles
+:star: Elise </br>
+:star: Scott </br>
+:star: Sara  </br>
+:star: Myles </br>
 
 ## Acknowledgements
 - [The Collab Lab](https://the-collab-lab.codes/)
