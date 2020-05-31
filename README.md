@@ -18,6 +18,8 @@ A smart shopping list.
 ## Summary
 
 ### Welcome Screen
+* If you already have a token you can submit it in the input field 
+
 <img width="1064" alt="Eggheadded welcome screen" src="https://user-images.githubusercontent.com/33433415/83363286-46eab500-a366-11ea-8756-48cd0ef87b79.png">
 
 ### Shopping List View
