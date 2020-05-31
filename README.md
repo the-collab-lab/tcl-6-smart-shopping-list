@@ -12,14 +12,32 @@ For additional details, please check out the [project brief](PROJECT-BRIEF.md).
 
 <hr>
 
-# Project Name
+# Eggheadded
+A smart shopping list.
 
 ## Summary
 
 ## Project Dependencies
+- React
+- Firebase
+- Google Fonts
+- Font Awesome
+- Bootstrap Modal
 
 ## Contributors
+- Elise
+- Scott
+- Sara
+- Myles
 
 ## Acknowledgements
+- [The Collab Lab](https://the-collab-lab.codes/)
+- Andrew
+- Lauren
+- Steve
+- Jayson
 
 ## Credits
+- <a href="https://www.freepik.com/free-photos-vectors/chicken">Chicken vector created by freepik - www.freepik.com</a>
+- <a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by freepik - www.freepik.com</a>
+- <a href="https://pixabay.com/vectors/egg-egg-shell-white-hen-s-egg-32275/"> Clker-Free-Vector-Images - pixabay.com</a>
