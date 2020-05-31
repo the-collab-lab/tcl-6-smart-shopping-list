@@ -12,14 +12,14 @@ For additional details, please check out the [project brief](PROJECT-BRIEF.md).
 
 <hr>
 
-#Project Name
+# Project Name
 
-##Summary
+## Summary
 
-##Project Dependencies
+## Project Dependencies
 
-##Contributors
+## Contributors
 
-##Acknowledgements
+## Acknowledgements
 
-##Credits
+## Credits
