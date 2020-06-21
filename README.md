@@ -19,7 +19,7 @@ A smart shopping list. View [Eggheaded](https://tcl-6-smart-shopping-list.netlif
 
 ### Welcome Screen
 * Welcome to Eggheaded! If this is your first time here click create new list to start. 
-* If you already have a token you can submit it in the input field and head over to your shooping list.
+* If you already have a token you can submit it in the input field and head over to your shopping list.
 
 
 <img width="1064" alt="Eggheadded welcome screen" src="https://user-images.githubusercontent.com/33433415/83363286-46eab500-a366-11ea-8756-48cd0ef87b79.png">
