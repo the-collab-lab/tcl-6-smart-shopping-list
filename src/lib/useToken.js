@@ -14,11 +14,13 @@ export function useToken() {
     firebase.auth().signInAnonymously();
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
+      if (user) {
+        registerNewToken(token);
+      }
     });
     const token = getToken();
     localStorage.setItem(USER_TOKEN, token);
     setToken(token);
-    registerNewToken(token);
   };
 
   return [userToken, createToken, setToken];
