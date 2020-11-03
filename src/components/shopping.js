@@ -9,32 +9,32 @@ import Filter from './Filter';
 import { sortList } from '../lib/sortUtils';
 
 function Shopping(props) {
+  const [list, setList] = useState(props.list);
   const [filterString, setFilterString] = useState('');
-  const [filteredList, setFilteredList] = useState(props.list);
 
   useEffect(() => {
-    setFilteredList(props.list);
-    filterList(filterString);
+    setList(props.list);
   }, [props.list]);
-
-  let sortedList = sortList(filteredList);
 
   const handleTextChange = event => {
     filterList(event.target.value);
   };
 
-  const filterList = filterString => {
-    setFilterString(filterString);
+  const filterList = searchString => {
+    setFilterString(searchString);
 
     const newList = props.list.filter(item =>
-      item.name.toLowerCase().includes(filterString.toLowerCase()),
+      item.name.toLowerCase().includes(searchString.toLowerCase()),
     );
-    setFilteredList(newList);
+
+    setList(newList);
   };
+
+  let sortedList = sortList(list);
 
   const handleClear = () => {
     setFilterString('');
-    props.list.length > 0 && setFilteredList(props.list);
+    props.list.length > 0 && setList(props.list);
   };
 
   return props.list.length > 0 ? (
