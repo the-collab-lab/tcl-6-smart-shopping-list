@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Filter = ({ value, onChange, clear }) => {
+const Filter = ({ searchTerm, onChange, clear }) => {
   return (
     <div id="search">
       <label className="screen-reader-only" htmlFor="search">
@@ -10,7 +10,7 @@ const Filter = ({ value, onChange, clear }) => {
         id="search"
         type="text"
         placeholder="Search List"
-        value={value}
+        value={searchTerm}
         onChange={onChange}
       />
       <button onClick={clear}>Clear</button>

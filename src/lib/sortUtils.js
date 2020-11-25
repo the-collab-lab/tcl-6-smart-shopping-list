@@ -43,6 +43,7 @@ export function sortList(list) {
   let inactiveItems = list.filter(
     item => getDifferenceInDays(item.last_purchased) > 2 * item.next_purchase,
   );
+  inactiveItems = sortAlphabetically(inactiveItems);
 
   return [...soonItems, ...kindOfSoonItems, ...notSoonItems, ...inactiveItems];
 }

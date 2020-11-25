@@ -46,7 +46,9 @@ function App() {
         <h2 className="tagline">
           Eggs, bread, cheese and all the things you need.
         </h2>
-        <p className="home">Get started by creating a new list.</p>
+        <p className="home">
+          Get started by creating a new list. This will log you in anonymously.
+        </p>
         <button className="button" onClick={createToken}>
           Create New List
         </button>

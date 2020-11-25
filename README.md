@@ -12,39 +12,43 @@ For additional details, please check out the [project brief](PROJECT-BRIEF.md).
 
 <hr>
 
-# Eggheadded
-A smart shopping list. View [Eggheaded](https://tcl-6-smart-shopping-list.netlify.com/) here. 
+# Eggheaded
+
+A smart shopping list. View [Eggheaded](https://tcl-6-smart-shopping-list.netlify.com/) here.
 
 ## Summary
 
 ### Welcome Screen
-* Welcome to Eggheaded! If this is your first time here click create new list to start. 
-* If you already have a token you can submit it in the input field and head over to your shopping list.
 
+- Welcome to Eggheaded! If this is your first time here click create new list to start.
+- If you already have a token you can submit it in the input field and head over to your shopping list.
 
-<img width="1064" alt="Eggheadded welcome screen" src="https://user-images.githubusercontent.com/33433415/83363286-46eab500-a366-11ea-8756-48cd0ef87b79.png">
+<img width="1064" alt="Eggheaded welcome screen" src="https://user-images.githubusercontent.com/33433415/83363286-46eab500-a366-11ea-8756-48cd0ef87b79.png">
 
 ### Add Item View
-* The input field is where you can type in the item you want to add to your list.
-* Once that's done you can pick how soon you need it, the time frame you choose will add the item to your list.
-<img width="1064" alt="add an item to the shopping list with this form" src="https://user-images.githubusercontent.com/33433415/83363331-bbbdef00-a366-11ea-820e-8a7603787176.png">
+
+- The input field is where you can type in the item you want to add to your list.
+- Once that's done you can pick how soon you need it, the time frame you choose will add the item to your list.
+  <img width="1064" alt="add an item to the shopping list with this form" src="https://user-images.githubusercontent.com/33433415/83363331-bbbdef00-a366-11ea-820e-8a7603787176.png">
 
 ### Shopping List View
-* Each item is color coded based on how soon the item is needed, and has a details view that can be accessed by clicking the chevron next to the trash can.
-* Blue: I need to purchase this soon.
-* Yellow: I need to purchase this kind of soon.
-* Red: I need to purchase this not so soon. 
-* A whole egg signifies that you havent purchased that item just yet and a cracked egg show you have purchased it. 
+
+- Each item is color coded based on how soon the item is needed, and has a details view that can be accessed by clicking the chevron next to the trash can.
+- Blue: I need to purchase this soon.
+- Yellow: I need to purchase this kind of soon.
+- Red: I need to purchase this not so soon.
+- A whole egg signifies that you havent purchased that item just yet and a cracked egg show you have purchased it.
 
 <img width="1064" alt="Shopping list with items added" src="https://user-images.githubusercontent.com/33433415/83363294-64b81a00-a366-11ea-8389-2d0e08d65454.png">
 
 Search list filter
-* You can even search for items within your list. 
+
+- You can even search for items within your list.
 
 <img width="1064" alt="search filter" src="https://user-images.githubusercontent.com/33433415/83363298-6a156480-a366-11ea-94c4-164765a2fef3.png">
 
-
 ## Project Dependencies
+
 - React
 - Firebase
 - Google Fonts
@@ -52,12 +56,14 @@ Search list filter
 - Bootstrap Modal
 
 ## Contributors
-:star:  [Elise](https://github.com/espain16) </br>
-:star:  [Scott](https://github.com/skillitzimberg) </br>
-:star:  [Sara](https://github.com/SaraSweetie)  </br>
-:star:  [Myles](https://github.com/erostribe) </br>
+
+:star: [Elise](https://github.com/espain16) </br>
+:star: [Scott](https://github.com/skillitzimberg) </br>
+:star: [Sara](https://github.com/SaraSweetie) </br>
+:star: [Myles](https://github.com/erostribe) </br>
 
 ## Acknowledgements
+
 - [The Collab Lab](https://the-collab-lab.codes/)
 - Andrew
 - Lauren
@@ -65,6 +71,7 @@ Search list filter
 - Jayson
 
 ## Credits
+
 - <a href="https://www.freepik.com/free-photos-vectors/chicken">Chicken vector created by freepik - www.freepik.com</a>
 - <a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by freepik - www.freepik.com</a>
 - <a href="https://pixabay.com/vectors/egg-egg-shell-white-hen-s-egg-32275/"> Clker-Free-Vector-Images - pixabay.com</a>

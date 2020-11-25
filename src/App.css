@@ -9,7 +9,7 @@
 
 body {
   background-size: 22%;
-  background-image: url(./image/eggheadded-repeat.svg);
+  background-image: url(./image/eggheaded-repeat.svg);
   background-repeat: repeat;
   background-color: var(--tint-white);
 }
