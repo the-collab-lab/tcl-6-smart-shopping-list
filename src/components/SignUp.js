@@ -1,10 +1,29 @@
 import React from 'react';
+import firebase from 'firebase';
 import '../CSS/SignUp.css';
 
 const SignUp = () => {
+  const handleSignUp = event => {
+    event.preventDefault();
+    const email = event.target.username.value;
+    const password = event.target.password.value;
+
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        console.log('I did a thing!');
+        console.log(user);
+      })
+      .catch(error => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+      });
+  };
   return (
     <>
-      <form>
+      <form onSubmit={handleSignUp}>
         <label htmlFor="username">
           <input
             type="email"

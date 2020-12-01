@@ -24,6 +24,7 @@ function App() {
             return (
               <div className="App">
                 <Switch>
+                  <Route path="/signup" render={() => <SignUp />} />
                   <Route
                     path="/add"
                     render={() => <AddItem userToken={userToken} list={data} />}
@@ -34,7 +35,6 @@ function App() {
                       <Shopping userToken={userToken} list={data} />
                     )}
                   />
-                  <Route path="/signup" render={() => <SignUp />} />
                   <Route path="/" render={() => <AuthPage />} />
                 </Switch>
               </div>
