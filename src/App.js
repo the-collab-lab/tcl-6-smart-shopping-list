@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FirestoreCollection } from 'react-firestore';
 import { ITEMS, USERS } from './constants';
 import Header from './components/Header';
+import AuthPage from './components/AuthPage';
 import Shopping from './components/shopping';
 import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
@@ -32,11 +33,7 @@ function App() {
                       <Shopping userToken={userToken} list={data} />
                     )}
                   />
-                  {/* <Route
-                    path="/signup"
-                    render={() => <SignUp userToken={userToken} list={data} />}
-                  /> */}
-                  {/* <Route path="/" render={() => <AuthPage />} /> */}
+                  <Route path="/" render={() => <AuthPage />} />
                 </Switch>
               </div>
             );
