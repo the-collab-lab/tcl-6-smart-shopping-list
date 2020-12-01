@@ -16,8 +16,8 @@ const SignUp = () => {
         console.log(user);
       })
       .catch(error => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        // var errorCode = error.code;
+        // var errorMessage = error.message;
         // ..
       });
   };
