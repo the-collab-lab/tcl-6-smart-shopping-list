@@ -27,11 +27,16 @@ function App() {
                     render={() => <AddItem userToken={userToken} list={data} />}
                   />
                   <Route
-                    path="/:itemId?"
+                    path="/list/:itemId?"
                     render={() => (
                       <Shopping userToken={userToken} list={data} />
                     )}
                   />
+                  {/* <Route
+                    path="/signup"
+                    render={() => <SignUp userToken={userToken} list={data} />}
+                  /> */}
+                  {/* <Route path="/" render={() => <AuthPage />} /> */}
                 </Switch>
               </div>
             );
