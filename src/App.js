@@ -4,6 +4,7 @@ import { FirestoreCollection } from 'react-firestore';
 import { ITEMS, USERS } from './constants';
 import Header from './components/Header';
 import AuthPage from './components/AuthPage';
+import SignUp from './components/SignUp';
 import Shopping from './components/shopping';
 import AddItem from './components/addItem';
 import ShareList from './components/ShareList';
@@ -33,6 +34,7 @@ function App() {
                       <Shopping userToken={userToken} list={data} />
                     )}
                   />
+                  <Route path="/signup" render={() => <SignUp />} />
                   <Route path="/" render={() => <AuthPage />} />
                 </Switch>
               </div>
