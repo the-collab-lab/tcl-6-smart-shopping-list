@@ -13,7 +13,6 @@ export function useToken() {
   const createToken = () => {
     firebase.auth().signInAnonymously();
     firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
       if (user) {
         registerNewToken(token);
       }

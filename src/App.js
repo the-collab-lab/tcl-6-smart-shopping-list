@@ -14,7 +14,7 @@ import './CSS/colors.css';
 
 function App() {
   const [userToken, createToken, setToken] = useToken();
-
+  console.log(userToken);
   if (userToken) {
     return (
       <Router>
@@ -24,7 +24,6 @@ function App() {
             return (
               <div className="App">
                 <Switch>
-                  <Route path="/signup" render={() => <SignUp />} />
                   <Route
                     path="/add"
                     render={() => <AddItem userToken={userToken} list={data} />}
@@ -35,7 +34,6 @@ function App() {
                       <Shopping userToken={userToken} list={data} />
                     )}
                   />
-                  <Route path="/" render={() => <AuthPage />} />
                 </Switch>
               </div>
             );
@@ -47,17 +45,16 @@ function App() {
     return (
       <div className="App">
         <Header />
-        <h2 className="tagline">
-          Eggs, bread, cheese and all the things you need.
-        </h2>
-        <p className="home">
-          Get started by creating a new list. This will log you in anonymously.
-        </p>
-        <button className="button" onClick={createToken}>
-          Create New List
-        </button>
-        <p className="home">Join an existing shopping list.</p>
-        <ShareList setToken={setToken} />
+        <Router>
+          <Switch>
+            <Route
+              path="/signup"
+              render={() => <SignUp setToken={setToken} />}
+            />
+
+            <Route path="/" render={() => <AuthPage />} />
+          </Switch>
+        </Router>
       </div>
     );
   }

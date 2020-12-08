@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import '../CSS/SignUp.css';
 
-const SignUp = () => {
+const SignUp = ({ setToken }) => {
   const handleSignUp = event => {
     event.preventDefault();
     const email = event.target.username.value;
@@ -13,7 +13,8 @@ const SignUp = () => {
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
         console.log('I did a thing!');
-        console.log(user);
+        console.log(user.user.email);
+        setTokenInAppStateAndStorage(user.user.email);
       })
       .catch(error => {
         // var errorCode = error.code;
@@ -21,6 +22,12 @@ const SignUp = () => {
         // ..
       });
   };
+
+  const setTokenInAppStateAndStorage = token => {
+    setToken(token);
+    localStorage.setItem('user_token', token);
+  };
+
   return (
     <>
       <form onSubmit={handleSignUp}>
