@@ -2,13 +2,12 @@ import React from 'react';
 import NavButton from './navbutton';
 import '../CSS/Nav.css';
 
-const Nav = () => {
+const AuthPage = () => {
   return (
     <nav id="nav">
-      <NavButton path="/list" text="Shopping" />
-      <NavButton path="/add" text="Add Item" />
+      <NavButton path="signup" text="SignUp" />
     </nav>
   );
 };
 
-export default Nav;
+export default AuthPage;
