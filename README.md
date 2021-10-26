@@ -60,7 +60,7 @@ Search list filter
 :star: [Elise](https://github.com/espain16) </br>
 :star: [Scott](https://github.com/skillitzimberg) </br>
 :star: [Sara](https://github.com/SaraSweetie) </br>
-:star: [Myles](https://github.com/erostribe) </br>
+:star: [Myles](https://github.com/projecterostribe) </br>
 
 ## Acknowledgements
 
