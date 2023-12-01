@@ -1,4 +1,3 @@
-[Firebase Hosting](https://console.firebase.google.com/project/tcl-6-smart-shopping-list/hosting/sites/tcl-6-smart-shopping-list)
 # Overview
 
 The goal of this project is to create a “smart” shopping list app that learns your buying habits and helps you remember what you’re likely to need to buy on your next trip to the store.
@@ -13,7 +12,8 @@ For additional details, please check out the [project brief](PROJECT-BRIEF.md).
 
 # Eggheaded
 
-A smart shopping list. View [Eggheaded](https://tcl-6-smart-shopping-list.web.app/) here.
+A smart shopping list. View [Eggheaded](https://tcl-6-smart-shopping-list.web.app/). View the [Firebase Hosting](https://console.firebase.google.com/project/tcl-6-smart-shopping-list/hosting/sites/tcl-6-smart-shopping-list).
+
 
 ## Summary
 
