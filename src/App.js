@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FirestoreCollection } from 'react-firestore';
+import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
+
 import { ITEMS, USERS } from './constants';
 import Header from './components/Header';
 import Shopping from './components/shopping';
@@ -49,11 +51,15 @@ function App() {
         <p className="home">
           Get started by creating a new list. This will log you in anonymously.
         </p>
-        <button className="button" onClick={createToken}>
+        <button
+          className="button"
+          onClick={console.log('Creating new lists is disabled')}
+        >
           Create New List
         </button>
         <p className="home">Join an existing shopping list.</p>
         <ShareList setToken={setToken} />
+        <ArchivalNoticeModal />
       </div>
     );
   }
